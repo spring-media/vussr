@@ -1,0 +1,37 @@
+### macOS ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+### Linux ###
+*~
+
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+### SublimeText ###
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+sftp-config.json
+
+### Jetbrains ###
+/*.iml
+.idea/
+
+### VisualStudioCode ###
+.vs
+.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+.vscode/launch.json
+!.vscode/extensions.json
+.history
+
+### Node ###
+node_modules

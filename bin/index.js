@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+const pkg = require('../package.json');
+const program = require('commander');
+const DevServer = require('../lib/server.dev');
+const ProdServer = require('../lib/server.prod');
+const Compiler = require('../lib/compiler');
+const printConfigHelp = require('./printConfigHelp');
+
+program
+  .name('udssr')
+  .version(pkg.version, '-v, --version')
+
+program
+  .command('build')
+  .option('-c, --config <path>', 'provide a config file')
+  .description('Creates a production build')
+  .action(options => new Compiler(options.config ? require(options.config): undefined).run())
+  .on('--help', printConfigHelp);
+
+program
+  .command('start')
+  .description('Starts a formerly created build with the production server')
+  .action(() => new ProdServer().listen());
+
+program
+  .command('serve')
+  .option('-c, --config <path>', 'provide a config file')
+  .description('Serves the app with hot reloading for development')
+  .action(options => new DevServer(options.config ? require(options.config): undefined).listen())
+  .on('--help', printConfigHelp);
+
+program
+  .parse(process.argv);
