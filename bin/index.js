@@ -20,8 +20,10 @@ program
 
 program
   .command('start')
+  .option('-c, --config <path>', 'provide a config file')
   .description('Starts a formerly created build with the production server')
-  .action(() => new ProdServer().listen());
+  .action(options => new ProdServer(options.config).listen())
+  .on('--help', printConfigHelp);
 
 program
   .command('serve')
