@@ -5,7 +5,12 @@ const program = require('commander');
 const DevServer = require('../lib/server.dev');
 const ProdServer = require('../lib/server.prod');
 const Compiler = require('../lib/compiler');
+const logger = require('../lib/logger');
 const { printConfigHelp } = require('./utils');
+
+['unhandledRejection', 'uncaughtException'].forEach(event => {
+  process.on(event, err => logger.error(err));
+});
 
 program
   .name('udssr')
