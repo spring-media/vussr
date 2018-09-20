@@ -1,4 +1,4 @@
-const { appDist, appPublic } = require('./webpack-utils');
+const { appDist, appPublic } = require('../utils/paths');
 
 module.exports = {
   contentBase: [appDist, appPublic],

@@ -1,5 +1,5 @@
 const { VueLoaderPlugin } = require('vue-loader');
-const { appSrc, appDist, isProd } = require('./webpack-utils');
+const { appSrc, appDist, isProd } = require('../utils/paths');
 
 module.exports = {
 	mode: isProd ? 'production' : 'development',

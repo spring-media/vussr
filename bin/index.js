@@ -5,7 +5,7 @@ const program = require('commander');
 const DevServer = require('../lib/server.dev');
 const ProdServer = require('../lib/server.prod');
 const Compiler = require('../lib/compiler');
-const printConfigHelp = require('./printConfigHelp');
+const { printConfigHelp } = require('./utils');
 
 program
   .name('udssr')
@@ -15,7 +15,7 @@ program
   .command('build')
   .option('-c, --config <path>', 'provide a config file')
   .description('Creates a production build')
-  .action(options => new Compiler(options.config ? require(options.config): undefined).run())
+  .action(options => new Compiler(options.config).run())
   .on('--help', printConfigHelp);
 
 program
@@ -27,7 +27,7 @@ program
   .command('serve')
   .option('-c, --config <path>', 'provide a config file')
   .description('Serves the app with hot reloading for development')
-  .action(options => new DevServer(options.config ? require(options.config): undefined).listen())
+  .action(options => new DevServer(options.config).listen())
   .on('--help', printConfigHelp);
 
 program

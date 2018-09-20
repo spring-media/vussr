@@ -1,4 +1,4 @@
-module.exports = function printConfigHelp() {
+function printConfigHelp() {
   console.log('');
   console.log('  With the -c or --config option provide the path to a config file');
   console.log('  The config file should export a JSON with 3 fields:');
@@ -12,3 +12,7 @@ module.exports = function printConfigHelp() {
   console.log('  devServer: These are the options passed to the dev server: https://webpack.js.org/configuration/dev-server/');
   console.log('');
 }
+
+module.exports = {
+  printConfigHelp
+};
