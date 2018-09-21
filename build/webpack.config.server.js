@@ -9,6 +9,9 @@ const baseConfig = require('./webpack.config.base');
 const { appServerJs } = require('../utils/paths');
 const { isProd } = require('../utils/env');
 
+// To suppress warnings, this will be fixed with vue 2.6 https://github.com/vuejs/vue/issues/8810
+process.noDeprecation = true;
+
 const devPlugins = [
 	new VueSSRServerPlugin(),
 	new WebpackBar({ name: 'Server', color: 'orange', compiledIn: false }),

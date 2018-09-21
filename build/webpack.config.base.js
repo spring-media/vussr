@@ -9,7 +9,7 @@ const devPlugins = [
 
 const prodPlugins = [
 	new VueLoaderPlugin(),
-	new CleanWebpackPlugin([appDist], { root: appPath }),
+	new CleanWebpackPlugin(appDist, { root: appPath, verbose: false }),
 ];
 
 module.exports = {
