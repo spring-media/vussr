@@ -21,6 +21,7 @@ const devPlugins = [
 
 const prodPlugins = [
 	new VueSSRServerPlugin(),
+	new webpack.NormalModuleReplacementPlugin(/\/iconv-loader(.js)?$/, path.resolve(__dirname, 'iconv-loader-hack.js')),
 ];
 
 module.exports = merge(baseConfig, {
