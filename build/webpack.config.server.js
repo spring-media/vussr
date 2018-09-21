@@ -28,7 +28,7 @@ const prodPlugins = [
 module.exports = merge(baseConfig, {
 	entry: appServerJs,
 	target: 'node',
-	devtool: isProd ? false : 'source-map',
+	devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map',
 	plugins: isProd ? prodPlugins : devPlugins,
 	output: {
 		libraryTarget: 'commonjs2',
