@@ -6,5 +6,5 @@ module.exports = {
   port: 8080,
   compress: false,
   overlay: true,
-  noInfo: true,
+  quiet: true,
 };
