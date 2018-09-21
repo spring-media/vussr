@@ -4,7 +4,8 @@ const WebpackBar = require('webpackbar');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const baseConfig = require('./webpack.config.base');
-const { appClientJs, appHtml, isProd } = require('../utils/paths');
+const { appClientJs, appHtml } = require('../utils/paths');
+const { isProd } = require('../utils/env');
 
 const devPlugins = [
 	new VueSSRClientPlugin(),

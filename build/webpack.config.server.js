@@ -7,7 +7,8 @@ const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const baseConfig = require('./webpack.config.base');
 const friendlyErrorsPluginConfig = require('./friendly-errors-plugin-config');
-const { appServerJs, isProd } = require('../utils/paths');
+const { appServerJs } = require('../utils/paths');
+const { isProd } = require('../utils/env');
 
 const devPlugins = [
 	new VueSSRServerPlugin(),

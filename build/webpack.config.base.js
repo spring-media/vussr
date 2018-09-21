@@ -1,6 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const { appPath, appSrc, appDist, isProd } = require('../utils/paths');
+const { appPath, appSrc, appDist } = require('../utils/paths');
+const { isProd } = require('../utils/env');
 
 const devPlugins = [
 	new VueLoaderPlugin(),
