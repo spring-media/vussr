@@ -9,8 +9,8 @@ const { isProd } = require('../utils/env');
 
 const devPlugins = [
 	new VueSSRClientPlugin(),
+	new WebpackBar({ name: 'Client', color: 'green', compiledIn: false }),
 	new HtmlWebpackPlugin({ template: appHtml, minify: { removeComments: false } }),
-	new WebpackBar({ name: 'Client', color: 'green' }),
 ];
 
 const prodPlugins = [
