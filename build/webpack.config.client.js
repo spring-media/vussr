@@ -23,7 +23,7 @@ const config = merge(baseConfig, {
 	entry: {
 		client: appClientJs,
 	},
-	devtool: isProd ? false : 'cheap-module-eval-source-map',
+	devtool: isProd ? false : 'source-map',
 	plugins: isProd ? prodPlugins : devPlugins,
 	optimization: { minimize: isProd },
 });
