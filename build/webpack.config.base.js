@@ -1,5 +1,15 @@
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const { appSrc, appDist, isProd } = require('../utils/paths');
+const { appPath, appSrc, appDist, isProd } = require('../utils/paths');
+
+const devPlugins = [
+	new VueLoaderPlugin(),
+];
+
+const prodPlugins = [
+	new VueLoaderPlugin(),
+	new CleanWebpackPlugin([appDist], { root: appPath }),
+];
 
 module.exports = {
 	mode: isProd ? 'production' : 'development',
@@ -76,7 +86,5 @@ module.exports = {
 		maxEntrypointSize: 300000,
 		hints: false,
 	},
-	plugins: [
-		new VueLoaderPlugin(),
-	],
+	plugins: isProd ? prodPlugins : devPlugins,
 };
