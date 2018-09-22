@@ -1,19 +1,76 @@
 const webpack = require('webpack');
-const { getConfig } = require('../utils/config');
 const Compiler = require('../lib/compiler');
+const logger = require('../lib/logger');
+const { getConfig } = require('../utils/config');
+const { isProd } = require('../utils/env');
 
 jest.mock('webpack');
+jest.mock('../lib/logger');
 jest.mock('../utils/config');
+jest.mock('../utils/env');
 
 beforeEach(() => {
   webpack.mockClear();
   getConfig.mockClear();
 });
 
-test('sets up the compiler', () => {
+test('sets up the compiler with a provided config', () => {
   const config = { client: 'client', server: 'server' };
   const compiler = new Compiler(config);
   expect(webpack).toHaveBeenCalledWith([config.client, config.server]);
   expect(compiler.config).toBe(config);
   expect(compiler.compiler).toBe(webpack.instance);
+});
+
+test('sets up the compiler using the default config', () => {
+  const config = getConfig.defaultConfig;
+  const compiler = new Compiler();
+  expect(webpack).toHaveBeenCalledWith([config.client, config.server]);
+  expect(compiler.config).toBe(config);
+  expect(compiler.compiler).toBe(webpack.instance);
+});
+
+test('runs the compiler', async () => {
+  await new Compiler().run();
+  expect(webpack.instance.run).toHaveBeenCalled();
+});
+
+test('logs errors and warnings', async () => {
+  const error = new Error('Mock Error');
+  const warning = 'Mock Warning';
+  const statsJson = { errors: [error], warnings: [warning], children: [] };
+  webpack.stats.toJson.mockImplementation(() => statsJson);
+  await new Compiler().run();
+  expect(logger.error.mock.calls.length).toBe(1);
+  expect(logger.warn.mock.calls.length).toBe(1);
+  expect(logger.error).toHaveBeenCalledWith(error);
+  expect(logger.warn).toHaveBeenCalledWith(warning);
+});
+
+test('logs the duration in prod env', async () => {
+  const message = 'finished transpilation';
+  const duration = webpack.maxTime;
+  const objContainingDuration = expect.objectContaining({ duration })
+  await new Compiler().run();
+  expect(logger.info).toHaveBeenCalledWith(message, objContainingDuration);
+});
+
+test('logs success true in prod env', async () => {
+  const message = 'finished transpilation';
+  const success = true;
+  const objContainingSuccess = expect.objectContaining({ success })
+  await new Compiler().run();
+  expect(logger.info).toHaveBeenCalledWith(message, objContainingSuccess);
+});
+
+test('logs success false in prod env', async () => {
+  const message = 'finished transpilation';
+  const success = false;
+  const error = new Error('Mock Error');
+  const statsJson = { errors: [error], warnings: [], children: [] };
+  const objContainingSuccess = expect.objectContaining({ success })
+  webpack.stats.toJson.mockImplementation(() => statsJson);
+  webpack.stats.hasErrors.mockImplementation(() => !success);
+  await new Compiler().run();
+  expect(logger.info).toHaveBeenCalledWith(message, objContainingSuccess);
 });
