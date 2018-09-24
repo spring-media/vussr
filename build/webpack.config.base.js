@@ -13,7 +13,7 @@ const prodPlugins = [
 ];
 
 module.exports = {
-	mode: isProd ? 'production' : 'development',
+	mode: isProd() ? 'production' : 'development',
 	output: {
 		path: appDist,
 		publicPath: '/',
@@ -47,7 +47,7 @@ module.exports = {
 				use: [
 					'vue-style-loader',
 					{ loader: 'css-loader', options: { importLoaders: 1 } },
-					{ loader: 'postcss-loader', options: { sourceMap: !isProd } },
+					{ loader: 'postcss-loader', options: { sourceMap: !isProd() } },
 				],
 			},
 			{
@@ -55,7 +55,7 @@ module.exports = {
 				use: [
 					'vue-style-loader',
 					{ loader: 'css-loader', options: { importLoaders: 1 } },
-					{ loader: 'postcss-loader', options: { sourceMap: !isProd } },
+					{ loader: 'postcss-loader', options: { sourceMap: !isProd() } },
 					'sass-loader',
 				],
 			},
@@ -87,5 +87,5 @@ module.exports = {
 		maxEntrypointSize: 300000,
 		hints: false,
 	},
-	plugins: isProd ? prodPlugins : devPlugins,
+	plugins: isProd() ? prodPlugins : devPlugins,
 };

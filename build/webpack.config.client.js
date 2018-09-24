@@ -23,9 +23,9 @@ const config = merge(baseConfig, {
 	entry: {
 		client: appClientJs,
 	},
-	devtool: isProd ? false : 'source-map',
-	plugins: isProd ? prodPlugins : devPlugins,
-	optimization: { minimize: isProd },
+	devtool: isProd() ? false : 'source-map',
+	plugins: isProd() ? prodPlugins : devPlugins,
+	optimization: { minimize: isProd() },
 });
 
 module.exports = config;

@@ -31,7 +31,7 @@ module.exports = merge(baseConfig, {
 	entry: appServerJs,
 	target: 'node',
 	devtool: 'source-map',
-	plugins: isProd ? prodPlugins : devPlugins,
+	plugins: isProd() ? prodPlugins : devPlugins,
 	output: {
 		libraryTarget: 'commonjs2',
 	},

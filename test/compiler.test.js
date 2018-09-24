@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const Compiler = require('../lib/compiler');
 const logger = require('../lib/logger');
 const { getConfig } = require('../utils/config');
-const { isProd } = require('../utils/env');
 
 jest.mock('webpack');
 jest.mock('../lib/logger');

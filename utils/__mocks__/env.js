@@ -1,3 +1,3 @@
 module.exports = {
-  isProd: true,
+  isProd: jest.fn(() => true),
 };
