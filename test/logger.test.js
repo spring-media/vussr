@@ -16,13 +16,13 @@ beforeEach(() => {
   jest.resetAllMocks();
 });
 
-test.skip('has logging methods', () => {
+test('has logging methods', () => {
   for (const level of loggingLevels) {
     expect(typeof logger[level]).toBe('function');
   }
 });
 
-test.skip('logs readable in development environment', () => {
+test('logs readable messages in development environment', () => {
   env.isProd.mockImplementation(() => false);
   for (const level of loggingLevels) {
     const error = new Error('Test error');
@@ -34,23 +34,23 @@ test.skip('logs readable in development environment', () => {
   };
 });
 
-test.skip('logs json in production environment', () => {
+test('logs json in production environment', () => {
   env.isProd.mockImplementation(() => true);
-  loggingLevels.forEach((level) => {
+  for (const level of loggingLevels) {
     const message = 'Test message';
     const expectedOutput = `{"message":"${message}","level":"${level}","source":"ssr-server"}\n`;
     logger[level](message);
     expect(logMethod).toBeCalledWith(expectedOutput);
     global.console._stdout.write.mockClear();
-  });
+  };
 });
 
-test.skip('logs errors properly in production environment', () => {
+test('logs errors properly in production environment', () => {
   env.isProd.mockImplementation(() => true);
-  loggingLevels.forEach((level) => {
+  for (const level of loggingLevels) {
     const error = new Error('Test error');
-    const expectedOutput = /\{"level":"error","message":"Test error","stack":".*Test error[\s\S]*logger\.test\.js.*","source":"ssr-server"\}/;
-    logger.error(error);
+    const expectedOutput = new RegExp(`\{"level":"${level}","message":"Test error","stack":".*Test error[\\s\\S]*logger\.test\.js.*","source":"ssr-server"\}`);
+    logger[level](error);
     expect(logMethod).toBeCalledWith(expect.stringMatching(expectedOutput));
-  });
+  };
 });
