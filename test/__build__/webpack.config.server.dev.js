@@ -1,4 +1,8 @@
-const { appDist, appPublic } = require('../../utils/paths');
+const path = require('path');
+
+const resolveApp = file => path.resolve(__dirname, '..', '__app__', file);
+const appDist = resolveApp('dist');
+const appPublic = resolveApp('public');
 
 module.exports = {
   contentBase: [appDist, appPublic],

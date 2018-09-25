@@ -1,5 +1,9 @@
+const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
-const { appSrc, appDist } = require('../../utils/paths');
+
+const resolveApp = file => path.resolve(__dirname, '..', '__app__', file)
+const appSrc = resolveApp('src')
+const appDist = resolveApp('dist')
 
 module.exports = {
 	mode: 'development',

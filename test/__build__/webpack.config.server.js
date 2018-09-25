@@ -6,11 +6,13 @@ const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const baseConfig = require('./webpack.config.base');
 const { appServerJs } = require('../../utils/paths');
 
+const resolveApp = file => path.resolve(__dirname, '..', '__app__', file);
+
 // To suppress warnings, this will be fixed with vue 2.6 https://github.com/vuejs/vue/issues/8810
 process.noDeprecation = true;
 
 module.exports = merge(baseConfig, {
-	entry: appServerJs,
+	entry: resolveApp('entry.server.js'),
 	target: 'node',
 	devtool: false,
 	plugins: [
