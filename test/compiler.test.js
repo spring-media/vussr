@@ -9,6 +9,7 @@ jest.mock('../utils/config');
 jest.mock('../utils/env');
 
 beforeEach(() => {
+  // todo test fail if we use jest.clearAllMocks() and they should not. Investigate!
   webpack.mockClear();
   getConfig.mockClear();
 });
