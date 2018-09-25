@@ -11,7 +11,7 @@ const resolveApp = file => path.resolve(__dirname, '..', '__app__', file);
 // To suppress warnings, this will be fixed with vue 2.6 https://github.com/vuejs/vue/issues/8810
 process.noDeprecation = true;
 
-module.exports = merge(baseConfig, {
+const config = merge(baseConfig, {
 	entry: resolveApp('entry.server.js'),
 	target: 'node',
 	devtool: false,
@@ -35,3 +35,5 @@ module.exports = merge(baseConfig, {
 	// https://github.com/socketio/socket.io-client/issues/933#issuecomment-169866929
 	externals: ['ws'],
 });
+
+module.exports = config;

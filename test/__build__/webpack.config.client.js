@@ -6,7 +6,6 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const baseConfig = require('./webpack.config.base');
 
 const resolveApp = file => path.resolve(__dirname, '..', '__app__', file)
-const template = fs.readFileSync(resolveApp('index.html'));
 
 const config = merge(baseConfig, {
 	entry: {
@@ -15,7 +14,7 @@ const config = merge(baseConfig, {
 	devtool: false,
 	plugins: [
 		new VueSSRClientPlugin(),
-		new HtmlWebpackPlugin({ template, minify: { removeComments: false } }),
+		new HtmlWebpackPlugin({ template: resolveApp('index.html'), minify: { removeComments: false } }),
 	]
 });
 

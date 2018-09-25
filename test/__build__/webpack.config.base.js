@@ -40,7 +40,6 @@ module.exports = {
 				use: [
 					'vue-style-loader',
 					{ loader: 'css-loader', options: { importLoaders: 1 } },
-					{ loader: 'postcss-loader', options: { sourceMap: false } },
 				],
 			},
 			{
@@ -48,7 +47,6 @@ module.exports = {
 				use: [
 					'vue-style-loader',
 					{ loader: 'css-loader', options: { importLoaders: 1 } },
-					{ loader: 'postcss-loader', options: { sourceMap: false } },
 					'sass-loader',
 				],
 			},

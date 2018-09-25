@@ -7,7 +7,8 @@
     "udssr": "bin/index.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:build": "bin/index.js build --config ./test/__build__/index.js"
   },
   "dependencies": {
     "@babel/core": "7.1.0",

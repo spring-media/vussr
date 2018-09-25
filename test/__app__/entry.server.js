@@ -1,5 +1,5 @@
 import createApp from './main';
 
-export default async context => {
-  return createApp();
+export default context => {
+  return Promise.resolve(createApp())
 };
