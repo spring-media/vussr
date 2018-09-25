@@ -7,8 +7,10 @@
     "udssr": "bin/index.js"
   },
   "scripts": {
-    "test": "jest",
-    "test:build": "bin/index.js build --config ./test/__build__/index.js"
+    "test": "NODE_ENV=test jest",
+    "test:build": "NODE_ENV=production udssr build -c ./test/__build__/index.js",
+    "test:start": "NODE_ENV=production udssr start -c ./test/__build__/index.js",
+    "test:serve": "NODE_ENV=development udssr serve -c ./test/__build__/index.js"
   },
   "dependencies": {
     "@babel/core": "7.1.0",

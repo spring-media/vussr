@@ -16,7 +16,7 @@ module.exports = {
 	mode: isProd() ? 'production' : 'development',
 	output: {
 		path: appDist,
-		publicPath: '/',
+		publicPath: '/assets',
 		filename: '[name].[chunkhash].js',
 	},
 	node: {

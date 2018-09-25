@@ -9,7 +9,7 @@ module.exports = {
 	mode: 'development',
 	output: {
 		path: appDist,
-		publicPath: '/',
+		publicPath: '/assets',
 		filename: '[name].[chunkhash].js',
 	},
 	node: {

@@ -1,3 +1,3 @@
-import createApp from './main';
+import createApp from './entry.main';
 
-createApp().$mount('#app');
+createApp().app.$mount('#app');
