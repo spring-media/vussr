@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const Compiler = require('../lib/compiler');
 const logger = require('../lib/logger');
-const { getConfig } = require('../utils/config');
+const { getDefaultConfig } = require('../utils/config');
 
 jest.mock('webpack');
 jest.mock('../lib/logger');
@@ -11,7 +11,6 @@ jest.mock('../utils/env');
 beforeEach(() => {
   // todo test fail if we use jest.clearAllMocks() and they should not. Investigate!
   webpack.mockClear();
-  getConfig.mockClear();
 });
 
 test('sets up the compiler with a provided config', () => {
@@ -23,10 +22,10 @@ test('sets up the compiler with a provided config', () => {
 });
 
 test('sets up the compiler using the default config', () => {
-  const config = getConfig.defaultConfig;
+  const config = getDefaultConfig();
   const compiler = new Compiler();
   expect(webpack).toHaveBeenCalledWith([config.client, config.server]);
-  expect(compiler.config).toBe(config);
+  expect(compiler.config).toEqual(config);
   expect(compiler.compiler).toBe(webpack.instance);
 });
 
