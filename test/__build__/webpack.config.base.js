@@ -1,9 +1,9 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
-const resolveApp = file => path.resolve(__dirname, '..', '__app__', file)
-const appSrc = resolveApp('src')
-const appDist = resolveApp('dist')
+const appSrc = path.resolve(__dirname, '..', '__app__');
+const appDist = path.resolve(__dirname, '..', '__dist__');
 
 module.exports = {
 	mode: 'development',
@@ -80,5 +80,6 @@ module.exports = {
 	},
 	plugins: [
 		new VueLoaderPlugin(),
+		new CleanWebpackPlugin(appDist, { root: appSrc, verbose: false }),
 	],
 };

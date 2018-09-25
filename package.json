@@ -7,7 +7,7 @@
     "udssr": "bin/index.js"
   },
   "scripts": {
-    "test": "NODE_ENV=test jest",
+    "test": "yarn test:build && NODE_ENV=test jest",
     "test:build": "NODE_ENV=production udssr build -c ./test/__build__/index.js",
     "test:start": "NODE_ENV=production udssr start -c ./test/__build__/index.js",
     "test:serve": "NODE_ENV=development udssr serve -c ./test/__build__/index.js"

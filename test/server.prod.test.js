@@ -8,7 +8,7 @@ jest.mock('../utils/paths');
 test('serves the app', async () => {
   const server = await new ProdServer().listen();
   const response = await request(server.express).get('/');
-  const expectedResponseText = `<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n  <link rel=\"preload\" href=\"/assets/client.f04b1227428fe9a21c13.js\" as=\"script\"><style data-vue-ssr-id=\"197ec0a7:0\">\np[data-v-91585330] {\n  font-size: 2em;\n  text-align: center;\n}\n</style></head>\n	<body><p id=\"#app\" data-server-rendered=\"true\" data-v-91585330>Hello World!</p><script src=\"/assets/client.f04b1227428fe9a21c13.js\" defer></script><script type=\"text/javascript\" src=\"/assets/client.f04b1227428fe9a21c13.js\"></script></body>\n</html>\n`
+  const expectedResponseText = expect.stringMatching(/\s*<!DOCTYPE html>\s*<html>\s*<head>\s*<meta charset="utf-8">\s*<meta http-equiv="X-UA-Compatible" content="IE=edge">\s*<meta name="viewport" content="width=device-width,initial-scale=1">\s*<link rel="preload" href="\/assets\/client\.[0-9a-f]+\.js" as="script"><style data-vue-ssr-id="[^"]+">\s*p\[data-v-[0-9]+\] \{\s*font-size: 2em;\s*text-align: center;\s*\}\s*<\/style><\/head>\s*<body><p id="#app" data-server-rendered="true" data-v-[0-9]+>Hello World!<\/p><script src="\/assets\/client\.[0-9a-f]+\.js" defer><\/script><script type="text\/javascript" src="\/assets\/client\.[0-9a-f]+\.js"><\/script><\/body>\s*<\/html>\s*/);
   expect(response.statusCode).toBe(200);
-  expect(response.text).toBe(expectedResponseText);
+  expect(response.text).toEqual(expectedResponseText);
 });
