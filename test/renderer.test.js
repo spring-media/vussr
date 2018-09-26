@@ -1,5 +1,5 @@
 const fs = require('fs');
-const renderer = require('../lib/renderer');
+const getRenderOptions = require('../lib/config/renderer');
 
 jest.mock('fs');
 
@@ -8,5 +8,5 @@ test('provides render options', () => {
   const publicPath = '/mocked/realpathSync/public';
   const expectedRenderOptions = { publicPath, runInNewContext };
   fs.readFileSync.mockImplementationOnce(() => template)
-  expect(renderer.getRenderOptions()).toEqual(expectedRenderOptions);
+  expect(getRenderOptions()).toEqual(expectedRenderOptions);
 })
