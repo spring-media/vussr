@@ -4,15 +4,9 @@ const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const baseConfig = require('./webpack.config.base');
-const { appServerJs } = require('../../utils/paths');
-
-const resolveApp = file => path.resolve(__dirname, '..', '__app__', file);
-
-// To suppress warnings, this will be fixed with vue 2.6 https://github.com/vuejs/vue/issues/8810
-process.noDeprecation = true;
 
 const config = merge(baseConfig, {
-	entry: resolveApp('entry.server.js'),
+	entry: path.resolve(__dirname, '..', '__app__', 'entry.server.js'),
 	target: 'node',
 	devtool: false,
 	plugins: [

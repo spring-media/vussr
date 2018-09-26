@@ -1,7 +1,7 @@
-const env = require('../utils/env');
+const env = require('../lib/utils/env');
 const logger = require('../lib/logger');
 
-jest.mock('../utils/env');
+jest.mock('../lib/utils/env');
 
 jest.spyOn(global.console, 'error');
 jest.spyOn(global.console, 'warn');

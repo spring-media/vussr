@@ -1,7 +1,7 @@
 const bin = require('../bin');
 const logger = require('../lib/logger');
 
-jest.mock('../utils/config');
+jest.mock('../lib/utils/config');
 jest.mock('../lib/logger');
 
 // This test does not work yet because of a bug in jest:

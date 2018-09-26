@@ -2,8 +2,8 @@ const request = require('supertest');
 const ProdServer = require('../lib/server.prod');
 
 jest.mock('../lib/logger');
-jest.mock('../utils/config');
-jest.mock('../utils/paths');
+jest.mock('../lib/utils/config');
+jest.mock('../lib/utils/paths');
 
 let server;
 

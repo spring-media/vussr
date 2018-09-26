@@ -1,12 +1,12 @@
 const webpack = require('webpack');
 const Compiler = require('../lib/compiler');
 const logger = require('../lib/logger');
-const { getDefaultConfig } = require('../utils/config');
+const { getDefaultConfig } = require('../lib/utils/config');
 
 jest.mock('webpack');
 jest.mock('../lib/logger');
-jest.mock('../utils/config');
-jest.mock('../utils/env');
+jest.mock('../lib/utils/config');
+jest.mock('../lib/utils/env');
 
 beforeEach(() => {
   // todo test fail if we use jest.clearAllMocks() and they should not. Investigate why!
