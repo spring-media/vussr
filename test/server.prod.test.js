@@ -5,9 +5,10 @@ jest.mock('../lib/logger');
 jest.mock('../utils/config');
 jest.mock('../utils/paths');
 
-test.skip('it runs on port 8080', async () => {
+test('it runs on port 8080', async () => {
   const server = await new ProdServer().listen();
   expect(server.listener.address().port).toBe(8080);
+  expect(server.listener.listening).toBe(true);
   server.close();
 });
 
