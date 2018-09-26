@@ -58,7 +58,7 @@ Aside from configuration for the client and the server, you must also provide a 
 
 To tell UDSSR which configuration is for the client, the server and the dev server you must pass a JSON file or a JavaScript file exporting JSON that contains the following fields:
 
-```json
+```js
 {
   "client": { /* a webpack configuration for the client */ },
   "server": { /* a webpack configuration for the server */ },
