@@ -8,5 +8,6 @@ module.exports = {
   port: 8080,
   compress: false,
   overlay: true,
-  stats: 'minimal'
+  stats: 'minimal',
+  quiet: true,
 };
