@@ -7,8 +7,9 @@ const protocol = "http";
 const get = jest.fn(key => key);
 const originalUrl = "/article/1";
 const url = originalUrl;
+const subdomains = [];
 const fullUrl = `${protocol}://host${originalUrl}`;
-const req = { protocol, get, originalUrl };
+const req = { protocol, get, originalUrl, subdomains };
 const res = { end: jest.fn(), sendStatus: jest.fn() };
 const next = jest.fn();
 const html = "<p>Some test html</p>";
@@ -19,17 +20,12 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-test("passes the originalUrl to the provided render function", async () => {
-  await m(req, res, next);
-  expect(render).toHaveBeenCalledWith({ url, fullUrl });
-});
-
 test("ends the response with the rendered html", async () => {
   await m(req, res, next);
   expect(res.end).toHaveBeenCalledWith(html);
 });
 
-test("handles erros by default with the default statusCode", async () => {
+test("handles errors by default with the default statusCode", async () => {
   const error = new Error("Test error message");
   render.mockImplementationOnce(() => {
     throw error;
@@ -58,4 +54,32 @@ test("uses a custom eror handler", async () => {
   });
   await mWithCustomErrorHandler(req, res, next);
   expect(errorHandler).toHaveBeenCalledWith(error, req, res, next);
+});
+
+test("passes the url to the app as context", async () => {
+  await m(req, res, next);
+  expect(render).toHaveBeenCalledWith(expect.objectContaining({ url }));
+});
+
+test("passes the fullUrl to the app as context", async () => {
+  await m(req, res, next);
+  expect(render).toHaveBeenCalledWith(expect.objectContaining({ fullUrl }));
+});
+
+test("passes mobile and desktop to the app as context when the subdomain 'm' is given", async () => {
+  const reqMobile = Object.assign({}, req, { subdomains: ["foo", "m", "bar"] });
+  await m(reqMobile, res, next);
+  expect(render).toHaveBeenCalledWith(expect.objectContaining({ mobile: true, desktop: false }));
+});
+
+test("passes mobile and desktop to the app as context when the subdomain 'm' is not given", async () => {
+  const reqNonMobile = Object.assign({}, req, { subdomains: [] });
+  await m(reqNonMobile, res, next);
+  expect(render).toHaveBeenCalledWith(expect.objectContaining({ mobile: false, desktop: true }));
+});
+
+test("passes mobile and desktop to the app as context when the subdomain 'www' is given", async () => {
+  const reqNonMobile = Object.assign({}, req, { subdomains: ["www"] });
+  await m(reqNonMobile, res, next);
+  expect(render).toHaveBeenCalledWith(expect.objectContaining({ mobile: false, desktop: true }));
 });
