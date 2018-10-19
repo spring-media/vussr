@@ -1,22 +1,18 @@
+const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const { appPath, appSrc, appDist } = require('../utils/paths');
-const { isProd } = require('../utils/env');
 
-const devPlugins = [
-	new VueLoaderPlugin(),
-];
+const appSrc = path.resolve(__dirname, '..', '__app__');
+const appDist = path.resolve(__dirname, '..', '__dist__');
 
-const prodPlugins = [
-	new VueLoaderPlugin(),
-	new CleanWebpackPlugin(appDist, { root: appPath, verbose: false }),
-];
+// To suppress warnings, this will be fixed with vue 2.6 https://github.com/vuejs/vue/issues/8810
+process.noDeprecation = true;
 
 module.exports = {
-	mode: isProd() ? 'production' : 'development',
+	mode: 'development',
 	output: {
 		path: appDist,
-		publicPath: '/',
+		publicPath: '/assets/',
 		filename: '[name].[chunkhash].js',
 	},
 	node: {
@@ -47,7 +43,6 @@ module.exports = {
 				use: [
 					'vue-style-loader',
 					{ loader: 'css-loader', options: { importLoaders: 1 } },
-					{ loader: 'postcss-loader', options: { sourceMap: !isProd() } },
 				],
 			},
 			{
@@ -55,7 +50,6 @@ module.exports = {
 				use: [
 					'vue-style-loader',
 					{ loader: 'css-loader', options: { importLoaders: 1 } },
-					{ loader: 'postcss-loader', options: { sourceMap: !isProd() } },
 					'sass-loader',
 				],
 			},
@@ -87,5 +81,8 @@ module.exports = {
 		maxEntrypointSize: 300000,
 		hints: false,
 	},
-	plugins: isProd() ? prodPlugins : devPlugins,
+	plugins: [
+		new VueLoaderPlugin(),
+		new CleanWebpackPlugin(appDist, { root: appSrc, verbose: false }),
+	],
 };
