@@ -34,6 +34,7 @@
     "portfinder": "1.0.17",
     "postcss-loader": "3.0.0",
     "pretty-error": "2.1.1",
+    "raw-loader": "0.5.1",
     "sass-loader": "7.1.0",
     "url-loader": "1.1.1",
     "vue-loader": "15.4.2",
@@ -49,7 +50,6 @@
   },
   "devDependencies": {
     "jest": "23.6.0",
-    "raw-loader": "0.5.1",
     "supertest": "3.3.0",
     "vue": "2.5.17",
     "vue-router": "3.0.1"
