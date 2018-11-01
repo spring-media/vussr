@@ -19,8 +19,9 @@ program
 program
   .command('build')
   .option('-c, --config <path>', 'provide a config file')
+  .option('-e, --extend <path>', 'provide a config file to extend default config')
   .description('Creates a production build')
-  .action(options => new Compiler(options.config).run())
+  .action(options => new Compiler(options).run())
   .on('--help', printConfigHelp);
 
 program
