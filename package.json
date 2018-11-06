@@ -53,5 +53,12 @@
 		"supertest": "3.3.0",
 		"vue": "2.5.17",
 		"vue-router": "3.0.1"
+	},
+	"bugs": {
+		"url": "https://github.com/spring-media/red-udssr/issues"
+	},
+	"homepage": "https://github.com/spring-media/red-udssr#readme",
+	"publishConfig": {
+		"registry": "https://spring.jfrog.io/spring/api/npm/npm-local-red/"
 	}
 }
