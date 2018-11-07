@@ -54,11 +54,20 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(png|jpe?g|gif|woff|woff2)$/,
+				test: /\.(woff|woff2)$/,
 				loader: 'url-loader',
 				options: {
 					limit: 4096,
-          name: '[name].[hash:8].[ext]'
+					name: '.fonts/[hash:8].[ext]',
+				},
+			},
+			{
+				test: /\.(png|jpe?g|gif|)$/,
+				use: {
+					loader: "file-loader",
+					options: {
+						name: ".images/[hash].[ext]",
+					},
 				},
 			},
 			{
@@ -74,7 +83,7 @@ module.exports = {
 				test: /\.mjs$/,
 				include: /node_modules/,
 				type: "javascript/auto",
-			}			
+			}
 		],
 	},
 	performance: {
