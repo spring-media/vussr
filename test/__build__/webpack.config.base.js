@@ -58,16 +58,15 @@ module.exports = {
 				loader: 'url-loader',
 				options: {
 					limit: 4096,
-					name: '.fonts/[hash:8].[ext]',
+					name: './assets/fonts/[hash:8].[ext]',
 				},
 			},
 			{
-				test: /\.(png|jpe?g|gif|)$/,
-				use: {
-					loader: "file-loader",
-					options: {
-						name: ".images/[hash].[ext]",
-					},
+				test: /\.(png|jpe?g|gif)$/,
+				loader: 'url-loader',
+				options: {
+					limit: 8000,
+					name: './assets/img/[hash:8].[ext]',
 				},
 			},
 			{
