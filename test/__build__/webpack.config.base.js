@@ -8,6 +8,7 @@ const appDist = path.resolve(__dirname, '..', '__dist__');
 // To suppress warnings, this will be fixed with vue 2.6 https://github.com/vuejs/vue/issues/8810
 process.noDeprecation = true;
 
+
 module.exports = {
 	mode: 'development',
 	output: {
