@@ -55,6 +55,22 @@ module.exports = {
 				],
 			},
 			{
+				test: /\.(woff|woff2)$/,
+				loader: 'url-loader',
+				options: {
+					limit: 4096,
+					name: './assets/fonts/[hash:8].[ext]',
+				},
+			},
+			{
+				test: /\.(png|jpe?g|gif)$/,
+				loader: 'url-loader',
+				options: {
+					limit: 8000,
+					name: './assets/img/[hash:8].[ext]',
+				},
+			},
+			{
 				test: /\.(graphql|gql)$/,
 				exclude: /node_modules/,
 				loader: 'graphql-tag/loader',
