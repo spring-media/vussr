@@ -104,6 +104,52 @@ Your `package.json` like this
   }
 }
 ```
+## Using the CLI and the `--extend` parameter
+
+```js
+{
+  "client": { /* a webpack configuration for the client */ },
+  "server": { /* a webpack configuration for the server */ },
+  "devServer": { /* a webpack configuration for the Webpack DevServer */ },
+}
+```
+
+You can pass the path to this file as the `--extend` parameter. `client` and `server` should contain
+individual [Webpack configurations](https://webpack.js.org/configuration/#options) (the thing you would usually pass to webpack). The `devServer` should be an object containing [the options you would pass as `devServer` to a regular Webpack configuration](https://webpack.js.org/configuration/dev-server/).
+
+This individual configuration will then merge into the [built in Webpack configuration](https://github.com/spring-media/red-udssr/tree/master/lib/config) and extend this.
+
+```
+build
+∟ index.js
+∟ webpack.config.base.js
+∟ webpack.config.client.js
+∟ webpack.config.server.dev.js
+∟ webpack.config.server.js
+package.json
+```
+
+the `index.js` could look like this
+
+```js
+const client = require('./webpack.config.client');
+const server = require('./webpack.config.server');
+const devServer = require('./webpack.config.server.dev');
+
+module.exports = { client, server, devServer };
+```
+
+Your `package.json` like this
+
+```json
+{
+  "scripts": {
+    "serve": "udssr serve --extend ./config/index.js",
+    "build": "udssr build --extend ./config/index.js",
+    "start": "udssr start --extend ./config/index.js",
+  }
+}
+```
 
 ## Development / Tests
 

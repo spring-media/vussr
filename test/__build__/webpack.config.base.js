@@ -8,6 +8,7 @@ const appDist = path.resolve(__dirname, '..', '__dist__');
 // To suppress warnings, this will be fixed with vue 2.6 https://github.com/vuejs/vue/issues/8810
 process.noDeprecation = true;
 
+
 module.exports = {
 	mode: 'development',
 	output: {
@@ -54,11 +55,19 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(png|jpe?g|gif|woff|woff2)$/,
+				test: /\.(woff|woff2)$/,
 				loader: 'url-loader',
 				options: {
 					limit: 4096,
-          name: '[name].[hash:8].[ext]'
+					name: './assets/fonts/[hash:8].[ext]',
+				},
+			},
+			{
+				test: /\.(png|jpe?g|gif)$/,
+				loader: 'url-loader',
+				options: {
+					limit: 8000,
+					name: './assets/img/[hash:8].[ext]',
 				},
 			},
 			{
@@ -74,7 +83,7 @@ module.exports = {
 				test: /\.mjs$/,
 				include: /node_modules/,
 				type: "javascript/auto",
-			}			
+			}
 		],
 	},
 	performance: {

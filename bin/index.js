@@ -19,22 +19,25 @@ program
 program
   .command('build')
   .option('-c, --config <path>', 'provide a config file')
+  .option('-e, --extend <path>', 'provide a config file to extend default config')
   .description('Creates a production build')
-  .action(options => new Compiler(options.config).run())
+  .action(options => new Compiler(options).run())
   .on('--help', printConfigHelp);
 
 program
   .command('start')
   .option('-c, --config <path>', 'provide a config file')
+  .option('-e, --extend <path>', 'provide a config file to extend default config')
   .description('Starts a formerly created build with the production server')
-  .action(options => new ProdServer(options.config).listen())
+  .action(options => new ProdServer(options).listen())
   .on('--help', printConfigHelp);
 
 program
   .command('serve')
   .option('-c, --config <path>', 'provide a config file')
+  .option('-e, --extend <path>', 'provide a config file to extend default config')
   .description('Serves the app with hot reloading for development')
-  .action(options => new DevServer(options.config).listen())
+  .action(options => new DevServer(options).listen())
   .on('--help', printConfigHelp);
 
 program
