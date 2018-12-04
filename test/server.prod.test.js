@@ -42,4 +42,8 @@ describe('Prod Server', () => {
     expect(typeof response.body.uptime).toBe('number');
   });
 
+  test('applies before middlewares', () => {
+
+  })
+
 })
