@@ -34,7 +34,7 @@ describe('Dev Server', () => {
   test('serves the client js', async () => {
     const htmlResponse = await request(devServer.devServer.app).get('/');
     const clientJsPath = htmlResponse.text.match(/\/assets\/client\.[0-9a-f]+\.js/);
-    const clientJsresponse = await request(devServer.devServer.app).get(clientJsPath);
+    const clientJsresponse = await request(devServer.devServer.app).get(clientJsPath[0]);
     expect(clientJsresponse.statusCode).toBe(200);
   });
 })
