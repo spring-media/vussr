@@ -7,4 +7,4 @@ function beforeHack(req, res, next) {
   next();
 }
 
-module.exports = { before: [beforeHack] };
+module.exports = { before: [beforeHack], after: [] };

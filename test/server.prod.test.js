@@ -1,5 +1,6 @@
 const request = require('supertest');
 const ProdServer = require('../lib/server.prod');
+const testConfig = require('./__build__');
 
 jest.mock('../lib/logger');
 jest.mock('../lib/utils/config');
@@ -42,8 +43,28 @@ describe('Prod Server', () => {
     expect(typeof response.body.uptime).toBe('number');
   });
 
-  test('applies before middlewares', () => {
+  test('applies before middlewares', async () => {
+    server.close();
+    const beforeMiddleware = jest.fn().mockImplementation((req, res, next) => next());
+    const before = [beforeMiddleware];
+    const config = Object.assign({}, testConfig, { middlewares: { before } });
+    const options = { config };
+    const serverWithMiddleWare = await new ProdServer(options).listen();
+    await request(serverWithMiddleWare.app).get('/');
+    expect(beforeMiddleware).toHaveBeenCalled()
+    serverWithMiddleWare.close();
+  });
 
-  })
+  test('applies after middlewares', async () => {
+    server.close();
+    const afterMiddleware = jest.fn().mockImplementation((req, res, next) => next());
+    const after = [afterMiddleware];
+    const config = Object.assign({}, testConfig, { middlewares: { after } });
+    const options = { config };
+    const serverWithMiddleWare = await new ProdServer(options).listen();
+    await request(serverWithMiddleWare.app).get('/');
+    expect(afterMiddleware).toHaveBeenCalled()
+    serverWithMiddleWare.close();
+  });
 
 })

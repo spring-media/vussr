@@ -1,5 +1,6 @@
 const request = require('supertest');
 const DevServer = require('../lib/server.dev');
+const testConfig = require('./__build__');
 
 jest.unmock('webpack')
 jest.mock('../lib/logger');
@@ -7,10 +8,18 @@ jest.mock('../lib/utils/config');
 jest.spyOn(global.console, 'log').mockImplementation(() => {});
 
 describe('Dev Server', () => {
+
   let devServer;
 
+  const beforeMiddleware = jest.fn().mockImplementation((req, res, next) => next());
+  const afterMiddleware = jest.fn().mockImplementation((req, res, next) => next());
+  const before = [...testConfig.middlewares.before, beforeMiddleware];
+  const after = [...testConfig.middlewares.after, afterMiddleware];
+  const config = Object.assign({}, testConfig, { middlewares: { before, after } });
+  const options = { config };
+
   beforeAll(async () => {
-    devServer = await new DevServer();
+    devServer = new DevServer(options);
     await new Promise(resolve => devServer.onCompile(resolve));
     await devServer.listen();
   });
@@ -37,4 +46,23 @@ describe('Dev Server', () => {
     const clientJsresponse = await request(devServer.devServer.app).get(clientJsPath[0]);
     expect(clientJsresponse.statusCode).toBe(200);
   });
+
+  // TODO this test is not clean as the middleware will also be called
+  // TODO by other tests, but instantiating a new devServer for this
+  // TODO test ends up in a timeout and we need to finish the MVP before
+  // TODO we have the time to fix this
+  test('applies before middlewares', async () => {
+    await request(devServer.devServer.app).get('/');
+    expect(beforeMiddleware).toHaveBeenCalled();
+  });
+
+  // TODO this test is not clean as the middleware will also be called
+  // TODO by other tests, but instantiating a new devServer for this
+  // TODO test ends up in a timeout and we need to finish the MVP before
+  // TODO we have the time to fix this
+  test('applies after middlewares', async () => {
+    await request(devServer.devServer.app).get('/');
+    expect(afterMiddleware).toHaveBeenCalled();
+  });
+
 })
