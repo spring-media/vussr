@@ -2544,6 +2544,11 @@ dot-prop@^4.1.1:
   dependencies:
     is-obj "^1.0.0"
 
+dotenv@6.1.0:
+  version "6.1.0"
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/dotenv/-/dotenv-6.1.0.tgz#9853b6ca98292acb7dec67a95018fa40bccff42c"
+  integrity sha1-mFO2ypgpKst97GepUBj6QLzP9Cw=
+
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.6.1"
   resolved "https://spring.jfrog.io/spring/api/npm/npm-red/duplexify/-/duplexify-3.6.1.tgz#b1a7a29c4abfd639585efaecce80d666b1e34125"
