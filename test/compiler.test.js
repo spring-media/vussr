@@ -15,7 +15,8 @@ beforeEach(() => {
 
 test("sets up the compiler with a provided config", () => {
   const config = { client: "client", server: "server" };
-  const compiler = new Compiler(config);
+  const options = { config };
+  const compiler = new Compiler(options);
   expect(webpack).toHaveBeenCalledWith([config.client, config.server]);
   expect(compiler.config).toBe(config);
   expect(compiler.compiler).toBe(webpack.instance);
