@@ -13,12 +13,12 @@ test('returns middlewares in the correct order', async () => {
   const before = [jest.fn()];
   const after = [jest.fn()];
   const renderFn = jest.fn();
-  const expectedArray = [setContext(), ...before, runApp(renderFn), ...after, sendHtml(), errorHandler()];
+  const expectedArray = ["morganMockReturnValue",setContext(), ...before, runApp(renderFn), ...after, sendHtml(), errorHandler()];
   expect(getRenderMiddleWares({ before, after, renderFn })).toEqual(expectedArray)
 });
 
 test('handles undefined middlewares', async () => {
   const renderFn = jest.fn();
-  const expectedArray = [setContext(), runApp(renderFn), sendHtml(), errorHandler()];
+  const expectedArray = ["morganMockReturnValue", setContext(), runApp(renderFn), sendHtml(), errorHandler()];
   expect(getRenderMiddleWares({ renderFn })).toEqual(expectedArray)
 });

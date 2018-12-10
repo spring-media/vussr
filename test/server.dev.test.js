@@ -28,8 +28,8 @@ describe('Dev Server', () => {
     devServer.close();
   });
 
-  test('it runs on port 8080', async () => {
-    expect(devServer.listener.address().port).toBe(8080);
+  test('it runs on port 8081', async () => {
+    expect(devServer.listener.address().port).toBe(8081);
     expect(devServer.listener.listening).toBe(true);
   });
 
