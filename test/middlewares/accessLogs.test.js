@@ -25,7 +25,6 @@ test('logs accesses development format with the logFormat set to "development"',
   const { req, res, next, originalUrl } = setup();
   const middleware = writeAccessLogs("development");
   const expectedLog = new RegExp(`  - ${res.statusCode} \\d{1,2}:\\d{1,2}:\\d{1,2} PM \\d+.\\d+s`);
-  //   - 200 2:44:50 PM 0.0s
   await middleware(req, res, next);
   expect(next).toHaveBeenCalledWith();
   expect(global.console.log).toHaveBeenCalledWith(expect.stringMatching(expectedLog), originalUrl);
