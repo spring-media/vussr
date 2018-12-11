@@ -3,6 +3,7 @@ const DevServer = require('../lib/server.dev');
 const testConfig = require('./__build__');
 
 jest.unmock('webpack')
+jest.mock('on-finished');
 jest.mock('../lib/logger');
 jest.mock('../lib/utils/config');
 jest.spyOn(global.console, 'log').mockImplementation(() => {});

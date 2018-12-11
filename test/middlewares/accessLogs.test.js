@@ -14,13 +14,6 @@ function setup() {
   return { req, res, next, originalUrl };
 };
 
-test('doesn\'t do anything with the logFormat set to false', async () => {
-  const { req, res, next } = setup();
-  const middleware = writeAccessLogs(false);
-  middleware(req, res, next);
-  expect(next).toHaveBeenCalledWith();
-});
-
 test('logs accesses development format with the logFormat set to "development"', async () => {
   const { req, res, next, originalUrl } = setup();
   const middleware = writeAccessLogs("development");

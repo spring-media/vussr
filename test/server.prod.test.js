@@ -6,6 +6,8 @@ jest.mock('../lib/logger');
 jest.mock('../lib/utils/config');
 jest.mock('../lib/utils/paths');
 
+jest.unmock('on-finished')
+
 describe('Prod Server', () => {
   let server;
 
