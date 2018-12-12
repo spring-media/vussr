@@ -2880,8 +2880,8 @@ express-healthcheck@0.1.0:
 
 express-nock@0.1.1:
   version "0.1.1"
-  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/express-nock/-/express-nock-0.1.1.tgz#2e4e5dc555149c1bf5958d8345029aada3490a5b"
-  integrity sha1-Lk5dxVUUnBv1lY2DRQKaraNJCls=
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/express-nock/-/express-nock-0.1.1.tgz#926d9526a8976f343a56f5333b02d0fdca87f082"
+  integrity sha1-km2VJqiXbzQ6VvUzOwLQ/cqH8II=
   dependencies:
     mkdirp "^0.5.1"
 
