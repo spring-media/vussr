@@ -53,6 +53,7 @@ describe('Prod Server', () => {
     await request(serverWithMiddleWare.app).get('/');
     expect(beforeMiddleware).toHaveBeenCalled()
     serverWithMiddleWare.close();
+    server = await new ProdServer().listen();
   });
 
   test('applies after middlewares', async () => {
@@ -65,6 +66,7 @@ describe('Prod Server', () => {
     await request(serverWithMiddleWare.app).get('/');
     expect(afterMiddleware).toHaveBeenCalled()
     serverWithMiddleWare.close();
+    server = await new ProdServer().listen();
   });
 
 })
