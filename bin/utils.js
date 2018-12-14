@@ -1,3 +1,5 @@
+const logger = require('../lib/logger');
+
 function printConfigHelp() {
   console.log('');
   console.log('  With the -c or --config option provide the path to a config file');
@@ -13,6 +15,28 @@ function printConfigHelp() {
   console.log('');
 }
 
+function catchUnhandledErrors() {
+  ['unhandledRejection', 'uncaughtException'].forEach(event => {
+    process.on(event, err => logger.error(err));
+  });
+}
+
+function ensureGracefulShutdown() {
+  ['SIGINT', 'SIGTERM'].forEach(event => {
+    process.on(event, async () => {
+      try {
+        if (gracefulShutdown.server) await server.close();
+        process.exit(0);
+      } catch (err) {
+        logger.error(err);
+        process.exit(1);
+      }
+    });
+  });
+}
+
 module.exports = {
-  printConfigHelp
+  printConfigHelp,
+  catchUnhandledErrors,
+  ensureGracefulShutdown,
 };
