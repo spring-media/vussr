@@ -29,6 +29,9 @@ let server = null;
 program
   .name('udssr')
   .version(pkg.version, '-v, --version')
+  .option('-n, --nock', 'Start in nock mode (Load recorded nocks)')
+  .option('-r, --record', 'Record external requests with nock (use with --nock)')
+  .option('--nockPath [nockPath]', 'Where external request records should go or be loaded from')
 
 program
   .command('build')

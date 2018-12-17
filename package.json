@@ -28,9 +28,11 @@
     "dotenv": "6.1.0",
     "express": "4.16.3",
     "express-healthcheck": "0.1.0",
+    "express-nock": "0.1.1",
     "file-loader": "2.0.0",
     "friendly-errors-webpack-plugin": "1.7.0",
     "html-webpack-plugin": "3.2.0",
+    "nock": "10.0.3",
     "node-sass": "4.9.0",
     "portfinder": "1.0.17",
     "postcss-loader": "3.0.0",
@@ -46,7 +48,7 @@
     "webpack-dev-server": "3.1.8",
     "webpack-merge": "4.1.4",
     "webpack-node-externals": "1.7.2",
-    "webpackbar": "2.6.3",
+    "webpackbar": "3.1.3",
     "winston": "3.1.0"
   },
   "devDependencies": {
