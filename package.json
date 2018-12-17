@@ -1,6 +1,6 @@
 {
   "name": "red-udssr",
-  "version": "1.2.2",
+  "version": "1.2.2-cache-fix",
   "license": "ISC",
   "main": "index.js",
   "bin": {
