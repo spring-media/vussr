@@ -1,11 +1,13 @@
-const writeAccessLogs = require('../../lib/middlewares/writeAccessLogs');
 const morgan = require('morgan');
+const writeAccessLogs = require('../../lib/middlewares/writeAccessLogs');
+const logger = require('../../lib/logger');
+
+jest.mock('../../lib/logger');
 
 describe('access logs', () => {
 
   jest.mock('morgan');
   jest.mock('on-finished');
-  jest.spyOn(global.console, 'log').mockImplementation(() => {});
 
   function setup() {
     const originalUrl = "originalUrl";
@@ -19,10 +21,11 @@ describe('access logs', () => {
   test('logs accesses development format with the logFormat set to "development"', async () => {
     const { req, res, next, originalUrl } = setup();
     const middleware = writeAccessLogs("development");
-    const expectedLog = new RegExp(`  - ${res.statusCode} \\d{1,2}:\\d{1,2}:\\d{1,2} PM \\d+.\\d+s`);
+    const message = expect.stringMatching(new RegExp(`\\u001b\\[2m  - ${res.statusCode} \\d{1,2}:\\d{1,2}:\\d{1,2} PM \\d+.\\d+s \\u001b\\[22m${originalUrl}`));
+    const prefix = false;
     await middleware(req, res, next);
     expect(next).toHaveBeenCalledWith();
-    expect(global.console.log).toHaveBeenCalledWith(expect.stringMatching(expectedLog), originalUrl);
+    expect(logger.info).toHaveBeenCalledWith(expect.objectContaining({ message, prefix }));
   });
 
   test('returns a "morgan" middleware with the common format with the logFormat set to true', async () => {
