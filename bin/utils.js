@@ -15,17 +15,17 @@ function printConfigHelp() {
   console.log('');
 }
 
-function catchUnhandledErrors() {
+function logUnhandledErrors() {
   ['unhandledRejection', 'uncaughtException'].forEach(event => {
     process.on(event, err => logger.error(err));
   });
 }
 
-function ensureGracefulShutdown() {
+function ensureGracefulShutdown(server) {
   ['SIGINT', 'SIGTERM'].forEach(event => {
     process.on(event, async () => {
       try {
-        if (gracefulShutdown.server) await server.close();
+        await server.close();
         process.exit(0);
       } catch (err) {
         logger.error(err);
@@ -37,6 +37,6 @@ function ensureGracefulShutdown() {
 
 module.exports = {
   printConfigHelp,
-  catchUnhandledErrors,
+  logUnhandledErrors,
   ensureGracefulShutdown,
 };
