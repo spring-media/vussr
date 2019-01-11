@@ -5,7 +5,7 @@ const program = require('commander');
 const DevServer = require('../lib/server.dev');
 const ProdServer = require('../lib/server.prod');
 const Compiler = require('../lib/compiler');
-const { printConfigHelp, logUnhandledErrors, ensureGracefulShutdown } = require('./utils');
+const { printConfigHelp, logUnhandledErrors } = require('./utils');
 
 logUnhandledErrors();
 
@@ -27,14 +27,14 @@ program
   .command('start')
   .option('-c, --config <path>', 'provide a config file')
   .description('Starts a formerly created build with the production server')
-  .action(async options => ensureGracefulShutdown(await new ProdServer(options).listen()))
+  .action(async options => await new ProdServer(options).listen())
   .on('--help', printConfigHelp);
 
 program
   .command('serve')
   .option('-c, --config <path>', 'provide a config file')
   .description('Serves the app with hot reloading for development')
-  .action(async options => ensureGracefulShutdown(await new DevServer(options).listen()))
+  .action(async options => await new DevServer(options).listen())
   .on('--help', printConfigHelp);
 
 program
