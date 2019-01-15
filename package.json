@@ -7,6 +7,7 @@
     "udssr": "bin/index.js"
   },
   "scripts": {
+    "lint": "prettier \"lib/**/*.js\"",
     "test": "yarn test:build && NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
     "test:build": "NODE_ENV=production bin/index.js build -c ./test/__build__/index.js",
