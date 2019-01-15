@@ -6,8 +6,8 @@ Development and Production Server Side Renderer for VUE
 
 ## About
 
-UDSSR provides you with a Webpack DevServer for development and an Express Server for production to 
-render your VUE application on the server and hydrate it on the client. It comes with a command 
+UDSSR provides you with a Webpack DevServer for development and an Express Server for production to
+render your VUE application on the server and hydrate it on the client. It comes with a command
 line API to run your app:
 
 ```
@@ -29,11 +29,10 @@ UDSSR has a [built in Webpack configuration](https://github.com/spring-media/red
 
 ## Installing
 
-Simply do either
+Simply do
 
 ```console
-yarn add spring-media/red-udssr
-npm install spring-media/red-udssr --save
+npm install spring-media/red-udssr --save # yarn add spring-media/red-udssr
 ```
 
 And set up your `package.json` scripts:
@@ -43,7 +42,7 @@ And set up your `package.json` scripts:
   "scripts": {
     "serve": "udssr serve --config path/to/your/config.js",
     "build": "udssr build --config path/to/your/config.js",
-    "start": "udssr start --config path/to/your/config.js",
+    "start": "udssr start --config path/to/your/config.js"
   }
 }
 ```
@@ -100,10 +99,11 @@ Your `package.json` like this
   "scripts": {
     "serve": "udssr serve --config ./config/index.js",
     "build": "udssr build --config ./config/index.js",
-    "start": "udssr start --config ./config/index.js",
+    "start": "udssr start --config ./config/index.js"
   }
 }
 ```
+
 ## Using the CLI and the `--extend` parameter
 
 ```js
@@ -146,7 +146,7 @@ Your `package.json` like this
   "scripts": {
     "serve": "udssr serve --extend ./config/index.js",
     "build": "udssr build --extend ./config/index.js",
-    "start": "udssr start --extend ./config/index.js",
+    "start": "udssr start --extend ./config/index.js"
   }
 }
 ```
@@ -163,9 +163,9 @@ npm test --coverage
 
 Also, you have the following commands
 
-* `test:serve` runs `udssr serve` with a local test configuration
-* `test:start` runs `udssr start` with a local test configuration
-* `test:build` runs `udssr build` with a local test configuration
+- `test:serve` runs `udssr serve` with a local test configuration
+- `test:start` runs `udssr start` with a local test configuration
+- `test:build` runs `udssr build` with a local test configuration
 
 These commands can be useful if you want to create snapshots of the ouput created by the (dev) server
 for your tests. It uses a configuration you can find in `test/__build__` to run an app you can find in `test/__app__`. These files are already being used to run tests for the dev and production server.
