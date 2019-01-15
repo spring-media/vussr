@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const pkg = require('../package.json');
 const program = require('commander');
+const pkg = require('../package.json');
 const DevServer = require('../lib/server.dev');
 const ProdServer = require('../lib/server.prod');
 const Compiler = require('../lib/compiler');
@@ -12,32 +12,27 @@ logUnhandledErrors();
 program
   .name('udssr')
   .version(pkg.version, '-v, --version')
-  .option('-n, --nock', 'Start in nock mode (Load recorded nocks)')
-  .option('-r, --record', 'Record external requests with nock (use with --nock)')
+  .option('-c, --config <path>', 'Path to a config file')
+  .option('-n, --nock', 'Start in nock mode (load recorded nocks)')
+  .option('-r, --record', 'Record external requests with nock (always use together with --nock)')
   .option('--nockPath [nockPath]', 'Where external request records should go or be loaded from')
+  .on('--help', printConfigHelp);
 
 program
   .command('build')
-  .option('-c, --config <path>', 'provide a config file')
   .description('Creates a production build')
-  .action(options => new Compiler(options).run())
-  .on('--help', printConfigHelp);
+  .action(options => new Compiler(options).run());
 
 program
   .command('start')
-  .option('-c, --config <path>', 'provide a config file')
   .description('Starts a formerly created build with the production server')
-  .action(async options => await new ProdServer(options).listen())
-  .on('--help', printConfigHelp);
+  .action(async options => await new ProdServer(options).listen());
 
 program
   .command('serve')
-  .option('-c, --config <path>', 'provide a config file')
   .description('Serves the app with hot reloading for development')
-  .action(async options => await new DevServer(options).listen())
-  .on('--help', printConfigHelp);
+  .action(async options => await new DevServer(options).listen());
 
-program
-  .parse(process.argv);
+program.parse(process.argv);
 
 module.exports = program;
