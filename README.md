@@ -29,10 +29,11 @@ UDSSR has a [built in Webpack configuration](https://github.com/spring-media/red
 
 ## Installing
 
-Simply do
+Simply do either
 
 ```console
-npm install spring-media/red-udssr --save # yarn add spring-media/red-udssr
+yarn add spring-media/red-udssr
+npm install spring-media/red-udssr --save
 ```
 
 And set up your `package.json` scripts:
