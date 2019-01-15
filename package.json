@@ -64,5 +64,12 @@
   "homepage": "https://github.com/spring-media/red-udssr#readme",
   "publishConfig": {
     "registry": "https://spring.jfrog.io/spring/api/npm/npm-local-red/"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "useTabs": false
   }
 }
