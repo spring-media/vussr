@@ -1,4 +1,4 @@
-const { appDist, appPublic } = require('../utils/paths');
+const { appDist, appPublic } = require('./paths');
 
 module.exports = {
   contentBase: [appDist, appPublic],

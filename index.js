@@ -4,7 +4,7 @@ const Compiler = require('./lib/compiler');
 const Config = require('./lib/config');
 const middleware = require('./lib/middleware');
 const webpack = require('./webpack');
-const defaultConfig = require('./udssr.config.default');
+const defaultConfig = require('./lib/udssr.config.default');
 
 module.exports = {
   DevServer,
