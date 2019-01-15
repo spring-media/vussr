@@ -55,6 +55,7 @@
   },
   "devDependencies": {
     "jest": "23.6.0",
+    "prettier": "1.15.3",
     "supertest": "3.3.0",
     "vue": "2.5.17",
     "vue-router": "3.0.1"
