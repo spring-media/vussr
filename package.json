@@ -10,9 +10,7 @@
     "lint": "prettier \"lib/**/*.js\"",
     "test": "yarn test:build && NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
-    "test:build": "NODE_ENV=production bin/index.js build -c ./test/__build__/index.js",
-    "test:start": "NODE_ENV=production bin/index.js start -c ./test/__build__/index.js",
-    "test:serve": "NODE_ENV=development bin/index.js serve -c ./test/__build__/index.js"
+    "dev:serve": "NODE_ENV=development bin/index.js serve -c ./development/udssr.config.js"
   },
   "dependencies": {
     "@babel/core": "7.1.0",
