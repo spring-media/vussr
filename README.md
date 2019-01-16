@@ -78,7 +78,7 @@ build
 ∟ index.js
 ∟ webpack.config.base.js
 ∟ webpack.config.client.js
-∟ webpack.config.server.dev.js
+∟ webpack.config.devServer.js
 ∟ webpack.config.server.js
 package.json
 ```
@@ -88,7 +88,7 @@ the `index.js` could look like this
 ```js
 const client = require('./webpack.config.client');
 const server = require('./webpack.config.server');
-const devServer = require('./webpack.config.server.dev');
+const devServer = require('./webpack.config.devServer');
 
 module.exports = { client, server, devServer };
 ```
@@ -125,7 +125,7 @@ build
 ∟ index.js
 ∟ webpack.config.base.js
 ∟ webpack.config.client.js
-∟ webpack.config.server.dev.js
+∟ webpack.config.devServer.js
 ∟ webpack.config.server.js
 package.json
 ```
@@ -135,7 +135,7 @@ the `index.js` could look like this
 ```js
 const client = require('./webpack.config.client');
 const server = require('./webpack.config.server');
-const devServer = require('./webpack.config.server.dev');
+const devServer = require('./webpack.config.devServer');
 
 module.exports = { client, server, devServer };
 ```

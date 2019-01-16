@@ -15,7 +15,6 @@ const DEFAULT_PORT = 8080;
 const DEFAULT_HOST = '::';
 
 const renderOptions = {
-  publicPath: appPublic,
   runInNewContext: false,
 };
 
@@ -48,7 +47,7 @@ class ProdServer {
     const clientOutputPath = this.config.client.output.path;
     const nock = this.config.nock;
     const options = { nockPath: this.config.nockPath };
-    const { before, after } = this.config.middlewares;
+    const { before, after } = this.config.middleware;
     const renderFn = this.getRenderFunction();
     app.use('/healthcheck', healthcheck());
     app.use(serverPublicPath, express.static(serverOutputPath));
@@ -61,8 +60,7 @@ class ProdServer {
     const { serverBundle, clientManifest, template } = this.readBundleAndManifest();
     const bundleOptions = { ...renderOptions, template, clientManifest };
     const renderer = createBundleRenderer(serverBundle, bundleOptions);
-    const renderToString = promisify(renderer.renderToString.bind(renderer));
-    return context => renderToString(context);
+    return context => renderer.renderToString(context);
   }
 
   readBundleAndManifest() {

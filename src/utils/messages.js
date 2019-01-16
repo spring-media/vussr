@@ -9,7 +9,7 @@ const devSuccess = port => `
 `;
 
 const devFail = () => `
-  ${chalk.red('x Compilation has failed')}
+  ${chalk.red('✖ Compilation has failed')}
 `;
 
 function logDevSuccess(port) {

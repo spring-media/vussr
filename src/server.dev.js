@@ -10,13 +10,11 @@ const Config = require('./config');
 const getMiddleWares = require('./middlewares');
 const { listenAsPromised, closeAsPromised } = require('./utils/server');
 const { logDevSuccess, logDevFail } = require('./utils/messages');
-const { appPublic } = require('./paths');
 
 const DEFAULT_PORT = 8080;
 const DEFAULT_HOST = '::';
 
 const renderOptions = {
-  publicPath: appPublic,
   runInNewContext: false,
 };
 
@@ -64,13 +62,13 @@ class DevServer {
     const template = this.clientFs.readFileSync(templatePath, 'utf-8');
     const bundleOptions = { ...renderOptions, template, clientManifest };
     const renderer = createBundleRenderer(serverBundle, bundleOptions);
-    this.render = promisify(renderer.renderToString.bind(renderer));
+    this.render = context => renderer.renderToString(context);
   }
 
   after(app) {
     if (this.config.devServer.after) this.config.devServer.after(app);
     const renderFn = context => this.render(context);
-    const { before, after } = this.config.middlewares;
+    const { before, after } = this.config.middleware;
     const nock = this.config.nock;
     const options = { nockPath: this.config.nockPath };
     app.use(...getMiddleWares({ renderFn, before, after, nock, options }));

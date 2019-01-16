@@ -8,9 +8,8 @@
   },
   "scripts": {
     "lint": "prettier \"lib/**/*.js\"",
-    "test": "yarn test:build && NODE_ENV=test jest",
-    "test:watch": "NODE_ENV=test jest --watch",
-    "dev:serve": "NODE_ENV=development bin/index.js serve -c ./development/udssr.config.js"
+    "test": "NODE_ENV=test jest",
+    "dev": "NODE_ENV=development nodemon ./development/serve.js"
   },
   "dependencies": {
     "@babel/core": "7.1.0",
@@ -53,6 +52,7 @@
   },
   "devDependencies": {
     "jest": "23.6.0",
+    "nodemon": "1.18.9",
     "prettier": "1.15.3",
     "supertest": "3.3.0",
     "vue": "2.5.17",
