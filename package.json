@@ -9,7 +9,9 @@
   "scripts": {
     "lint": "prettier \"lib/**/*.js\"",
     "test": "NODE_ENV=test jest",
-    "dev": "NODE_ENV=development nodemon ./development/serve.js"
+    "dev:serve": "nodemon ./development/serve.js",
+    "dev:build": "node ./development/build.js",
+    "dev:start": "nodemon ./development/start.js"
   },
   "dependencies": {
     "@babel/core": "7.1.0",

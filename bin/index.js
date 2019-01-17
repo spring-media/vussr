@@ -2,9 +2,9 @@
 
 const program = require('commander');
 const pkg = require('../package.json');
-const DevServer = require('../lib/server.dev');
-const ProdServer = require('../lib/server.prod');
-const Compiler = require('../lib/compiler');
+const DevServer = require('../src/server.dev');
+const ProdServer = require('../src/server.prod');
+const Compiler = require('../src/compiler');
 const { printConfigHelp, logUnhandledErrors } = require('./utils');
 
 logUnhandledErrors();
@@ -21,7 +21,7 @@ program
 program
   .command('build')
   .description('Creates a production build')
-  .action(options => new Compiler(options).run());
+  .action(async options => await new Compiler(options).run());
 
 program
   .command('start')

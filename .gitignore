@@ -36,9 +36,8 @@ sftp-config.json
 ### Node ###
 node_modules
 
-
 ### Coverage ###
 coverage/
 
-### Test data ###
-__dist__
+### development ###
+development/dist
