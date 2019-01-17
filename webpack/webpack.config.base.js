@@ -2,8 +2,33 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const { isProd } = require('../src/utils/env');
 
+class BuildIdPlugin {
+  constructor() {
+    this.uid =
+      'build-' +
+      Math.random()
+        .toString(36)
+        .substr(2, 9);
+  }
+
+  replaceBuildId(path, data) {
+    path = typeof path === 'function' ? path(data) : path;
+    return path.replace(/\[buildId\]/gi, this.uid);
+  }
+
+  apply(compiler) {
+    compiler.plugin('compilation', compilation => {
+      compilation.mainTemplate.plugin('asset-path', (path, data) =>
+        this.replaceBuildId(path, data)
+      );
+    });
+  }
+}
+
+const buildIdPlugin = new BuildIdPlugin();
+
 module.exports = function getBaseConfig(config) {
-  const devPlugins = [new VueLoaderPlugin()];
+  const devPlugins = [new VueLoaderPlugin(), buildIdPlugin];
 
   const prodPlugins = [
     new VueLoaderPlugin(),
