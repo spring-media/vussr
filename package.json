@@ -7,7 +7,7 @@
     "udssr": "bin/index.js"
   },
   "scripts": {
-    "lint": "prettier \"lib/**/*.js\"",
+    "lint": "prettier \"src/**/*.js\"",
     "test": "NODE_ENV=test jest",
     "dev:serve": "nodemon ./development/serve.js",
     "dev:build": "node ./development/build.js",

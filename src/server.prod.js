@@ -7,7 +7,6 @@ const gracefulShutdown = require('http-graceful-shutdown');
 const { createBundleRenderer } = require('vue-server-renderer');
 const { listenAsPromised, closeAsPromised } = require('./utils/server');
 const Config = require('./config');
-const { promisify } = require('util');
 const getMiddleWares = require('./middlewares');
 const logger = require('./logger');
 

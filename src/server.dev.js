@@ -1,6 +1,5 @@
 require('dotenv').config();
 const path = require('path');
-const { promisify } = require('util');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const portfinder = require('portfinder');

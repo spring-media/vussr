@@ -6,8 +6,8 @@ const { combine, colorize, printf } = winston.format;
 const prettyError = new PrettyError();
 const prodFormat = getProdFormat();
 const devFormat = getDevFormat();
-const format = winston.format(
-  (...args) => (isProd ? prodFormat.transform(...args) : devFormat.transform(...args))
+const format = winston.format((...args) =>
+  isProd ? prodFormat.transform(...args) : devFormat.transform(...args)
 );
 
 const logger = winston.createLogger({
@@ -29,8 +29,8 @@ prettyError.appendStyle({
 
 function getProdFormat() {
   const extractError = ({ message, stack }) => ({ message, stack });
-  const error = winston.format(
-    info => (info instanceof Error ? { ...info, ...extractError(info) } : info)
+  const error = winston.format(info =>
+    info instanceof Error ? { ...info, ...extractError(info) } : info
   );
   const source = winston.format((info, source) => ({ ...info, source }));
   return combine(error(), source('ssr-server'), winston.format.json());
