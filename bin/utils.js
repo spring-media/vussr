@@ -1,4 +1,4 @@
-const logger = require('../lib/logger');
+const logger = require('../src/logger');
 
 function logUnhandledErrors() {
   ['unhandledRejection', 'uncaughtException'].forEach(event => {
@@ -17,7 +17,9 @@ function printConfigHelp() {
   console.log('');
   console.log('  client:    This is the webpack config used to create the client bundle');
   console.log('  server:    This is the webpack config used to server the client bundle');
-  console.log('  devServer: These are the options passed to the dev server: https://webpack.js.org/configuration/dev-server/');
+  console.log(
+    '  devServer: These are the options passed to the dev server: https://webpack.js.org/configuration/dev-server/'
+  );
   console.log('');
 }
 

@@ -34,7 +34,6 @@ module.exports = function getClientConfig(config) {
     output: {
       filename: config.filename,
     },
-    devtool: isProd ? false : 'source-map',
     plugins: isProd ? prodPlugins : devPlugins,
     optimization: { minimize: isProd },
   });

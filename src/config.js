@@ -1,9 +1,10 @@
+const { Explorer } = require('cosmiconfig');
 const webpackConfig = require('../webpack');
 const defaultOptions = require('./udssr.config.default');
 
 class Config {
   constructor(options) {
-    this.options = Object.assign({}, defaultOptions, this.getOptionsFromParam(options));
+    this.options = Object.assign({}, defaultOptions, options);
   }
 
   getJson() {
@@ -22,10 +23,6 @@ class Config {
 
   callIfFunction(option, ...args) {
     return typeof option === 'function' ? option(...args) : option;
-  }
-
-  getOptionsFromParam(options) {
-    return typeof options === 'string' ? require(options) : options;
   }
 }
 

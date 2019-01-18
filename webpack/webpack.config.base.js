@@ -12,6 +12,7 @@ module.exports = function getBaseConfig(config) {
 
   return {
     mode: isProd ? 'production' : 'development',
+    devtool: isProd ? false : 'source-map',
     output: {
       path: config.outputPath,
       publicPath: config.assetsPath,
@@ -38,6 +39,7 @@ module.exports = function getBaseConfig(config) {
         {
           test: /\.js$/,
           loader: 'babel-loader',
+          exclude: /node_modules/,
         },
         {
           test: /\.css$/,
