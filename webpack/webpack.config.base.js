@@ -1,12 +1,9 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const BuildIdPlugin = require('./buildIdPlugin');
 const { isProd } = require('../src/utils/env');
 
-const buildIdPlugin = new BuildIdPlugin();
-
 module.exports = function getBaseConfig(config) {
-  const devPlugins = [new VueLoaderPlugin(), buildIdPlugin];
+  const devPlugins = [new VueLoaderPlugin()];
 
   const prodPlugins = [
     new VueLoaderPlugin(),
