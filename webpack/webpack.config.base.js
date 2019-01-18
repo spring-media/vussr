@@ -1,33 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const BuildIdPlugin = require('./buildIdPlugin');
 const { isProd } = require('../src/utils/env');
-
-class BuildIdPlugin {
-  constructor({ uid, prefix } = {}) {
-    this.uid = uid ? uid : this.generateUid();
-    this.prefix = prefix;
-  }
-
-  generateUid() {
-    const randString = Math.random().toString(36);
-    const uid = randString.substr(2, 9);
-    return uid;
-  }
-
-  replaceBuildId(path, data) {
-    path = typeof path === 'function' ? path(data) : path;
-    const replacement = this.prefix ? `${this.prefix}${this.uid}` : this.uid;
-    return path.replace(/\[buildId\]/gi, replacement);
-  }
-
-  apply(compiler) {
-    compiler.plugin('compilation', compilation => {
-      compilation.mainTemplate.plugin('asset-path', (path, data) =>
-        this.replaceBuildId(path, data)
-      );
-    });
-  }
-}
 
 const buildIdPlugin = new BuildIdPlugin();
 
