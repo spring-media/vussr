@@ -5,7 +5,7 @@ const devSuccess = port => `
   ${chalk.green('✔ Server has been updated')}
 
   ${chalk.dim('- App running at')} http://localhost:${port}
-  ${chalk.dim('- Example article')} http://localhost:${port}/article/5b5996b98760980001ed883
+  ${chalk.dim('- Example article')} http://localhost:${port}/article/5b5996b98760980001ed8831
 `;
 
 const devFail = () => `
