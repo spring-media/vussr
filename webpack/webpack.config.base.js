@@ -58,7 +58,7 @@ module.exports = function getBaseConfig(config) {
           loader: 'url-loader',
           options: {
             limit: 4096,
-            name: './fonts/[name].[ext]?[hash]',
+            name: '/fonts/[name].[ext]?[hash]',
           },
         },
         {
@@ -66,7 +66,7 @@ module.exports = function getBaseConfig(config) {
           loader: 'url-loader',
           options: {
             limit: 8000,
-            name: './img/[name].[ext]?[hash]',
+            name: '/img/[name].[ext]?[hash]',
           },
         },
         {
