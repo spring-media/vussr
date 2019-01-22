@@ -1,13 +1,13 @@
 function listenAsPromised(server, port, host) {
-  return new Promise((res, rej) => {
-    const listener = server.listen(port, host, err => (err ? rej(err) : res(listener)));
+  return new Promise((resolve, reject) => {
+    const listener = server.listen(port, host, err => (err ? reject(err) : resolve(listener)));
   });
 }
 
 function closeAsPromised(listener) {
-  return new Promise((res, rej) => {
-    if (!listener) return res();
-    listener.close(err => (err ? rej(err) : res()));
+  return new Promise((resolve, reject) => {
+    if (!listener) return resolve();
+    listener.close(err => (err ? reject(err) : resolve()));
   });
 }
 
