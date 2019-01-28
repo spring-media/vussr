@@ -1,7 +1,7 @@
-const sendHtml = require('../../lib/middlewares/sendHtml');
+const sendHtml = require('../../src/middlewares/sendHtml');
 
 function setup() {
-  const body = '<div>test</div>'
+  const body = '<div>test</div>';
   const locals = { body };
   const end = jest.fn();
   const req = {};
@@ -9,7 +9,7 @@ function setup() {
   const next = jest.fn();
   const middleware = sendHtml();
   return { body, locals, req, res, next, end, middleware };
-};
+}
 
 test('ends the respons with the body', () => {
   const { body, req, res, next, middleware } = setup();

@@ -1,10 +1,10 @@
-const runApp = require('../../lib/middlewares/runApp');
+const runApp = require('../../src/middlewares/runApp');
 
 function setup() {
   const greeting = 'hello world';
   const context = { greeting };
-  const renderFn = async context => `<div>${context.greeting}</div>`
-  const renderFnMock = jest.fn().mockImplementation(renderFn)
+  const renderFn = async context => `<div>${context.greeting}</div>`;
+  const renderFnMock = jest.fn().mockImplementation(renderFn);
   const middleware = runApp(renderFnMock);
   const locals = { context };
   const req = {};
@@ -24,13 +24,14 @@ test('calls next', async () => {
   const { middleware, req, res, next } = setup();
   await middleware(req, res, next);
   expect(next).toHaveBeenCalledWith();
-
 });
 
 test('calls next with an error', async () => {
   const { req, res, next } = setup();
   const error = new Error();
-  const throwError = () => { throw error };
+  const throwError = () => {
+    throw error;
+  };
   const brokenMiddleware = runApp(throwError);
   await brokenMiddleware(req, res, next);
   expect(next).toHaveBeenCalledWith(error);
