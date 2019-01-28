@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`listenAsPromised rejects with an error 1`] = `"Expected error"`;

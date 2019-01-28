@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`logs dev build fail properly 1`] = `
+Array [
+  Array [
+    Object {
+      "message": "
+  [32m✔ Server has been updated[39m
+
+  [2m- App running at[22m http://localhost:8080
+  [2m- Example article[22m http://localhost:8080/article/5b5996b98760980001ed8831
+",
+      "prefix": false,
+    },
+  ],
+  Array [
+    Object {
+      "message": "
+  [31m✖ Compilation has failed[39m
+",
+      "prefix": false,
+    },
+  ],
+]
+`;
+
+exports[`logs dev build fail properly 2`] = `
+Array [
+  Array [
+    "foo error",
+  ],
+]
+`;
+
+exports[`logs dev build success properly 1`] = `
+Array [
+  Array [
+    Object {
+      "message": "
+  [32m✔ Server has been updated[39m
+
+  [2m- App running at[22m http://localhost:8080
+  [2m- Example article[22m http://localhost:8080/article/5b5996b98760980001ed8831
+",
+      "prefix": false,
+    },
+  ],
+]
+`;
