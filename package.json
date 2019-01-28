@@ -10,7 +10,7 @@
     "lint": "prettier \"src/**/*.js\"",
     "test": "NODE_ENV=test jest",
     "dev:serve": "nodemon ./development/serve.js",
-    "dev:build": "node ./development/build.js",
+    "dev:build": "nodemon --watch src ./development/build.js",
     "dev:start": "nodemon ./development/start.js"
   },
   "dependencies": {

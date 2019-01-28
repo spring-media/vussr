@@ -2,13 +2,12 @@ const request = require('supertest');
 const DevServer = require('../lib/server.dev');
 const testConfig = require('./__build__');
 
-jest.unmock('webpack')
+jest.unmock('webpack');
 jest.mock('../lib/logger');
 jest.mock('../lib/utils/config');
 jest.spyOn(global.console, 'log').mockImplementation(() => {});
 
 describe('Dev Server', () => {
-
   let devServer;
 
   const beforeMiddleware = jest.fn().mockImplementation((req, res, next) => next());
@@ -33,9 +32,11 @@ describe('Dev Server', () => {
     expect(devServer.listener.listening).toBe(true);
   });
 
-  test('serves the app\'s html', async () => {
+  test("serves the app's html", async () => {
     const response = await request(devServer.devServer.app).get('/');
-    const expectedResponseText = expect.stringMatching(/^<!DOCTYPE html>\s*<html>\s*<head>\s*<meta charset="utf-8">\s*<meta http-equiv="X-UA-Compatible" content="IE=edge">\s*<meta name="viewport" content="width=device-width,initial-scale=1">\s*<link rel="preload" href="\/assets\/client\.[0-9a-f]+\.js" as="script"><style data-vue-ssr-id=".+?">\s*p\[data-v-[0-9a-f]+\] \{\s*font-size: 2em;\s*text-align: center;\s*\}\s*<\/style><\/head>\s*<body><p id="#app" data-server-rendered="true" data-v-[0-9a-f]+>Hello World!<\/p><script src="\/assets\/client\.[0-9a-f]+\.js" defer><\/script><script type="text\/javascript" src="\/assets\/client\.[0-9a-f]+\.js"><\/script><\/body>\s*<\/html>\n$/);
+    const expectedResponseText = expect.stringMatching(
+      /^<!DOCTYPE html>\s*<html>\s*<head>\s*<meta charset="utf-8">\s*<meta http-equiv="X-UA-Compatible" content="IE=edge">\s*<meta name="viewport" content="width=device-width,initial-scale=1">\s*<link rel="preload" href="\/assets\/client\.[0-9a-f]+\.js" as="script"><style data-vue-ssr-id=".+?">\s*p\[data-v-[0-9a-f]+\] \{\s*font-size: 2em;\s*text-align: center;\s*\}\s*<\/style><\/head>\s*<body><p id="#app" data-server-rendered="true" data-v-[0-9a-f]+>Hello World!<\/p><script src="\/assets\/client\.[0-9a-f]+\.js" defer><\/script><script type="text\/javascript" src="\/assets\/client\.[0-9a-f]+\.js"><\/script><\/body>\s*<\/html>\n$/
+    );
     expect(response.statusCode).toBe(200);
     expect(response.text).toEqual(expectedResponseText);
   });
@@ -64,5 +65,4 @@ describe('Dev Server', () => {
     await request(devServer.devServer.app).get('/');
     expect(afterMiddleware).toHaveBeenCalled();
   });
-
-})
+});
