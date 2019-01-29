@@ -3,7 +3,7 @@ const { listenAsPromised, closeAsPromised } = require('../../src/utils/server');
 function setup() {
   const port = 'port';
   const host = 'host';
-  const close = jest.fn();
+  const close = jest.fn().mockImplementation(cb => cb(null));
   const listener = { close };
   const listen = jest.fn().mockImplementation((port, host, cb) => {
     setTimeout(() => cb(null), 0);
@@ -21,13 +21,27 @@ test('listenAsPromised resolves the listener', async () => {
 });
 
 test('listenAsPromised rejects with an error', async () => {
-  const { server, listener, port, host } = setup();
+  const { server, port, host } = setup();
   const error = new Error('Expected error');
   server.listen = jest.fn().mockImplementation((port, host, cb) => cb(error));
   expect(listenAsPromised(server, port, host)).rejects.toThrowErrorMatchingSnapshot();
   expect(server.listen).toHaveBeenCalledWith(port, host, expect.any(Function));
 });
 
-test('closeAsPromised waits for the server to be closed', async () => {});
+test('closeAsPromised waits for the server to be closed', async () => {
+  const { close, listener } = setup();
+  await closeAsPromised(listener);
+  expect(close).toHaveBeenCalled();
+});
 
-test('closeAsPromised rejects with an error', async () => {});
+test('closeAsPromised resolves if the provided listener is falsy', async () => {
+  expect(closeAsPromised(undefined)).resolves.toBe(undefined);
+});
+
+test('closeAsPromised rejects with an error', async () => {
+  const { listener } = setup();
+  const error = new Error('Expected error');
+  listener.close = jest.fn().mockImplementation(cb => cb(error));
+  expect(closeAsPromised(listener)).rejects.toThrowErrorMatchingSnapshot();
+  expect(listener.close).toHaveBeenCalled();
+});

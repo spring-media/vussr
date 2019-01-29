@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`closeAsPromised rejects with an error 1`] = `"Expected error"`;
+
 exports[`listenAsPromised rejects with an error 1`] = `"Expected error"`;
