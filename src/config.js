@@ -1,4 +1,3 @@
-const { Explorer } = require('cosmiconfig');
 const webpackConfig = require('../webpack');
 const defaultOptions = require('./udssr.config.default');
 
