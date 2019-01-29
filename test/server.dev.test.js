@@ -2,10 +2,12 @@ const request = require('supertest');
 const DevServer = require('../lib/server.dev');
 const testConfig = require('./__build__');
 
-jest.unmock('webpack')
+jest.mock('on-finished');
 jest.mock('../lib/logger');
 jest.mock('../lib/utils/config');
 jest.spyOn(global.console, 'log').mockImplementation(() => {});
+
+jest.unmock('webpack');
 
 describe('Dev Server', () => {
 
@@ -28,8 +30,8 @@ describe('Dev Server', () => {
     devServer.close();
   });
 
-  test('it runs on port 8080', async () => {
-    expect(devServer.listener.address().port).toBe(8080);
+  test('it runs on port 8081', async () => {
+    expect(devServer.listener.address().port).toBe(8081);
     expect(devServer.listener.listening).toBe(true);
   });
 

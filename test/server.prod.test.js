@@ -6,7 +6,18 @@ jest.mock('../lib/logger');
 jest.mock('../lib/utils/config');
 jest.mock('../lib/utils/paths');
 
+jest.unmock('morgan');
+jest.unmock('on-finished');
+
+jest.unmock('../lib/middlewares/index');
+jest.unmock('../lib/middlewares/writeAccessLogs');
+jest.unmock('../lib/middlewares/setContext');
+jest.unmock('../lib/middlewares/runApp');
+jest.unmock('../lib/middlewares/sendHtml');
+jest.unmock('../lib/middlewares/errorHandler');
+
 describe('Prod Server', () => {
+
   let server;
 
   beforeAll(async () => {
