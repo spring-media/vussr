@@ -9,6 +9,7 @@ const Config = require('./config');
 const getMiddleWares = require('./middlewares');
 const { listenAsPromised, closeAsPromised } = require('./utils/server');
 const { logDevSuccess, logDevFail } = require('./utils/messages');
+const logger = require('./logger');
 
 const DEFAULT_PORT = 8080;
 const DEFAULT_HOST = '::';
@@ -24,8 +25,8 @@ class DevServer {
     this.devServer = new WebpackDevServer(this.compiler, this.getDevServerConfig());
     this.clientFs = this.compiler.compilers[0].outputFileSystem;
     this.serverFs = this.compiler.compilers[1].outputFileSystem;
-    this.render = this.listener = this.port = this.host = null;
-    this.onCompileCb = this.config.onCompile || (() => {});
+    this.render = this.listener = this.port = this.host = this.resolveFirstCompilation = null;
+    this.firstCompilationPromise = new Promise(resolve => (this.resolveFirstCompilation = resolve));
     this.compiler.hooks.done.tap('udssr', stats => this.doneHook(stats));
   }
 
@@ -35,6 +36,7 @@ class DevServer {
     this.host = (this.config.devServer && this.config.devServer.host) || DEFAULT_HOST;
     this.listener = await listenAsPromised(this.devServer, this.port, this.host);
     gracefulShutdown(this.listener);
+    await this.waitForFirstCompilation();
     return this;
   }
 
@@ -44,10 +46,14 @@ class DevServer {
   }
 
   doneHook(stats) {
-    if (stats.hasErrors()) return logDevFail(stats);
-    this.updateRenderFunction();
-    this.onCompileCb(stats);
-    logDevSuccess(this.port);
+    try {
+      if (stats.hasErrors()) return logDevFail(stats);
+      this.updateRenderFunction();
+      this.resolveFirstCompilation();
+      logDevSuccess(this.port);
+    } catch (err) {
+      logger.error(err);
+    }
   }
 
   updateRenderFunction() {
@@ -70,6 +76,7 @@ class DevServer {
     const { before, after } = this.config.middleware;
     const nock = this.config.nock;
     const options = { nockPath: this.config.nockPath };
+    // console.log({ before, after });
     app.use(...getMiddleWares({ renderFn, before, after, nock, options }));
   }
 
@@ -77,6 +84,10 @@ class DevServer {
     const { devServer } = this.config;
     const after = app => this.after(app);
     return { ...devServer, after };
+  }
+
+  waitForFirstCompilation() {
+    return this.firstCompilationPromise;
   }
 }
 

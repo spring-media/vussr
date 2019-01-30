@@ -17,8 +17,20 @@ function logDevSuccess(port) {
 }
 
 function logDevFail(stats) {
-  logger.info({ message: devFail(stats), prefix: false });
-  stats.errors.forEach(err => logger.error(err));
+  const errors = getErrors(stats);
+  logger.info({ message: devFail(), prefix: false });
+  errors.forEach(err => logger.error(err));
+}
+
+function getErrors(stats) {
+  if (stats.errors) return stats.errors;
+  if (stats.compilation) return stats.compilation.errors;
+  if (stats.stats) return getErrors(stats.stats);
+  if (Array.isArray(stats)) {
+    const allErrors = stats.map(subStats => getErrors(subStats));
+    return allErrors.reduce((acc, cur) => [...acc, ...cur], []);
+  }
+  throw new Error('Could not read errors from stats');
 }
 
 module.exports.logDevSuccess = logDevSuccess;
