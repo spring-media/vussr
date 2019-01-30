@@ -3,5 +3,6 @@ const DevServer = require('../src/server.dev');
 
 (async () => {
   const configPath = path.resolve(__dirname, 'udssr.config.js');
-  await new DevServer(configPath).listen();
+  const options = require(configPath);
+  await new DevServer(options).listen();
 })();

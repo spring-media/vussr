@@ -3,5 +3,6 @@ const ProdServer = require('../src/server.prod');
 
 (async () => {
   const configPath = path.resolve(__dirname, 'udssr.config.js');
-  await new ProdServer(configPath).listen();
+  const options = require(configPath);
+  await new ProdServer(options).listen();
 })();
