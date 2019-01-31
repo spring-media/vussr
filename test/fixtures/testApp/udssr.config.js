@@ -1,16 +1,21 @@
 const { client, server, devServer } = require('./webpack');
 
-// const jest = { fn: () => ({ mockImplementation: () => ({}) }) };
+function getJest() {
+  if (typeof jest !== 'undefined') return jest;
+  return { fn: () => ({ mockImplementation: fn => fn }) };
+}
 
-const beforeMiddleware = jest.fn().mockImplementation((req, res, next) => {
-  console.log('beforeMiddleware');
-  next();
-});
+const beforeMiddleware = getJest()
+  .fn()
+  .mockImplementation((req, res, next) => {
+    next();
+  });
 
-const afterMiddleware = jest.fn().mockImplementation((req, res, next) => {
-  console.log('afterMiddleware');
-  next();
-});
+const afterMiddleware = getJest()
+  .fn()
+  .mockImplementation((req, res, next) => {
+    next();
+  });
 
 const before = [beforeMiddleware];
 const after = [afterMiddleware];

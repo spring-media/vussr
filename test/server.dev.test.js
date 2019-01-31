@@ -21,12 +21,12 @@ describe('Dev Server', () => {
     await devServer.close();
   });
 
-  test.skip('it runs on port 8080', async () => {
+  test('it runs on port 8080', async () => {
     expect(devServer.listener.address().port).toBe(8080);
     expect(devServer.listener.listening).toBe(true);
   });
 
-  test.skip("serves the app's html", async () => {
+  test("serves the app's html", async () => {
     const response = await request(devServer.devServer.app).get('/');
     expect(response.statusCode).toBe(200);
     expect(response.text).toMatchSnapshot();
@@ -43,7 +43,7 @@ describe('Dev Server', () => {
     expect(beforeMiddleware).toHaveBeenCalled();
   });
 
-  test.skip('applies after middlewares', async () => {
+  test('applies after middlewares', async () => {
     afterMiddleware.mockClear();
     await request(devServer.devServer.app).get('/');
     expect(afterMiddleware).toHaveBeenCalled();

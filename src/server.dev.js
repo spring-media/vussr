@@ -5,11 +5,11 @@ const WebpackDevServer = require('webpack-dev-server');
 const portfinder = require('portfinder');
 const { createBundleRenderer } = require('vue-server-renderer');
 const gracefulShutdown = require('http-graceful-shutdown');
+const logger = require('./logger');
 const Config = require('./config');
 const getMiddleWares = require('./middlewares');
 const { listenAsPromised, closeAsPromised } = require('./utils/server');
 const { logDevSuccess, logDevFail } = require('./utils/messages');
-const logger = require('./logger');
 
 const DEFAULT_PORT = 8080;
 const DEFAULT_HOST = '::';
@@ -69,21 +69,29 @@ class DevServer {
     const renderer = createBundleRenderer(serverBundle, bundleOptions);
     this.render = context => renderer.renderToString(context);
   }
+  getDevServerConfig() {
+    const { devServer } = this.config;
+    const before = app => this.before(app);
+    const after = app => this.after(app);
+    return { ...devServer, before, after };
+  }
+
+  before(app) {
+    if (this.config.devServer.before) this.config.devServer.before(app);
+    app.use('/', ...this.getMiddleWares());
+  }
 
   after(app) {
     if (this.config.devServer.after) this.config.devServer.after(app);
+    app.use(...this.getMiddleWares());
+  }
+
+  getMiddleWares() {
     const renderFn = context => this.render(context);
     const { before, after } = this.config.middleware;
     const nock = this.config.nock;
     const options = { nockPath: this.config.nockPath };
-    // console.log({ before, after });
-    app.use(...getMiddleWares({ renderFn, before, after, nock, options }));
-  }
-
-  getDevServerConfig() {
-    const { devServer } = this.config;
-    const after = app => this.after(app);
-    return { ...devServer, after };
+    return getMiddleWares({ renderFn, before, after, nock, options });
   }
 
   waitForFirstCompilation() {

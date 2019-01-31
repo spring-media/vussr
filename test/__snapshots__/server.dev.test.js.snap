@@ -7,8 +7,13 @@ exports[`Dev Server serves the app's html 1`] = `
     <meta charset=\\"utf-8\\">
     <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=edge\\">
     <meta name=\\"viewport\\" content=\\"width=device-width,initial-scale=1\\">
-  </head>
-	<body><!--vue-ssr-outlet--><script type=\\"text/javascript\\" src=\\"assets/main.js\\"></script></body>
+  <link rel=\\"preload\\" href=\\"assets/main.js\\" as=\\"script\\"><style data-vue-ssr-id=\\"4fc1490d:0\\">
+p[data-v-a59db9f0] {
+  font-size: 2em;
+  text-align: center;
+}
+</style></head>
+	<body><p id=\\"#app\\" data-server-rendered=\\"true\\" data-v-a59db9f0>Hello World!</p><script src=\\"assets/main.js\\" defer></script><script type=\\"text/javascript\\" src=\\"assets/main.js\\"></script></body>
 </html>
 "
 `;

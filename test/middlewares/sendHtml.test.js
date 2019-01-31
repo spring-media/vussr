@@ -17,8 +17,18 @@ test('ends the respons with the body', () => {
   expect(res.end).toHaveBeenCalledWith(body);
 });
 
-test('calls next', () => {
+test('does not call next', () => {
   const { req, res, next, middleware } = setup();
   middleware(req, res, next);
-  expect(next).toHaveBeenCalledWith();
+  expect(next).not.toHaveBeenCalled();
+});
+
+test('calls next on error', () => {
+  const { req, res, next, middleware } = setup();
+  const error = new Error('Tets Error');
+  res.end.mockImplementationOnce(() => {
+    throw error;
+  });
+  middleware(req, res, next);
+  expect(next).toHaveBeenCalledWith(error);
 });
