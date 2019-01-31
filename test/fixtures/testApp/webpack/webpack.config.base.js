@@ -6,7 +6,7 @@ module.exports = {
   devtool: false,
   output: {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: 'assets',
+    publicPath: '/assets/',
     filename: '[name].js',
   },
   resolve: {

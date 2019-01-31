@@ -33,8 +33,9 @@ describe('Dev Server', () => {
   });
 
   test('serves the client js', async () => {
-    const clientJsresponse = await request(devServer.devServer.app).get('/assets/main.js');
+    const clientJsresponse = await request(devServer.devServer.app).get('/assets/client.js');
     expect(clientJsresponse.statusCode).toBe(200);
+    expect(clientJsresponse.text).toMatchSnapshot();
   });
 
   test('applies before middlewares', async () => {

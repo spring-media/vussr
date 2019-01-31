@@ -1,8 +1,8 @@
 const path = require('path');
-const DevServer = require('../../../src/server.dev');
+const Compiler = require('../../../src/compiler');
 
 (async () => {
   const configPath = path.resolve(__dirname, 'udssr.config.js');
   const options = require(configPath).options;
-  await new DevServer(options).listen();
+  await new Compiler(options).run();
 })();
