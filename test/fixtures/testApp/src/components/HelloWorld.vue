@@ -1,11 +1,11 @@
 <template>
-  <p id="#app">{{ greeting }} World!</p>
+  <p id="app">{{ greeting }} World!</p>
 </template>
 
 <script>
 module.exports = {
-  data: () => ({ greeting: 'Hello' })
-}
+  data: () => ({ greeting: 'Hello' }),
+};
 </script>
 
 <style scoped>

@@ -1,3 +1,7 @@
 import createApp from './entry.main';
 
-createApp().$mount('#app');
+(async () => {
+  const url = window.location.pathname;
+  const app = await createApp({ url });
+  app.$mount('#app');
+})();

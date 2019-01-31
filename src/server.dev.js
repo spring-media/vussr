@@ -78,7 +78,7 @@ class DevServer {
 
   before(app) {
     if (this.config.devServer.before) this.config.devServer.before(app);
-    app.use('/', ...this.getMiddleWares());
+    app.use(/^\/$/, ...this.getMiddleWares());
   }
 
   after(app) {
