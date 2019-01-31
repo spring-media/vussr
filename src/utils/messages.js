@@ -35,3 +35,4 @@ function getErrors(stats) {
 
 module.exports.logDevSuccess = logDevSuccess;
 module.exports.logDevFail = logDevFail;
+module.exports.getErrors = getErrors;
