@@ -1,16 +1,18 @@
 import Vue from 'vue';
-import Router from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
 
-export default () => {
-  const render = h => h(HelloWorld);
+class NoComponentMatchError extends Error {
+  constructor(url) {
+    super(`Route "${url}" did not match any components`);
+    this.statusCode = 404;
+  }
+}
 
-  const router = new Router({
-    mode: 'history',
-    routes: [{ path: '/', component: HelloWorld, name: 'HelloWorld' }],
-  });
-
-  const app = new Vue({ render, router });
-
-  return { app, router };
+export default async context => {
+  if (context.url === '/') {
+    const render = h => h(HelloWorld);
+    return new Vue({ render });
+  } else {
+    throw new NoComponentMatchError(context.url);
+  }
 };
