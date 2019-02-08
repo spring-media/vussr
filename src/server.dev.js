@@ -19,8 +19,8 @@ const renderOptions = {
 };
 
 class DevServer {
-  constructor(options) {
-    this.config = new Config(options).getJson();
+  constructor(config, options) {
+    this.config = new Config(config, options).getJson();
     this.compiler = webpack([this.config.client, this.config.server]);
     this.devServer = new WebpackDevServer(this.compiler, this.getDevServerConfig());
     this.clientFs = this.compiler.compilers[0].outputFileSystem;
@@ -90,8 +90,8 @@ class DevServer {
     const renderFn = context => this.render(context);
     const { before, after } = this.config.middleware;
     const nock = this.config.nock;
-    const options = { nockPath: this.config.nockPath };
-    return getMiddleWares({ renderFn, before, after, nock, options });
+    const nockPath = this.config.nockPath;
+    return getMiddleWares({ renderFn, before, after, nock, nockPath });
   }
 
   waitForFirstCompilation() {

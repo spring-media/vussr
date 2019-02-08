@@ -18,8 +18,8 @@ const renderOptions = {
 };
 
 class ProdServer {
-  constructor(options) {
-    this.config = new Config(options).getJson();
+  constructor(config, options) {
+    this.config = new Config(config, options).getJson();
     this.port = this.config.port || DEFAULT_PORT;
     this.host = this.config.host || DEFAULT_HOST;
     this.app = this.setupApp();
@@ -44,14 +44,14 @@ class ProdServer {
     const clientPublicPath = this.config.client.output.publicPath;
     const serverOutputPath = this.config.server.output.path;
     const clientOutputPath = this.config.client.output.path;
-    const nock = this.config.nock;
-    const options = { nockPath: this.config.nockPath };
     const { before, after } = this.config.middleware;
+    const nock = this.config.nock;
+    const nockPath = this.config.nockPath;
     const renderFn = this.getRenderFunction();
     app.use('/healthcheck', healthcheck());
     app.use(serverPublicPath, express.static(serverOutputPath));
     app.use(clientPublicPath, express.static(clientOutputPath));
-    app.use(...getMiddleWares({ renderFn, before, after, nock, options }));
+    app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath }));
     return app;
   }
 

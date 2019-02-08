@@ -1,21 +1,21 @@
 const webpackConfig = require('../webpack');
-const defaultOptions = require('./udssr.config.default');
+const defaultConfig = require('./udssr.config.default');
 
 class Config {
-  constructor(options) {
-    this.options = Object.assign({}, defaultOptions, options);
+  constructor(config, cliOptions) {
+    this.config = Object.assign({}, defaultConfig, config, cliOptions);
   }
 
   getJson() {
-    return Object.assign({}, this.options, this.getWebpackConfig());
+    return Object.assign({}, this.config, this.getWebpackConfig());
   }
 
   getWebpackConfig() {
-    const client = this.callIfFunction(this.options.client, webpackConfig.client(this.options));
-    const server = this.callIfFunction(this.options.server, webpackConfig.server(this.options));
+    const client = this.callIfFunction(this.config.client, webpackConfig.client(this.config));
+    const server = this.callIfFunction(this.config.server, webpackConfig.server(this.config));
     const devServer = this.callIfFunction(
-      this.options.devServer,
-      webpackConfig.devServer(this.options)
+      this.config.devServer,
+      webpackConfig.devServer(this.config)
     );
     return { client, server, devServer };
   }

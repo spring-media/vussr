@@ -4,10 +4,10 @@ const runApp = require('./runApp');
 const sendHtml = require('./sendHtml');
 const errorHandler = require('./errorHandler');
 
-function getMiddleWares({ renderFn, before = [], after = [], options = {} }) {
+function getMiddleWares({ renderFn, before = [], after = [], nock, nockPath }) {
   return [
     setContext(),
-    applyNocks(options.nock, options.nockPath),
+    applyNocks(nock, nockPath),
     ...before,
     runApp(renderFn),
     ...after,

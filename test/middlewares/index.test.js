@@ -42,8 +42,7 @@ test('handles renderFn setting', async () => {
 test('handles nock settings', async () => {
   const nock = 'nock';
   const nockPath = 'nockPath';
-  const options = { nock, nockPath };
   const renderFn = jest.fn();
-  await getMiddleWares({ renderFn, options });
+  await getMiddleWares({ renderFn, nock, nockPath });
   expect(applyNocks).toHaveBeenCalledWith(nock, nockPath);
 });
