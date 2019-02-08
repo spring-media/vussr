@@ -25,17 +25,17 @@ const { printConfigHelp, logUnhandledErrors } = require('./utils');
   program
     .command('build')
     .description('Creates a production build')
-    .action(async options => await new Compiler(config, options).run());
+    .action(async cliOptions => await new Compiler(config, cliOptions).run());
 
   program
     .command('start')
     .description('Starts a formerly created build with the production server')
-    .action(async options => await new ProdServer(config, options).listen());
+    .action(async cliOptions => await new ProdServer(config, cliOptions).listen());
 
   program
     .command('serve')
     .description('Serves the app with hot reloading for development')
-    .action(async options => await new DevServer(config, options).listen());
+    .action(async cliOptions => await new DevServer(config, cliOptions).listen());
 
   program.parse(process.argv);
 })();

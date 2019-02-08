@@ -23,21 +23,11 @@ sftp-config.json
 /*.iml
 .idea/
 
-### VisualStudioCode ###
-.vs
-.vscode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-.vscode/launch.json
-!.vscode/extensions.json
-.history
-
 ### Node ###
 node_modules
 
 ### Coverage ###
-coverage/
+coverage
 
 ### development ###
 development/dist

@@ -5,8 +5,8 @@ const logger = require('./logger');
 const { isProd } = require('./utils/env');
 
 class Compiler {
-  constructor(config, options) {
-    this.config = new Config(config, options).getJson();
+  constructor(config, cliOptions) {
+    this.config = new Config(config, cliOptions).getJson();
     this.compiler = webpack([this.config.client, this.config.server]);
   }
 

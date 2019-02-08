@@ -18,8 +18,8 @@ const renderOptions = {
 };
 
 class ProdServer {
-  constructor(config, options) {
-    this.config = new Config(config, options).getJson();
+  constructor(config, cliOptions) {
+    this.config = new Config(config, cliOptions).getJson();
     this.port = this.config.port || DEFAULT_PORT;
     this.host = this.config.host || DEFAULT_HOST;
     this.app = this.setupApp();

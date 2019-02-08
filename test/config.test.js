@@ -47,3 +47,45 @@ test('it returns the webpack config if it is provided as object', async () => {
   const resultingWebpackConfig = config.getWebpackConfig();
   expect(resultingWebpackConfig).toEqual(options);
 });
+
+test('it accepts nock as a cli option', async () => {
+  const options = {};
+  const nock = true;
+  const parent = { nock };
+  const cliOptions = { parent };
+  const expectedConfig = { nock: 'replay', nockPath: '__requestNocks__' };
+  const config = new Config(options, cliOptions);
+  expect(config.config).toEqual(expect.objectContaining(expectedConfig));
+});
+
+test('it accepts record as a cli option', async () => {
+  const options = {};
+  const record = true;
+  const parent = { record };
+  const cliOptions = { parent };
+  const expectedConfig = { nock: 'record', nockPath: '__requestNocks__' };
+  const config = new Config(options, cliOptions);
+  expect(config.config).toEqual(expect.objectContaining(expectedConfig));
+});
+
+test('it accepts nockPath as a cli option alongside the nock option', async () => {
+  const options = {};
+  const nock = true;
+  const nockPath = 'nockPath';
+  const parent = { nock, nockPath };
+  const cliOptions = { parent };
+  const expectedConfig = { nock: 'replay', nockPath };
+  const config = new Config(options, cliOptions);
+  expect(config.config).toEqual(expect.objectContaining(expectedConfig));
+});
+
+test('it accepts nockPath as a cli option alongside the record option', async () => {
+  const options = {};
+  const record = true;
+  const nockPath = 'nockPath';
+  const parent = { record, nockPath };
+  const cliOptions = { parent };
+  const expectedConfig = { nock: 'record', nockPath };
+  const config = new Config(options, cliOptions);
+  expect(config.config).toEqual(expect.objectContaining(expectedConfig));
+});

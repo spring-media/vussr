@@ -19,8 +19,8 @@ const renderOptions = {
 };
 
 class DevServer {
-  constructor(config, options) {
-    this.config = new Config(config, options).getJson();
+  constructor(config, cliOptions) {
+    this.config = new Config(config, cliOptions).getJson();
     this.compiler = webpack([this.config.client, this.config.server]);
     this.devServer = new WebpackDevServer(this.compiler, this.getDevServerConfig());
     this.clientFs = this.compiler.compilers[0].outputFileSystem;
