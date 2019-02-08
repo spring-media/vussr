@@ -69,6 +69,7 @@ class DevServer {
     const renderer = createBundleRenderer(serverBundle, bundleOptions);
     this.render = context => renderer.renderToString(context);
   }
+
   getDevServerConfig() {
     const { devServer } = this.config;
     const before = app => this.before(app);
