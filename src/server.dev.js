@@ -92,7 +92,8 @@ class DevServer {
     const { before, after } = this.config.middleware;
     const nock = this.config.nock;
     const nockPath = this.config.nockPath;
-    return getMiddleWares({ renderFn, before, after, nock, nockPath });
+    const accessLogs = this.config.accessLogs || 'development';
+    return getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs });
   }
 
   waitForFirstCompilation() {

@@ -1,3 +1,4 @@
+const morgan = require('morgan');
 const getMiddleWares = require('../../src/middlewares');
 const setContext = require('../../src/middlewares/setContext');
 const applyNocks = require('../../src/middlewares/nock');
@@ -5,6 +6,7 @@ const runApp = require('../../src/middlewares/runApp');
 const sendHtml = require('../../src/middlewares/sendHtml');
 const errorHandler = require('../../src/middlewares/errorHandler');
 
+jest.mock('morgan');
 jest.mock('../../src/middlewares/setContext');
 jest.mock('../../src/middlewares/nock');
 jest.mock('../../src/middlewares/runApp');
@@ -16,6 +18,7 @@ test('returns middlewares in the correct order', async () => {
   const after = [jest.fn(), jest.fn()];
   const renderFn = jest.fn();
   const expectedArray = [
+    morgan(),
     setContext(),
     applyNocks(),
     ...before,
@@ -29,7 +32,14 @@ test('returns middlewares in the correct order', async () => {
 
 test('handles undefined middlewares', async () => {
   const renderFn = jest.fn();
-  const expectedArray = [setContext(), applyNocks(), runApp(renderFn), sendHtml(), errorHandler()];
+  const expectedArray = [
+    morgan(),
+    setContext(),
+    applyNocks(),
+    runApp(renderFn),
+    sendHtml(),
+    errorHandler(),
+  ];
   expect(getMiddleWares({ renderFn })).toEqual(expectedArray);
 });
 

@@ -9,6 +9,8 @@
   "scripts": {
     "lint": "prettier \"src/**/*.js\"",
     "test": "NODE_ENV=test jest",
+    "test:build": "node ./test/fixtures/testApp/build.js",
+    "test:start": "node ./test/fixtures/testApp/start.js",
     "dev:serve": "nodemon ./development/serve.js",
     "dev:build": "nodemon --watch src ./development/build.js",
     "dev:start": "nodemon ./development/start.js"
@@ -36,6 +38,7 @@
     "html-webpack-plugin": "3.2.0",
     "http-graceful-shutdown": "2.2.2",
     "nock": "10.0.3",
+    "morgan": "1.9.1",
     "node-sass": "4.9.0",
     "portfinder": "1.0.17",
     "pretty-error": "2.1.1",

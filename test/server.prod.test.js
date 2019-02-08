@@ -7,6 +7,8 @@ const {
 } = require('./fixtures/testApp/udssr.config.js');
 
 jest.unmock('webpack');
+jest.unmock('morgan');
+jest.unmock('on-finished');
 jest.mock('../webpack/index');
 jest.mock('../src/logger');
 
