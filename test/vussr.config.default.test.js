@@ -1,4 +1,4 @@
-const defaultConfig = require('../src/udssr.config.default');
+const defaultConfig = require('../src/vussr.config.default');
 
 test('matches the expected config', () => {
   const expectedConfig = {

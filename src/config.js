@@ -1,5 +1,5 @@
 const webpackConfig = require('../webpack');
-const defaultConfig = require('./udssr.config.default');
+const defaultConfig = require('./vussr.config.default');
 
 class Config {
   constructor(config, cliOptions) {

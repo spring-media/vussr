@@ -27,7 +27,7 @@ class DevServer {
     this.serverFs = this.compiler.compilers[1].outputFileSystem;
     this.render = this.listener = this.port = this.host = this.resolveFirstCompilation = null;
     this.firstCompilationPromise = new Promise(resolve => (this.resolveFirstCompilation = resolve));
-    this.compiler.hooks.done.tap('udssr', stats => this.doneHook(stats));
+    this.compiler.hooks.done.tap('vussr', stats => this.doneHook(stats));
   }
 
   async listen() {

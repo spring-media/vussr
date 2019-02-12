@@ -9,13 +9,13 @@ const Compiler = require('../src/compiler');
 const { printConfigHelp, logUnhandledErrors } = require('./utils');
 
 (async () => {
-  const explorer = cosmiconfig('udssr');
+  const explorer = cosmiconfig('vussr');
   const { config } = await explorer.search();
 
   logUnhandledErrors();
 
   program
-    .name('udssr')
+    .name('vussr')
     .version(pkg.version, '-v, --version')
     .option('-n, --nock', 'Start in nock mode (load recorded nocks)')
     .option('-r, --record', 'Record external requests with nock (always use together with --nock)')

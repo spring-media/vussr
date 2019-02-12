@@ -1,5 +1,5 @@
 const Config = require('../src/config');
-const defaultOptions = require('../src/udssr.config.default');
+const defaultOptions = require('../src/vussr.config.default');
 const webpackConfig = require('../webpack/index');
 
 jest.mock('../webpack/index');

@@ -4,7 +4,7 @@ const {
   beforeMiddleware,
   afterMiddleware,
   options,
-} = require('./fixtures/testApp/udssr.config.js');
+} = require('./fixtures/testApp/vussr.config.js');
 
 jest.unmock('webpack');
 jest.unmock('morgan');
