@@ -98,12 +98,11 @@ VUSSR has three commands:
 requests and responses made on the server side and replay those requests later so you can work when you're
 offline or a service you depend on is offline
 
-- `--nock` This will start your server in nock mode, meaning requests made by the server will be
-  answered locally by previously recorded requests of the same kind
-- `--nock --record` This will record all requests made on the server side and store them to JSON files so
-  you can replay them later with the nock command.
-- `--nockPath[nockPath]` You can add this parameter to `--nock` and `--nock --record` to provide a path to
-  where the nocked data should be read from and written to.
+| Command                | Description                                                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--nock`               | This will start your server in nock mode, meaning requests made by the server will be,answered locally by previously recorded requests of the same kind |
+| `--nock --record`      | This will record all requests made on the server side and store them to JSON files so,you can replay them later with the nock command                   |
+| `--nockPath[nockPath]` | You can add this parameter to `--nock` and `--nock --record` to provide a path to,where the nocked data should be read from and written to              |
 
 You can run `build` with these parameters but they will have no effect.
 
