@@ -11,8 +11,7 @@ render your VUE application on the server and hydrate it on the client. It comes
 line API to run your app
 
 - [Quick Start](#quick-start)
-- [Installation](#installation)
-- [Basic Usage](#basic-usage)
+- [Installation & Basic Usage](#installation--basic-usage)
 - [Configuration](#configuration)
 - [Nocks](#nocks)
 - [Development and Testing](#development-and-testing)
@@ -73,15 +72,13 @@ server with it. To create a production build run `npm run build`.
 
 Once you have created your production build your can start your production server with `npm run start`.
 
-## Installation
+## Installation & Basic Usage
 
 Just install VUSSR via npm
 
 ```console
 npm i vussr --save # yarn add vussr
 ```
-
-## Basic Usage
 
 VUSSR is a cli tool which means once you have installed it in your dependencies you can use it as a
 command in your npm scripts. For an example, scroll up to [Add npm Scripts](#add-npm-scripts).
