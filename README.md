@@ -84,7 +84,7 @@ npm i vussr --save # yarn add vussr
 ## Basic Usage
 
 VUSSR is a cli tool which means once you have installed it in your dependencies you can use it as a
-command in your npm scripts. For an example, scroll up to **Add npm Scripts** under [Quick Start](#quick-start).
+command in your npm scripts. For an example, scroll up to [Add npm Scripts](#add-npm-scripts).
 
 VUSSR has three commands: `serve`, `build` and `start`. `serve` and `start` can be run with the additional
 parameters `--nock`, `--record` and `--nockPath`. You can run `build` with these parameters but they will have
