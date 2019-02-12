@@ -60,7 +60,7 @@ root
 
 👉 [Please refer to Configuration to learn how to change those paths](./configuration.md)
 
-You can now add npm script to you `package.json
+You can now add npm scripts to you package.json
 
 ```json
 {
