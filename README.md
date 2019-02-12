@@ -88,9 +88,11 @@ command in your npm scripts. For an example, scroll up to [Add npm Scripts](#add
 
 VUSSR has three commands:
 
-- `serve` This will start your application using a Webpack DevServer and recompile your code on file changes
-- `build` This will create a production build that you can use with the start command to run your app
-- `start` This will take a production build and run it with an Express server
+| Command | Description                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------------- |
+| `serve` | This will start your application using a Webpack DevServer and recompile your code on file changes |
+| `build` | This will create a production build that you can use with the start command to run your app        |
+| `start` | This will take a production build and run it with an Express server                                |
 
 `serve` and `start` can be run with the additional _nock_ parameters. With these parameters, you can record
 requests and responses made on the server side and replay those requests later so you can work when you're
