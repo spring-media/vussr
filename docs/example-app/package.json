@@ -1,0 +1,13 @@
+{
+  "name": "example-app",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "vussr serve",
+    "build": "vussr build",
+    "start": "vussr start"
+  },
+  "dependencies": {
+    "vue": "2.5.17",
+    "vussr": "1.3.0"
+  }
+}
