@@ -75,6 +75,13 @@ Once you have created your production build your can start your production serve
 
 ## Installation
 
+Just run either of
+
+```
+yarn add vussr
+npm i vussr --save
+```
+
 ## Basic Usage
 
 ## Configuration
