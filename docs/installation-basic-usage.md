@@ -47,3 +47,15 @@ but set them up in a different manner.
 For the client you need to load your app and mount it to a DOM-element in your website. For the server
 you prefetch some data, run your app, and render your whole app to a (HTML-)string that you send to the
 user as your markup.
+
+VUSSR, by default, expects those entry files to be placed in a `src` folder with the following filenames.
+If that file structure isn't for you you can change this by setting up a configuration.
+
+```
+root
+ ∟ src
+    ∟ entry.client.js
+    ∟ entry.server.js
+```
+
+👉 [Please refer to Configuration to learn how to change those paths](./configuration.md)
