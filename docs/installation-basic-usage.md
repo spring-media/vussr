@@ -10,30 +10,31 @@ npm i vussr --save # yarn add vussr
 
 ## Run Commands
 
-VUSSR is a cli tool which means once you have installed it in your dependencies you can use it as a
-command in your npm scripts. For an example, scroll up to [Add npm Scripts](#add-npm-scripts).
+For the sake of readability here is a quick overview over the commands and parameters provided by
+VUSSR.
 
-VUSSR has three commands:
+```
+$ vussr --help
 
-| Command | Description                                                                                        |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| `serve` | This will start your application using a Webpack DevServer and recompile your code on file changes |
-| `build` | This will create a production build that you can use with the start command to run your app        |
-| `start` | This will take a production build and run it with an Express server                                |
+Usage: vussr [options] [command]
 
-`serve` and `start` can be run with the additional _nock_ parameters. With these parameters, you can record
-requests and responses made on the server side and replay those requests later so you can work when you're
-offline or a service you depend on is offline
+Options:
 
-| Command                 | Description                                                                                                                                             |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--nock`                | This will start your server in nock mode, meaning requests made by the server will be,answered locally by previously recorded requests of the same kind |
-| `--nock --record`       | This will record all requests made on the server side and store them to JSON files so,you can replay them later with the nock command                   |
-| `--nockPath [nockPath]` | You can add this parameter to `--nock` and `--nock --record` to provide a path to,where the nocked data should be read from and written to              |
+  -v, --version          output the version number
+  -n, --nock             start in nock mode (load recorded nocks)
+  -r, --record           record external requests with nock (always use together with --nock)
+  --nockPath [nockPath]  where external request records should go or be loaded from
+  -h, --help             output usage information
 
-You can run `build` with these parameters but they will have no effect.
+Commands:
 
-👉 [For an example on how to use `nock` please refer to this example](./nocks.md)
+  build                  creates a production build
+  start                  starts a formerly created build with the production server
+  serve                  serves the app with hot reloading for development
+
+```
+
+👉 [For a more thorough guide please refer to](./commands-and-parameters.md)
 
 ## Setup your project
 
