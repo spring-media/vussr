@@ -58,7 +58,9 @@ and mount your the same app that you used in your server entrypoint.
 
 ### Develop Your App
 
-- `npm run serve`
+```console
+npm run serve
+```
 
 Simply run `npm run serve` to start your app on a development server (Webpack DevServer). It will
 automatically recompile your code on file changes and serve them on
@@ -67,14 +69,18 @@ DevServer related options. See [Configuration](#configuration).
 
 ### Create a Production Build
 
-- `npm run build`
+```console
+npm run build
+```
 
 To run your app in production you need to create a production build and then start your production
 server with it. To create a production build run `npm run build`.
 
 ### Run the Produciton Server
 
-- `npm run start`
+```console
+npm run start
+```
 
 Once you have created your production build your can start your production server with `npm run start`.
 
