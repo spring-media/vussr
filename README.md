@@ -21,7 +21,7 @@ line API to run your app
 
 **Install VUSSR**
 
-```bash
+```console
 npm i vussr --save # yarn add vussr
 ```
 
@@ -75,11 +75,10 @@ Once you have created your production build your can start your production serve
 
 ## Installation
 
-Just run either of
+Just install VUSSR via npm
 
-```
-yarn add vussr
-npm i vussr --save
+```console
+npm i vussr --save # yarn add vussr
 ```
 
 ## Basic Usage
