@@ -19,13 +19,13 @@ line API to run your app
 
 ## Quick Start
 
-**Install VUSSR**
+### Install VUSSR
 
 ```console
 npm i vussr --save # yarn add vussr
 ```
 
-**Create Entry Points**
+### Create Entry Points
 
 By default, VUSSR looks for 2 files as entry points, one for your client and one for your server:
 
@@ -45,7 +45,7 @@ and mount your the same app that you used in your server entrypoint.
 
 👉 [Please refer to this example app for a very basic setup](./docs/example-app)
 
-**Add npm Scripts**
+### Add npm Scripts
 
 ```json
 {
@@ -57,19 +57,19 @@ and mount your the same app that you used in your server entrypoint.
 }
 ```
 
-**Develop Your App**
+### Develop Your App
 
 Simply run `npm run serve` to start your app on a development server (Webpack DevServer). It will
 automatically recompile your code on file changes and serve them on
 [http://127.0.0.1:8080](http://127.0.0.1:8080). You can configure the port and other Webpack
 DevServer related options. See [Configuration](#configuration).
 
-**Create a Production Build**
+### Create a Production Build
 
 To run your app in production you need to create a production build and then start your production
 server with it. To create a production build run `npm run build`.
 
-**Run the Produciton Server**
+### Run the Produciton Server
 
 Once you have created your production build your can start your production server with `npm run start`.
 
