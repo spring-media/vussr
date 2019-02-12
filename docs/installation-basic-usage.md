@@ -59,3 +59,15 @@ root
 ```
 
 👉 [Please refer to Configuration to learn how to change those paths](./configuration.md)
+
+You can now add npm script to you `package.json
+
+```json
+{
+  "scripts": {
+    "serve": "vussr serve",
+    "build": "vussr build",
+    "start": "vussr start"
+  }
+}
+```
