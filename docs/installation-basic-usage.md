@@ -34,7 +34,7 @@ Commands:
 
 ```
 
-👉 [For a more thorough guide please refer to](./commands-and-parameters.md)
+👉 [For a more thorough guide please refer to Commands and Parameters](./commands-and-parameters.md)
 
 ## Setup your project
 
