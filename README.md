@@ -58,7 +58,11 @@ and mount your the same app that you used in your server entrypoint.
 
 ### Develop Your App
 
-Simply run `npm run serve` to start your app on a development server (Webpack DevServer). It will
+Simply run
+
+- `npm run serve`
+
+to start your app on a development server (Webpack DevServer). It will
 automatically recompile your code on file changes and serve them on
 [http://127.0.0.1:8080](http://127.0.0.1:8080). You can configure the port and other Webpack
 DevServer related options. See [Configuration](#configuration).
