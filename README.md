@@ -1,4 +1,4 @@
-![vuedssr logo](./docs/vussr-logo.svg)
+![vuedssr logo](./docs/images/vussr-logo.svg)
 
 # ✊ VUSSR
 
