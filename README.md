@@ -12,7 +12,7 @@ line API to run your app
 
 - [Quick Start](#quick-start) (This Guide)
 - [Installation & Basic Usage](./docs/installation-basic-usage.md)
-- [Configuration](./docs/configuration)
+- [Configuration](./docs/configuration.md)
 - [Nocks](./docs/nocks.md)
 - [Development and Testing](./docs/development-and-testing.md)
 
@@ -77,7 +77,7 @@ Once you have created your production build your can start your production serve
 Read more on:
 
 - [Installation & Basic Usage](./docs/installation-basic-usage.md)
-- [Configuration](./docs/configuration)
+- [Configuration](./docs/configuration.md)
 - [Nocks](./docs/nocks.md)
 - [Development and Testing](./docs/development-and-testing.md)
 
