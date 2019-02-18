@@ -21,7 +21,7 @@ function developmentFormat() {
     const hrend = process.hrtime(hrstart);
     const time = new Date().toLocaleTimeString();
     const path = req.originalUrl;
-    const executionTime = `${hrend[0]}.${Math.round(hrend[1] / 1000000)}s`;
+    const executionTime = `${hrend[0]}.${Math.round(hrend[1] / 100000)}s`;
     const message = chalk.dim(`  - ${res.statusCode} ${time} ${executionTime} `) + path;
     const prefix = false;
     logger.info({ message, prefix });
