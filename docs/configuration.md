@@ -35,3 +35,19 @@ module.exports = {
   devServer: defaultConfig => defaultConfig,
 };
 ```
+
+## Explanation
+
+| Name          | Type                  | Default                          | Description                                                                                                                                                                                               |
+| ------------- | --------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entryClient` | `string`              | `'src/entry.client.js'`          | The entry point for the client                                                                                                                                                                            |
+| `entryServer` | `string`              | `'src/entry.server.js'`          | The entry point for the server                                                                                                                                                                            |
+| `template`    | `string`              | `'public/index.html'`            | The HTML file in which the app will be rendered to                                                                                                                                                        |
+| `outputPath`  | `string`              | `'dist'`                         | The folder where `vussr build` should write the bundle to                                                                                                                                                 |
+| `assetsPath`  | `string`              | `'dist/assets'`                  | The folder where `vussr build` should write assets to                                                                                                                                                     |
+| `filename`    | `string`              | `'[name].[chunkhash].js'`        | The filenames Webpack should create. [Any placeholder defined by webpack](https://webpack.js.org/configuration/output/#outputfilename) can be used.                                                       |
+| `middleware`  | `object`              | `{ before: [], after: [] }`      | You can specifiy and array of middleware that will be run before and after the application                                                                                                                |
+| `copy`        | `array`               | `[]`                             | VUSSR includes the [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin). Pass any of the options you would pass to that plugin here. Example: `[{ from: 'source', to: 'dest' }]` |
+| `server`      | `function` / `object` | `defaultConfig => defaultConfig` |                                                                                                                                                                                                           |
+| `client`      | `function` / `object` | `defaultConfig => defaultConfig` |                                                                                                                                                                                                           |
+| `devServer`   | `function` / `object` | `defaultConfig => defaultConfig` |                                                                                                                                                                                                           |
