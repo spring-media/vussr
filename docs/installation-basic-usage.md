@@ -107,7 +107,7 @@ export default context => {
 };
 ```
 
-👉 [Please refer to this example app for a very basic setup](./docs/example-app)
+👉 [Please refer to this example app for a very basic setup](./example-app)
 
 Given that there is a Vue component in `components/app.vue` you can now run
 
@@ -128,6 +128,6 @@ to create a production build and start a procution server (Express) with it.
 
 Read more on:
 
-- [Configuration](./docs/configuration.md)
-- [Nocks](./docs/nocks.md)
-- [Development and Testing](./docs/development-and-testing.md)
+- [Configuration](./configuration.md)
+- [Nocks](./nocks.md)
+- [Development and Testing](./development-and-testing.md)
