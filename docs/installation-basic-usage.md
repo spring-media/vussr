@@ -128,6 +128,7 @@ to create a production build and start a procution server (Express) with it.
 
 Read more on:
 
+- [Quick Start](../#quick-start)
 - [Configuration](./configuration.md)
 - [Nocks](./nocks.md)
 - [Development and Testing](./development-and-testing.md)

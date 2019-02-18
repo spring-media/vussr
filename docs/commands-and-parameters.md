@@ -22,3 +22,13 @@ offline or a service you depend on is offline
 | `--nockPath [nockPath]` | You can add this parameter to `--nock` and `--nock --record` to provide a path to,where the nocked data should be read from and written to              |
 
 You can run `build` with these parameters but they will have no effect.
+
+## Further steps
+
+Read more on:
+
+- [Quick Start](../#quick-start)
+- [Installation & Basic Usage](./installation-basic-usage.md)
+- [Configuration](./configuration.md)
+- [Nocks](./nocks.md)
+- [Development and Testing](./development-and-testing.md)
