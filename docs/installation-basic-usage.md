@@ -71,3 +71,55 @@ You can now add npm scripts to you package.json
   }
 }
 ```
+
+Since you will want to use the same app (your code) on the server as well as on the client, we recommend
+you create an extra file that sets up your app and that is included by your `entry.client.js` and
+`entry.server.js`:
+
+**entry.main.js**
+
+```js
+import Vue from 'vue';
+import App from './components/app.vue';
+
+export default context => {
+  const render = h => h(HelloWorld);
+  return new Vue({ render });
+};
+```
+
+**entry.client.js**
+
+```js
+import createApp from './entry.main';
+
+const app = createApp();
+app.$mount('#app');
+```
+
+**entry.server.js**
+
+```js
+import createApp from './entry.main';
+
+export default context => {
+  return createApp(context);
+};
+```
+
+👉 [Please refer to this example app for a very basic setup](./docs/example-app)
+
+Given that there is a Vue component in `components/app.vue` you can now run
+
+```console
+npm run serve
+```
+
+and it should start your app using a Webpack DevServer. Use
+
+```console
+npm run build
+npm run start
+```
+
+to create a production build and start a procution server (Express) with it.
