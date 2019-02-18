@@ -18,6 +18,11 @@ line API to run your app
 
 ## Quick Start
 
+1. Install VUSSR
+2. Add `src/entry.client.js` and `src/entry.server.js`
+3. Add `npm` scripts
+4. Run `npm run serve`
+
 ### Install VUSSR
 
 ```console
