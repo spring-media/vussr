@@ -27,7 +27,7 @@ You can run `build` with these parameters but they will have no effect.
 
 Read more on:
 
-- [Quick Start](../#quick-start)
+- [Quick Start](../README.md#quick-start)
 - [Installation & Basic Usage](./installation-basic-usage.md)
 - [Configuration](./configuration.md)
 - [Nocks](./nocks.md)

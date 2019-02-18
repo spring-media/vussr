@@ -36,7 +36,7 @@ vuessr start --nock --nockPath ./src/nocks
 
 Read more on:
 
-- [Quick Start](../#quick-start)
+- [Quick Start](../README.md#quick-start)
 - [Installation & Basic Usage](./installation-basic-usage.md)
 - [Configuration](./configuration.md)
 - [Development and Testing](./development-and-testing.md)

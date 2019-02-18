@@ -56,7 +56,7 @@ module.exports = {
 
 Read more on:
 
-- [Quick Start](../#quick-start)
+- [Quick Start](../README.md#quick-start)
 - [Installation & Basic Usage](./installation-basic-usage.md)
 - [Nocks](./nocks.md)
 - [Development and Testing](./development-and-testing.md)
