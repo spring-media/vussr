@@ -25,6 +25,13 @@ vuessr serve --nock --record --nockPath ./src/nocks
 vuessr serve --nock --nockPath ./src/nocks
 ```
 
+You can also run the production server in nock mode.
+
+```console
+vuessr start --nock --record --nockPath ./src/nocks
+vuessr start --nock --nockPath ./src/nocks
+```
+
 ## Further steps
 
 Read more on:
