@@ -12,7 +12,7 @@ root folder of your project):
 
 These are the configurations you can use and their default values (the default `vussr.config.js`). If
 you do not use any configuration (which you can do), these are your defaults. Basically this is the
-implementation of `[src/vussr.config.default.js](../src/vussr.config.default.js)`:
+implementation of [`src/vussr.config.default.js`](../src/vussr.config.default.js):
 
 ```js
 const fs = require('fs');
