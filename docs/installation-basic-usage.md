@@ -123,3 +123,11 @@ npm run start
 ```
 
 to create a production build and start a procution server (Express) with it.
+
+## Further steps
+
+Read more on:
+
+- [Configuration](./docs/configuration.md)
+- [Nocks](./docs/nocks.md)
+- [Development and Testing](./docs/development-and-testing.md)
