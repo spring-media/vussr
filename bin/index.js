@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const cosmiconfig = require('cosmiconfig');
 const pkg = require('../package.json');
 const DevServer = require('../src/server.dev');
 const ProdServer = require('../src/server.prod');
 const Compiler = require('../src/compiler');
-const { logUnhandledErrors } = require('./utils');
+const { logUnhandledErrors, getConfig } = require('./utils');
 
 (async () => {
-  const explorer = cosmiconfig('vussr');
-  const { config } = await explorer.search();
+  const config = await getConfig();
 
   logUnhandledErrors();
 
