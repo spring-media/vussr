@@ -50,6 +50,8 @@ class ProdServer {
     const accessLogs = this.config.accessLogs || 'clf';
     const renderFn = this.getRenderFunction();
     app.use('/healthcheck', healthcheck());
+    app.use(serverPublicPath, express.static(serverOutputPath + serverPublicPath));
+    app.use(clientPublicPath, express.static(clientOutputPath + clientPublicPath));
     app.use(serverPublicPath, express.static(serverOutputPath));
     app.use(clientPublicPath, express.static(clientOutputPath));
     app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));

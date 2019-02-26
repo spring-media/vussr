@@ -1,3 +1,4 @@
+const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const { isProd } = require('../src/utils/env');
@@ -10,12 +11,14 @@ module.exports = function getBaseConfig(config) {
     new CleanWebpackPlugin(config.outputPath, { verbose: false }),
   ];
 
+  const relativeAssetsPath = path.relative(config.outputPath, config.assetsPath);
+
   return {
     mode: isProd ? 'production' : 'development',
     devtool: isProd ? false : 'source-map',
     output: {
       path: config.outputPath,
-      publicPath: config.assetsPath,
+      publicPath: `/${relativeAssetsPath}/`,
       filename: '[name].js',
     },
     node: {
@@ -58,7 +61,7 @@ module.exports = function getBaseConfig(config) {
           loader: 'url-loader',
           options: {
             limit: 4096,
-            name: './fonts/[name].[ext]?[hash]',
+            name: `./${relativeAssetsPath}/fonts/[name].[ext]?[hash]`,
           },
         },
         {
@@ -66,7 +69,7 @@ module.exports = function getBaseConfig(config) {
           loader: 'url-loader',
           options: {
             limit: 8000,
-            name: './img/[name].[ext]?[hash]',
+            name: `./${relativeAssetsPath}/img/[name].[ext]?[hash]`,
           },
         },
         {
