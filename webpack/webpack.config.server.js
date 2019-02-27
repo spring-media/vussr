@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 const WebpackBar = require('webpackbar');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
@@ -23,6 +24,7 @@ module.exports = function getServerConfig(config) {
     new VueSSRServerPlugin(),
     new WebpackBar({ name: 'Server', color: 'orange', compiledIn: false }),
     new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
+    new WriteFilePlugin(),
     new CopyWebpackPlugin(config.copy),
     new webpack.NormalModuleReplacementPlugin( // [1]
       /\/iconv-loader(.js)?$/,
