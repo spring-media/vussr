@@ -1,5 +1,3 @@
-const { appDist, appPublic } = require('./paths');
-
 module.exports = function getDevServerConfig(config) {
   return {
     contentBase: [config.outputPath, config.assetsPath],

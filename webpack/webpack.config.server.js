@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 const WebpackBar = require('webpackbar');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const getBaseConfig = require('./webpack.config.base');
@@ -24,6 +25,7 @@ module.exports = function getServerConfig(config) {
     new WebpackBar({ name: 'Server', color: 'orange', compiledIn: false }),
     new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
     new CopyWebpackPlugin(config.copy),
+    new WriteFilePlugin(),
     new webpack.NormalModuleReplacementPlugin( // [1]
       /\/iconv-loader(.js)?$/,
       path.resolve(__dirname, 'iconv-loader-hack.js')

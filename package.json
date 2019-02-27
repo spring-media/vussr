@@ -37,8 +37,8 @@
     "friendly-errors-webpack-plugin": "1.7.0",
     "html-webpack-plugin": "3.2.0",
     "http-graceful-shutdown": "2.2.2",
-    "nock": "10.0.3",
     "morgan": "1.9.1",
+    "nock": "10.0.3",
     "node-sass": "4.9.0",
     "portfinder": "1.0.17",
     "pretty-error": "2.1.1",
@@ -62,7 +62,8 @@
     "prettier": "1.15.3",
     "supertest": "3.3.0",
     "vue": "2.5.17",
-    "vue-router": "3.0.1"
+    "vue-router": "3.0.1",
+    "write-file-webpack-plugin": "4.5.0"
   },
   "bugs": {
     "url": "https://github.com/spring-media/red-vussr/issues"

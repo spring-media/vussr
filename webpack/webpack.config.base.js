@@ -16,6 +16,7 @@ module.exports = function getBaseConfig(config) {
   return {
     mode: isProd ? 'production' : 'development',
     devtool: isProd ? false : 'source-map',
+    context: process.cwd(),
     output: {
       path: config.outputPath,
       publicPath: `/${relativeAssetsPath}/`,
