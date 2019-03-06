@@ -67,9 +67,9 @@
     "write-file-webpack-plugin": "4.5.0"
   },
   "bugs": {
-    "url": "https://github.com/spring-media/red-vussr/issues"
+    "url": "https://github.com/spring-media/vussr/issues"
   },
-  "homepage": "https://github.com/spring-media/red-vussr#readme",
+  "homepage": "https://github.com/spring-media/vussr#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
