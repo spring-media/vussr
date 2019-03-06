@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="600px" height="300px" viewBox="0 0 600 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g id="udssr-logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="Shape" fill="#CC0000" fill-rule="nonzero" points="0 0 600 0 600 300 0 300"></polygon>
-        <polygon id="Shape" fill="#FFD700" fill-rule="nonzero" transform="translate(85.551555, 98.784156) scale(1, -1) translate(-85.551555, -98.784156) " points="95.4938506 136.068311 85.5515553 118.847689 75.60926 136.068311 42.5 136.068311 85.5515553 61.5 128.603111 136.068311"></polygon>
-        <polygon id="Shape" fill="#34495E" fill-rule="nonzero" transform="translate(85.550934, 83.870055) scale(1, -1) translate(-85.550934, -83.870055) " points="95.4932297 106.24011 85.5509344 89.0194874 75.6086391 106.24011 59.7200012 106.24011 85.5509344 61.5 111.381868 106.24011"></polygon>
-        <path d="M81.5,35.4 L68,35.4 L78.9,43.4 L74.8,56.2 L85.7,48.3 L96.6,56.2 L92.5,43.4 L103.4,35.4 L89.9,35.4 L85.7,22.5 L81.5,35.4 Z M85.7,30.5 L88.1,37.9 L95.8,37.9 L89.6,42.4 L91.96,49.75 L85.7,45.2 L79.44,49.75 L81.8,42.4 L75.6,37.9 L83.3,37.9 L85.7,30.5 Z" id="Shape" fill="#FFD700" fill-rule="nonzero"></path>
-    </g>
-</svg>

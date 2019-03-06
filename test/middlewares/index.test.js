@@ -1,32 +1,58 @@
-const { getRenderMiddleWares } = require('../../lib/middlewares');
-const writeAccessLogs = require('../../lib/middlewares/writeAccessLogs');
-const setContext = require('../../lib/middlewares/setContext');
-const runApp = require('../../lib/middlewares/runApp');
-const sendHtml = require('../../lib/middlewares/sendHtml');
-const errorHandler = require('../../lib/middlewares/errorHandler');
+const morgan = require('morgan');
+const getMiddleWares = require('../../src/middlewares');
+const setContext = require('../../src/middlewares/setContext');
+const applyNocks = require('../../src/middlewares/nock');
+const runApp = require('../../src/middlewares/runApp');
+const sendHtml = require('../../src/middlewares/sendHtml');
+const errorHandler = require('../../src/middlewares/errorHandler');
 
-jest.mock('../../lib/middlewares/writeAccessLogs');
-jest.mock('../../lib/middlewares/setContext');
-jest.mock('../../lib/middlewares/runApp');
-jest.mock('../../lib/middlewares/sendHtml');
-jest.mock('../../lib/middlewares/errorHandler');
+jest.mock('morgan');
+jest.mock('../../src/middlewares/setContext');
+jest.mock('../../src/middlewares/nock');
+jest.mock('../../src/middlewares/runApp');
+jest.mock('../../src/middlewares/sendHtml');
+jest.mock('../../src/middlewares/errorHandler');
 
-describe('middlewares', () => {
+test('returns middlewares in the correct order', async () => {
+  const before = [jest.fn(), jest.fn()];
+  const after = [jest.fn(), jest.fn()];
+  const renderFn = jest.fn();
+  const expectedArray = [
+    morgan(),
+    setContext(),
+    applyNocks(),
+    ...before,
+    runApp(renderFn),
+    ...after,
+    sendHtml(),
+    errorHandler(),
+  ];
+  expect(getMiddleWares({ before, after, renderFn })).toEqual(expectedArray);
+});
 
-  test('returns middlewares in the correct order', async () => {
-    const before = [jest.fn()];
-    const after = [jest.fn()];
-    const renderFn = jest.fn();
-    const accessLogs = true;
-    const expectedArray = [writeAccessLogs(), setContext(), ...before, runApp(renderFn), ...after, sendHtml(), errorHandler()];
-    expect(getRenderMiddleWares({ before, after, renderFn, accessLogs })).toEqual(expectedArray)
-  });
+test('handles undefined middlewares', async () => {
+  const renderFn = jest.fn();
+  const expectedArray = [
+    morgan(),
+    setContext(),
+    applyNocks(),
+    runApp(renderFn),
+    sendHtml(),
+    errorHandler(),
+  ];
+  expect(getMiddleWares({ renderFn })).toEqual(expectedArray);
+});
 
-  test('handles undefined middlewares', async () => {
-    const renderFn = jest.fn();
-    const accessLogs = true;
-    const expectedArray = [writeAccessLogs(), setContext(), runApp(renderFn), sendHtml(), errorHandler()];
-    expect(getRenderMiddleWares({ renderFn, accessLogs })).toEqual(expectedArray)
-  });
+test('handles renderFn setting', async () => {
+  const renderFn = jest.fn();
+  await getMiddleWares({ renderFn });
+  expect(runApp).toHaveBeenCalledWith(renderFn);
+});
 
-})
+test('handles nock settings', async () => {
+  const nock = 'nock';
+  const nockPath = 'nockPath';
+  const renderFn = jest.fn();
+  await getMiddleWares({ renderFn, nock, nockPath });
+  expect(applyNocks).toHaveBeenCalledWith(nock, nockPath);
+});

@@ -1,63 +1,40 @@
 #!/usr/bin/env node
 
-const pkg = require('../package.json');
 const program = require('commander');
-const DevServer = require('../lib/server.dev');
-const ProdServer = require('../lib/server.prod');
-const Compiler = require('../lib/compiler');
-const logger = require('../lib/logger');
-const { printConfigHelp } = require('./utils');
+const pkg = require('../package.json');
+const DevServer = require('../src/server.dev');
+const ProdServer = require('../src/server.prod');
+const Compiler = require('../src/compiler');
+const { logUnhandledErrors, getConfig } = require('./utils');
 
-let server = null;
+(async () => {
+  const config = await getConfig();
 
-['unhandledRejection', 'uncaughtException'].forEach(event => {
-  process.on(event, err => logger.error(err));
-});
+  logUnhandledErrors();
 
-['SIGINT', 'SIGTERM'].forEach(event => {
-  process.on(event, async () => {
-    try {
-      if (server) await server.close();
-      process.exit(0);
-    } catch (err) {
-      logger.error(err);
-      process.exit(1);
-    }
-  });
-});
+  program
+    .name('vussr')
+    .version(pkg.version, '-v, --version')
+    .option('-n, --nock', 'start in nock mode (load recorded nocks)')
+    .option('-r, --record', 'record external requests with nock (always use together with --nock)')
+    .option('--nockPath [nockPath]', 'where external request records should go or be loaded from');
 
-program
-  .name('udssr')
-  .version(pkg.version, '-v, --version')
-  .option('-n, --nock', 'Start in nock mode (Load recorded nocks)')
-  .option('-r, --record', 'Record external requests with nock (use with --nock)')
-  .option('--nockPath [nockPath]', 'Where external request records should go or be loaded from')
+  program
+    .command('build')
+    .description('creates a production build')
+    .action(async cliOptions => await new Compiler(config, cliOptions).run());
 
-program
-  .command('build')
-  .option('-c, --config <path>', 'provide a config file')
-  .option('-e, --extend <path>', 'provide a config file to extend default config')
-  .description('Creates a production build')
-  .action(options => new Compiler(options).run())
-  .on('--help', printConfigHelp);
+  program
+    .command('start')
+    .description('starts a formerly created build with the production server')
+    .action(async cliOptions => await new ProdServer(config, cliOptions).listen());
 
-program
-  .command('start')
-  .option('-c, --config <path>', 'provide a config file')
-  .option('-e, --extend <path>', 'provide a config file to extend default config')
-  .description('Starts a formerly created build with the production server')
-  .action(async options => server = await new ProdServer(options).listen())
-  .on('--help', printConfigHelp);
+  program
+    .command('serve')
+    .description('serves the app with hot reloading for development')
+    .action(async cliOptions => await new DevServer(config, cliOptions).listen());
 
-program
-  .command('serve')
-  .option('-c, --config <path>', 'provide a config file')
-  .option('-e, --extend <path>', 'provide a config file to extend default config')
-  .description('Serves the app with hot reloading for development')
-  .action(async options => server = await new DevServer(options).listen())
-  .on('--help', printConfigHelp);
-
-program
-  .parse(process.argv);
+  program.parse(process.argv);
+})();
 
 module.exports = program;

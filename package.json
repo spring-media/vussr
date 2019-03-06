@@ -1,17 +1,19 @@
 {
-  "name": "red-udssr",
-  "version": "1.2.2-cache-fix",
+  "name": "vussr",
+  "version": "2.0.0",
   "license": "ISC",
   "main": "index.js",
   "bin": {
-    "udssr": "bin/index.js"
+    "vussr": "bin/index.js"
   },
   "scripts": {
-    "test": "yarn test:build && NODE_ENV=test jest",
-    "test:watch": "NODE_ENV=test jest --watch",
-    "test:build": "NODE_ENV=production bin/index.js build -c ./test/__build__/index.js",
-    "test:start": "NODE_ENV=production bin/index.js start -c ./test/__build__/index.js",
-    "test:serve": "NODE_ENV=development bin/index.js serve -c ./test/__build__/index.js"
+    "lint": "prettier \"src/**/*.js\"",
+    "test": "NODE_ENV=test jest",
+    "test:build": "node ./test/fixtures/testApp/build.js",
+    "test:start": "node ./test/fixtures/testApp/start.js",
+    "dev:serve": "nodemon ./development/serve.js",
+    "dev:build": "nodemon --watch src ./development/build.js",
+    "dev:start": "nodemon ./development/start.js"
   },
   "dependencies": {
     "@babel/core": "7.1.0",
@@ -24,6 +26,8 @@
     "chalk": "2.4.1",
     "clean-webpack-plugin": "0.1.19",
     "commander": "2.18.0",
+    "copy-webpack-plugin": "4.6.0",
+    "cosmiconfig": "5.0.7",
     "css-loader": "1.0.0",
     "dotenv": "6.1.0",
     "express": "4.16.3",
@@ -32,11 +36,11 @@
     "file-loader": "2.0.0",
     "friendly-errors-webpack-plugin": "1.7.0",
     "html-webpack-plugin": "3.2.0",
-    "nock": "10.0.3",
+    "http-graceful-shutdown": "2.2.2",
     "morgan": "1.9.1",
+    "nock": "10.0.3",
     "node-sass": "4.9.0",
     "portfinder": "1.0.17",
-    "postcss-loader": "3.0.0",
     "pretty-error": "2.1.1",
     "raw-loader": "0.5.1",
     "sass-loader": "7.1.0",
@@ -54,15 +58,29 @@
   },
   "devDependencies": {
     "jest": "23.6.0",
+    "nodemon": "1.18.9",
+    "prettier": "1.15.3",
     "supertest": "3.3.0",
     "vue": "2.5.17",
-    "vue-router": "3.0.1"
+    "vue-router": "3.0.1",
+    "write-file-webpack-plugin": "4.5.0"
   },
   "bugs": {
-    "url": "https://github.com/spring-media/red-udssr/issues"
+    "url": "https://github.com/spring-media/red-vussr/issues"
   },
-  "homepage": "https://github.com/spring-media/red-udssr#readme",
+  "homepage": "https://github.com/spring-media/red-vussr#readme",
   "publishConfig": {
     "registry": "https://spring.jfrog.io/spring/api/npm/npm-local-red/"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "engines": {
+    "node": ">=10.14.1",
+    "yarn": ">=1.10.1"
   }
 }

@@ -16,7 +16,7 @@ const stats = {
 
 const instance = {
   run: jest.fn(fn => fn(null, stats)),
-}
+};
 
 const webpack = jest.fn(() => instance);
 webpack.NormalModuleReplacementPlugin = jest.fn();
