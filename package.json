@@ -71,7 +71,7 @@
   },
   "homepage": "https://github.com/spring-media/red-vussr#readme",
   "publishConfig": {
-    "registry": "https://spring.jfrog.io/spring/api/npm/npm-local-red/"
+    "registry": "https://registry.npmjs.org/"
   },
   "prettier": {
     "printWidth": 100,
