@@ -1,4 +1,4 @@
-![vuedssr logo](./docs/images/vussr-logo.svg)
+![vuedssr logo](https://raw.githubusercontent.com/spring-media/vussr/master/docs/images/vussr-logo.svg?sanitize=true)
 
 # ✊ VUSSR
 
