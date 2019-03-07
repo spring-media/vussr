@@ -1,7 +1,7 @@
 {
   "name": "vussr",
   "description": "✊ VUSSR—Server Side Rendering for VUE",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "license": "ISC",
   "main": "index.js",
   "bin": {
@@ -55,7 +55,8 @@
     "webpack-merge": "4.1.4",
     "webpack-node-externals": "1.7.2",
     "webpackbar": "3.1.3",
-    "winston": "3.1.0"
+    "winston": "3.1.0",
+    "write-file-webpack-plugin": "4.5.0"
   },
   "devDependencies": {
     "jest": "23.6.0",
@@ -63,8 +64,7 @@
     "prettier": "1.15.3",
     "supertest": "3.3.0",
     "vue": "2.5.17",
-    "vue-router": "3.0.1",
-    "write-file-webpack-plugin": "4.5.0"
+    "vue-router": "3.0.1"
   },
   "bugs": {
     "url": "https://github.com/spring-media/vussr/issues"
