@@ -8,11 +8,11 @@ const cookieParser = require("cookie-parser");
 
 function getMiddleWares({ renderFn, before = [], after = [], nock, nockPath, accessLogs }) {
   return [
+    cookieParser(),
     writeAccessLogs(accessLogs),
     setContext(),
     applyNocks(nock, nockPath),
     ...before,
-    cookieParser(),
     runApp(renderFn),
     ...after,
     sendHtml(),
