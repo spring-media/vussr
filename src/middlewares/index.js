@@ -4,6 +4,7 @@ const applyNocks = require('./nock');
 const runApp = require('./runApp');
 const sendHtml = require('./sendHtml');
 const errorHandler = require('./errorHandler');
+const cookieParser = require("cookie-parser");
 
 function getMiddleWares({ renderFn, before = [], after = [], nock, nockPath, accessLogs }) {
   return [
@@ -11,6 +12,7 @@ function getMiddleWares({ renderFn, before = [], after = [], nock, nockPath, acc
     setContext(),
     applyNocks(nock, nockPath),
     ...before,
+    cookieParser(),
     runApp(renderFn),
     ...after,
     sendHtml(),
