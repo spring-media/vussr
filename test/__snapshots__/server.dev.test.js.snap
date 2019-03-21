@@ -7,7 +7,7 @@ exports[`Dev Server serves the app's html 1`] = `
     <meta charset=\\"utf-8\\">
     <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=edge\\">
     <meta name=\\"viewport\\" content=\\"width=device-width,initial-scale=1\\">
-  <link rel=\\"preload\\" href=\\"/assets/client.js\\" as=\\"script\\"><style data-vue-ssr-id=\\"d8bb6fb6:0\\">
+  <link rel=\\"preload\\" href=\\"/assets/client.js\\" as=\\"script\\"><style data-vue-ssr-id=\\"4fc1490d:0\\">
 p[data-v-a59db9f0] {
   font-size: 2em;
   text-align: center;
@@ -107,14 +107,14 @@ exports[`Dev Server serves the client js 1`] = `
 /************************************************************************/
 /******/ ({
 
-/***/ \\"./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css&\\":
-/*!*********************************************************************************************************************************************************************************************************************************************************************!*\\\\
-  !*** ./node_modules/css-loader??ref--2-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css& ***!
-  \\\\*********************************************************************************************************************************************************************************************************************************************************************/
+/***/ \\"../../node_modules/css-loader/index.js?!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css&\\":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/css-loader??ref--2-1!/Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-loader/lib/loaders/stylePostLoader.js!/Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-loader/lib??vue-loader-options!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css& ***!
+  \\\\*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ \\"./node_modules/css-loader/lib/css-base.js\\")(false);
+exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/lib/css-base.js */ \\"../../node_modules/css-loader/lib/css-base.js\\")(false);
 // imports
 
 
@@ -126,10 +126,10 @@ exports.push([module.i, \\"\\\\np[data-v-a59db9f0] {\\\\n  font-size: 2em;\\\\n 
 
 /***/ }),
 
-/***/ \\"./node_modules/css-loader/lib/css-base.js\\":
-/*!*************************************************!*\\\\
-  !*** ./node_modules/css-loader/lib/css-base.js ***!
-  \\\\*************************************************/
+/***/ \\"../../node_modules/css-loader/lib/css-base.js\\":
+/*!*****************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/css-loader/lib/css-base.js ***!
+  \\\\*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -213,10 +213,10 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ \\"./node_modules/process/browser.js\\":
-/*!*****************************************!*\\\\
-  !*** ./node_modules/process/browser.js ***!
-  \\\\*****************************************/
+/***/ \\"../../node_modules/process/browser.js\\":
+/*!*********************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/process/browser.js ***!
+  \\\\*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -408,10 +408,10 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ \\"./node_modules/setimmediate/setImmediate.js\\":
-/*!***************************************************!*\\\\
-  !*** ./node_modules/setimmediate/setImmediate.js ***!
-  \\\\***************************************************/
+/***/ \\"../../node_modules/setimmediate/setImmediate.js\\":
+/*!*******************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/setimmediate/setImmediate.js ***!
+  \\\\*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -602,14 +602,14 @@ process.umask = function() { return 0; };
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === \\"undefined\\" ? typeof global === \\"undefined\\" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ \\"./node_modules/webpack/buildin/global.js\\"), __webpack_require__(/*! ./../process/browser.js */ \\"./node_modules/process/browser.js\\")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../packages/red-udssr/node_modules/webpack/buildin/global.js */ \\"./node_modules/webpack/buildin/global.js\\"), __webpack_require__(/*! ./../process/browser.js */ \\"../../node_modules/process/browser.js\\")))
 
 /***/ }),
 
-/***/ \\"./node_modules/timers-browserify/main.js\\":
-/*!************************************************!*\\\\
-  !*** ./node_modules/timers-browserify/main.js ***!
-  \\\\************************************************/
+/***/ \\"../../node_modules/timers-browserify/main.js\\":
+/*!****************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/timers-browserify/main.js ***!
+  \\\\****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -666,7 +666,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(/*! setimmediate */ \\"./node_modules/setimmediate/setImmediate.js\\");
+__webpack_require__(/*! setimmediate */ \\"../../node_modules/setimmediate/setImmediate.js\\");
 // On some exotic environments, it's not clear which object \`setimmediate\` was
 // able to install onto.  Search each possibility in the same order as the
 // \`setimmediate\` library.
@@ -677,14 +677,14 @@ exports.clearImmediate = (typeof self !== \\"undefined\\" && self.clearImmediate
                          (typeof global !== \\"undefined\\" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ \\"./node_modules/webpack/buildin/global.js\\")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../packages/red-udssr/node_modules/webpack/buildin/global.js */ \\"./node_modules/webpack/buildin/global.js\\")))
 
 /***/ }),
 
-/***/ \\"./node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=script&lang=js&\\":
-/*!****************************************************************************************************************************************!*\\\\
-  !*** ./node_modules/vue-loader/lib??vue-loader-options!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=script&lang=js& ***!
-  \\\\****************************************************************************************************************************************/
+/***/ \\"../../node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=script&lang=js&\\":
+/*!********************************************************************************************************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-loader/lib??vue-loader-options!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=script&lang=js& ***!
+  \\\\********************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -700,10 +700,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ \\"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=template&id=a59db9f0&scoped=true&\\":
-/*!**************************************************************************************************************************************************************************************************************************************!*\\\\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=template&id=a59db9f0&scoped=true& ***!
-  \\\\**************************************************************************************************************************************************************************************************************************************/
+/***/ \\"../../node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=template&id=a59db9f0&scoped=true&\\":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-loader/lib??vue-loader-options!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=template&id=a59db9f0&scoped=true& ***!
+  \\\\**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -726,10 +726,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ \\"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\\":
-/*!********************************************************************!*\\\\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \\\\********************************************************************/
+/***/ \\"../../node_modules/vue-loader/lib/runtime/componentNormalizer.js\\":
+/*!************************************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \\\\************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -833,38 +833,38 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ \\"./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css&\\":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\\\\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader??ref--2-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css& ***!
-  \\\\*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ \\"../../node_modules/vue-style-loader/index.js!../../node_modules/css-loader/index.js?!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css&\\":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-style-loader!/Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/css-loader??ref--2-1!/Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-loader/lib/loaders/stylePostLoader.js!/Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-loader/lib??vue-loader-options!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css& ***!
+  \\\\*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--2-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/vue-loader/lib??vue-loader-options!./HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css& */ \\"./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css&\\");
+var content = __webpack_require__(/*! !../../../../../../../node_modules/css-loader??ref--2-1!../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css& */ \\"../../node_modules/css-loader/index.js?!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css&\\");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var add = __webpack_require__(/*! ../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ \\"./node_modules/vue-style-loader/lib/addStylesClient.js\\").default
-var update = add(\\"d8bb6fb6\\", content, false, {});
+var add = __webpack_require__(/*! ../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ \\"../../node_modules/vue-style-loader/lib/addStylesClient.js\\").default
+var update = add(\\"4fc1490d\\", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
 /***/ }),
 
-/***/ \\"./node_modules/vue-style-loader/lib/addStylesClient.js\\":
-/*!**************************************************************!*\\\\
-  !*** ./node_modules/vue-style-loader/lib/addStylesClient.js ***!
-  \\\\**************************************************************/
+/***/ \\"../../node_modules/vue-style-loader/lib/addStylesClient.js\\":
+/*!******************************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-style-loader/lib/addStylesClient.js ***!
+  \\\\******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 \\"use strict\\";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \\"default\\", function() { return addStylesClient; });
-/* harmony import */ var _listToStyles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listToStyles */ \\"./node_modules/vue-style-loader/lib/listToStyles.js\\");
+/* harmony import */ var _listToStyles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listToStyles */ \\"../../node_modules/vue-style-loader/lib/listToStyles.js\\");
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
@@ -1091,10 +1091,10 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ \\"./node_modules/vue-style-loader/lib/listToStyles.js\\":
-/*!***********************************************************!*\\\\
-  !*** ./node_modules/vue-style-loader/lib/listToStyles.js ***!
-  \\\\***********************************************************/
+/***/ \\"../../node_modules/vue-style-loader/lib/listToStyles.js\\":
+/*!***************************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue-style-loader/lib/listToStyles.js ***!
+  \\\\***************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1132,10 +1132,10 @@ function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ \\"./node_modules/vue/dist/vue.runtime.esm.js\\":
-/*!**************************************************!*\\\\
-  !*** ./node_modules/vue/dist/vue.runtime.esm.js ***!
-  \\\\**************************************************/
+/***/ \\"../../node_modules/vue/dist/vue.runtime.esm.js\\":
+/*!******************************************************************************************************!*\\\\
+  !*** /Users/lbombach/Arbeit/Spring/Bild/Projects/red-aegis/node_modules/vue/dist/vue.runtime.esm.js ***!
+  \\\\******************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9161,7 +9161,7 @@ if (inBrowser) {
 
 /* harmony default export */ __webpack_exports__[\\"default\\"] = (Vue);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ \\"./node_modules/webpack/buildin/global.js\\"), __webpack_require__(/*! ./../../timers-browserify/main.js */ \\"./node_modules/timers-browserify/main.js\\").setImmediate))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../packages/red-udssr/node_modules/webpack/buildin/global.js */ \\"./node_modules/webpack/buildin/global.js\\"), __webpack_require__(/*! ./../../timers-browserify/main.js */ \\"../../node_modules/timers-browserify/main.js\\").setImmediate))
 
 /***/ }),
 
@@ -9209,7 +9209,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HelloWorld.vue?vue&type=script&lang=js& */ \\"./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=script&lang=js&\\");
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _HelloWorld_vue_vue_type_style_index_0_id_a59db9f0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css& */ \\"./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css&\\");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \\"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\\");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \\"../../node_modules/vue-loader/lib/runtime/componentNormalizer.js\\");
 
 
 
@@ -9245,7 +9245,7 @@ component.options.__file = \\"test/fixtures/testApp/src/components/HelloWorld.vu
 
 \\"use strict\\";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib??vue-loader-options!./HelloWorld.vue?vue&type=script&lang=js& */ \\"./node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=script&lang=js&\\");
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./HelloWorld.vue?vue&type=script&lang=js& */ \\"../../node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=script&lang=js&\\");
 /* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__[\\"default\\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
@@ -9261,7 +9261,7 @@ __webpack_require__.r(__webpack_exports__);
 
 \\"use strict\\";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_index_js_ref_2_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_a59db9f0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-style-loader!../../../../../node_modules/css-loader??ref--2-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/vue-loader/lib??vue-loader-options!./HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css& */ \\"./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css&\\");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_index_js_ref_2_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_a59db9f0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-style-loader!../../../../../../../node_modules/css-loader??ref--2-1!../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css& */ \\"../../node_modules/vue-style-loader/index.js!../../node_modules/css-loader/index.js?!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=style&index=0&id=a59db9f0&scoped=true&lang=css&\\");
 /* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_index_js_ref_2_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_a59db9f0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_index_js_ref_2_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_a59db9f0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_index_js_ref_2_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_a59db9f0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_index_js_ref_2_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_a59db9f0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__[\\"default\\"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_index_js_ref_2_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_a59db9f0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
@@ -9277,7 +9277,7 @@ __webpack_require__.r(__webpack_exports__);
 
 \\"use strict\\";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_template_id_a59db9f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./HelloWorld.vue?vue&type=template&id=a59db9f0&scoped=true& */ \\"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=template&id=a59db9f0&scoped=true&\\");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_template_id_a59db9f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./HelloWorld.vue?vue&type=template&id=a59db9f0&scoped=true& */ \\"../../node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/vue-loader/lib/index.js?!./test/fixtures/testApp/src/components/HelloWorld.vue?vue&type=template&id=a59db9f0&scoped=true&\\");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \\"render\\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_template_id_a59db9f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\\"render\\"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \\"staticRenderFns\\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_template_id_a59db9f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\\"staticRenderFns\\"]; });
@@ -9316,7 +9316,7 @@ __webpack_require__.r(__webpack_exports__);
 
 \\"use strict\\";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \\"./node_modules/vue/dist/vue.runtime.esm.js\\");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \\"../../node_modules/vue/dist/vue.runtime.esm.js\\");
 /* harmony import */ var _components_HelloWorld_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/HelloWorld.vue */ \\"./test/fixtures/testApp/src/components/HelloWorld.vue\\");
 
 
