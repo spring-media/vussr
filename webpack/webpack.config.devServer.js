@@ -13,7 +13,6 @@ const transformSlashes = val => val.replace(/\\/, '/').replace(/^\/?/, '/').repl
 const relativePath = val => transformSlashes(testSpaces(path.relative(process.cwd(), val)));
 
 module.exports = function getDevServerConfig(config) {
-  console.log(relativePath(config.assetsPath));
   return {
     contentBase: [config.outputPath, config.assetsPath],
     publicPath: relativePath(config.assetsPath),
