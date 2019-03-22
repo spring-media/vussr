@@ -2,6 +2,7 @@ const { nockMiddleware, replayNocks, recordMiddleware, replayMiddleware } = requ
 const applyNocks = require('../../src/middlewares/nock');
 
 jest.mock('express-nock');
+jest.unmock('../../src/middlewares/nock');
 
 test('it returns a nock record middleware', () => {
   const mode = 'record';
@@ -14,9 +15,11 @@ test('it returns a nock record middleware', () => {
 test('it returns a nock replay middleware', () => {
   const mode = 'replay';
   const nockPath = 'nockPath';
+  const next = jest.fn();
   const middleware = applyNocks(mode, nockPath);
+  middleware(null, null, next);
   expect(replayNocks).toHaveBeenCalledWith({ nockPath });
-  expect(middleware).toBe(replayMiddleware);
+  expect(next).toHaveBeenCalledWith();
 });
 
 test('it returns a middleware that calls next', () => {
