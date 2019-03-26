@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "vue": "2.5.17",
-    "vussr": "1.3.0"
+    "vussr": "^2.0.0"
   }
 }
