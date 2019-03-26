@@ -24,7 +24,7 @@ describe('access logs', () => {
       new RegExp(
         `\\u001b\\[2m  - ${
           res.statusCode
-        } \\d{1,2}:\\d{1,2}:\\d{1,2} \\d+.\\d+s \\u001b\\[22m${originalUrl}`
+        } \\d{1,2}:\\d{1,2}:\\d{1,2}( (AM|PM))? \\d+.\\d+s \\u001b\\[22m${originalUrl}`
       )
     );
     const prefix = false;
