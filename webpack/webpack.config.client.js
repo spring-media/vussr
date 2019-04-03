@@ -18,21 +18,23 @@ module.exports = function getClientConfig(config) {
     throw new Error(`Cannot find template file ${config.template}`);
   }
 
+  const relativeAssetsToBase = path.relative(config.assetsPath, config.outputPath);
   const htmlWebpackPluginOptions = {
     template: config.template,
+    filename: relativeAssetsToBase + '/index.html',
     inject: false,
     minify: { removeComments: false },
   };
 
   const devPlugins = [
-    new VueSSRClientPlugin(),
+    new VueSSRClientPlugin({ filename: relativeAssetsToBase + '/vue-ssr-client-manifest.json' }),
     new HtmlWebpackPlugin(htmlWebpackPluginOptions),
     new WebpackBar({ name: 'Client', color: 'green', compiledIn: false }),
     new webpack.DefinePlugin({ 'process.client': true, 'process.server': false }),
   ];
 
   const prodPlugins = [
-    new VueSSRClientPlugin(),
+    new VueSSRClientPlugin({ filename: relativeAssetsToBase + '/vue-ssr-client-manifest.json' }),
     new HtmlWebpackPlugin(htmlWebpackPluginOptions),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin({ 'process.client': true, 'process.server': false }),
