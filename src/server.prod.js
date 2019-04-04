@@ -50,8 +50,6 @@ class ProdServer {
     const accessLogs = this.config.accessLogs || 'clf';
     const renderFn = this.getRenderFunction();
     app.use('/healthcheck', healthcheck());
-    app.use(serverPublicPath, express.static(serverOutputPath + serverPublicPath));
-    app.use(clientPublicPath, express.static(clientOutputPath + clientPublicPath));
     app.use(serverPublicPath, express.static(serverOutputPath));
     app.use(clientPublicPath, express.static(clientOutputPath));
     app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));
@@ -66,11 +64,10 @@ class ProdServer {
   }
 
   readBundleAndManifest() {
-    const serverOutputPath = this.config.server.output.path;
-    const clientOutputPath = this.config.client.output.path;
-    const serverBundlePath = path.resolve(serverOutputPath, 'vue-ssr-server-bundle.json');
-    const clientManifestPath = path.resolve(clientOutputPath, 'vue-ssr-client-manifest.json');
-    const templatePath = path.resolve(this.config.client.output.path, 'index.html');
+    const outputPath = this.config.outputPath;
+    const serverBundlePath = path.resolve(outputPath, 'vue-ssr-server-bundle.json');
+    const clientManifestPath = path.resolve(outputPath, 'vue-ssr-client-manifest.json');
+    const templatePath = path.resolve(outputPath, 'index.html');
     const serverBundle = JSON.parse(fs.readFileSync(serverBundlePath));
     const clientManifest = JSON.parse(fs.readFileSync(clientManifestPath));
     const template = fs.readFileSync(templatePath, 'utf-8');

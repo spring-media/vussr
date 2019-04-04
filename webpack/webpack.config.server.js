@@ -20,8 +20,9 @@ process.noDeprecation = true;
  * [2] https://github.com/socketio/socket.io-client/issues/933#issuecomment-169866929
  */
 module.exports = function getServerConfig(config) {
+  const relativeAssetsToBase = path.relative(config.assetsPath, config.outputPath);
   const devPlugins = [
-    new VueSSRServerPlugin(),
+    new VueSSRServerPlugin({ filename: relativeAssetsToBase + '/vue-ssr-server-bundle.json' }),
     new WebpackBar({ name: 'Server', color: 'orange', compiledIn: false }),
     new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
     new CopyWebpackPlugin(config.copy),
@@ -34,7 +35,7 @@ module.exports = function getServerConfig(config) {
   ];
 
   const prodPlugins = [
-    new VueSSRServerPlugin(),
+    new VueSSRServerPlugin({ filename: relativeAssetsToBase + '/vue-ssr-server-bundle.json' }),
     new CopyWebpackPlugin(config.copy),
     new webpack.NormalModuleReplacementPlugin( // [1]
       /\/iconv-loader(.js)?$/,

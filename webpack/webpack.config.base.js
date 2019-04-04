@@ -18,7 +18,7 @@ module.exports = function getBaseConfig(config) {
     devtool: isProd ? false : 'source-map',
     context: process.cwd(),
     output: {
-      path: config.outputPath,
+      path: config.assetsPath,
       publicPath: `/${relativeAssetsPath}/`,
       filename: '[name].js',
     },
@@ -62,7 +62,7 @@ module.exports = function getBaseConfig(config) {
           loader: 'url-loader',
           options: {
             limit: 4096,
-            name: `./${relativeAssetsPath}/fonts/[name].[ext]?[hash]`,
+            name: `./fonts/[name].[ext]?[hash]`,
           },
         },
         {
@@ -70,7 +70,7 @@ module.exports = function getBaseConfig(config) {
           loader: 'url-loader',
           options: {
             limit: 8000,
-            name: `./${relativeAssetsPath}/img/[name].[ext]?[hash]`,
+            name: `./img/[name].[ext]?[hash]`,
           },
         },
         {
