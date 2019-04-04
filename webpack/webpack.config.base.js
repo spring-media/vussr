@@ -80,7 +80,19 @@ module.exports = function getBaseConfig(config) {
         },
         {
           test: /\.svg$/,
-          use: ['babel-loader', 'vue-svg-loader'],
+          oneOf: [
+            {
+              resourceQuery: /component/,
+              use: ['babel-loader', 'vue-svg-loader'],
+            },
+            {
+
+              use: {
+                loader: 'svg-inline-loader',
+                options: { removeSVGTagAttrs: false },
+              },
+            },
+          ]
         },
         {
           test: /\.txt$/,

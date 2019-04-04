@@ -1,7 +1,7 @@
 {
   "name": "vussr",
   "description": "✊ VUSSR—Server Side Rendering for VUE",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "license": "ISC",
   "main": "index.js",
   "bin": {
@@ -46,6 +46,7 @@
     "pretty-error": "2.1.1",
     "raw-loader": "0.5.1",
     "sass-loader": "7.1.0",
+    "svg-inline-loader": "0.8.0",
     "url-loader": "1.1.1",
     "vue-loader": "15.4.2",
     "vue-server-renderer": "2.5.17",
