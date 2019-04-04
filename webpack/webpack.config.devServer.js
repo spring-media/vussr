@@ -14,7 +14,7 @@ const relativePath = val => transformSlashes(testSpaces(path.relative(process.cw
 
 module.exports = function getDevServerConfig(config) {
   return {
-    contentBase: [config.assetsPath],
+    contentBase: config.assetsPath,
     publicPath: relativePath(config.assetsPath),
     port: 8080,
     compress: false,
