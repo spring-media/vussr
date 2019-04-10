@@ -74,6 +74,20 @@ module.exports = function getBaseConfig(config) {
           },
         },
         {
+            test: /(manifest\.webmanifest|browserconfig\.xml)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: `[name].[contenthash:8].[ext]`,
+                    }
+                },
+                {
+                    loader: 'app-manifest-loader',
+                }
+            ],
+        },
+        {
           test: /\.(graphql|gql)$/,
           exclude: /node_modules/,
           loader: 'graphql-tag/loader',
