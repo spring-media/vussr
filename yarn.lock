@@ -574,6 +574,13 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
+"@babel/runtime@^7.4.3":
+  version "7.4.3"
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/@babel/runtime/-/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
+  integrity sha1-eYiORSA0IjrZYJGHoK0f4NKtS9w=
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.1.2":
   version "7.1.2"
   resolved "https://spring.jfrog.io/spring/api/npm/npm-red/@babel/template/-/template-7.1.2.tgz#090484a574fef5a2d2d7726a674eceda5c5b5644"
@@ -918,6 +925,16 @@ anymatch@^2.0.0:
   dependencies:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
+
+app-manifest-loader@2.3.0:
+  version "2.3.0"
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/app-manifest-loader/-/app-manifest-loader-2.3.0.tgz#cb98cc00cb92841c4281b722fe647413a8f64242"
+  integrity sha1-y5jMAMuShBxCgbci/mR0E6j2QkI=
+  dependencies:
+    "@babel/runtime" "^7.4.3"
+    core-js "^3.0.0"
+    loader-utils "^1.2.3"
+    xml-js "^1.6.11"
 
 append-transform@^0.4.0:
   version "0.4.0"
@@ -2172,6 +2189,11 @@ core-js@^2.4.0, core-js@^2.5.0:
   version "2.5.7"
   resolved "https://spring.jfrog.io/spring/api/npm/npm-red/core-js/-/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
   integrity sha1-+XJgj/DOrWi4QaFqky0LGDeRgU4=
+
+core-js@^3.0.0:
+  version "3.0.1"
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/core-js/-/core-js-3.0.1.tgz#1343182634298f7f38622f95e73f54e48ddf4738"
+  integrity sha1-E0MYJjQpj384Yi+V5z9U5I3fRzg=
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -6814,6 +6836,11 @@ regenerator-runtime@^0.12.0:
   resolved "https://spring.jfrog.io/spring/api/npm/npm-red/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
   integrity sha1-+hpxVEdkwDb4xJsToIsllMn4oN4=
 
+regenerator-runtime@^0.13.2:
+  version "0.13.2"
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/regenerator-runtime/-/regenerator-runtime-0.13.2.tgz#32e59c9a6fb9b1a4aff09b4930ca2d4477343447"
+  integrity sha1-MuWcmm+5saSv8JtJMMotRHc0NEc=
+
 regenerator-transform@^0.13.3:
   version "0.13.3"
   resolved "https://spring.jfrog.io/spring/api/npm/npm-red/regenerator-transform/-/regenerator-transform-0.13.3.tgz#264bd9ff38a8ce24b06e0636496b2c856b57bcbb"
@@ -8732,6 +8759,13 @@ xdg-basedir@^3.0.0:
   version "3.0.0"
   resolved "https://spring.jfrog.io/spring/api/npm/npm-red/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
   integrity sha1-SWsswQnsqNus/i3HK2A8F8WHCtQ=
+
+xml-js@^1.6.11:
+  version "1.6.11"
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/xml-js/-/xml-js-1.6.11.tgz#927d2f6947f7f1c19a316dd8eea3614e8b18f8e9"
+  integrity sha1-kn0vaUf38cGaMW3Y7qNhTosY+Ok=
+  dependencies:
+    sax "^1.2.4"
 
 xml-name-validator@^3.0.0:
   version "3.0.0"
