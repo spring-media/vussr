@@ -19,7 +19,7 @@ module.exports = function getBaseConfig(config) {
     context: process.cwd(),
     output: {
       path: config.assetsPath,
-      publicPath: `/${relativeAssetsPath}/`,
+      publicPath: process.env.PUBLIC_PATH || `/${relativeAssetsPath}/`,
       filename: '[name].js',
     },
     node: {
