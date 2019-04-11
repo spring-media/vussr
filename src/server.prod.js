@@ -17,14 +17,6 @@ const renderOptions = {
   runInNewContext: false,
 };
 
-function isUrl(string) {
-  try {
-    return Boolean(new URL(string));
-  } catch (err) {
-    return false;
-  }
-}
-
 class ProdServer {
   constructor(config, cliOptions) {
     this.config = new Config(config, cliOptions).getJson();
@@ -48,19 +40,17 @@ class ProdServer {
 
   setupApp() {
     const app = express();
-    const serverPublicPath = this.config.server.output.publicPath;
-    const clientPublicPath = this.config.client.output.publicPath;
-    const serverOutputPath = this.config.server.output.path;
-    const clientOutputPath = this.config.client.output.path;
     const { before, after } = this.config.middleware;
     const nock = this.config.nock;
     const nockPath = this.config.nockPath;
     const accessLogs = this.config.accessLogs || 'clf';
     const renderFn = this.getRenderFunction();
-    if (!isUrl(serverPublicPath)) {
+    if (!this.config.isCDN) {
+      const serverPublicPath = this.config.server.output.publicPath;
+      const clientPublicPath = this.config.client.output.publicPath;
+      const serverOutputPath = this.config.server.output.path;
+      const clientOutputPath = this.config.client.output.path;
       app.use(serverPublicPath, express.static(serverOutputPath));
-    }
-    if (!isUrl(clientPublicPath)) {
       app.use(clientPublicPath, express.static(clientOutputPath));
     }
     app.use('/healthcheck', healthcheck());

@@ -10,6 +10,7 @@ module.exports = {
   template: resolveApp('public/index.html'),
   outputPath: resolveApp('dist'),
   assetsPath: resolveApp('dist/assets'),
+  assetsUrlPath: '/assets/',
   filename: '[name].[contenthash:8].js',
   middleware: { before: [], after: [] },
   copy: [],
