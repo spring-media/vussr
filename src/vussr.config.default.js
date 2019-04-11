@@ -10,7 +10,7 @@ module.exports = {
   template: resolveApp('public/index.html'),
   outputPath: resolveApp('dist'),
   assetsPath: resolveApp('dist/assets'),
-  filename: '[name].[chunkhash].js',
+  filename: '[name].[contenthash:8].js',
   middleware: { before: [], after: [] },
   copy: [],
   server: defaultConfig => defaultConfig,
