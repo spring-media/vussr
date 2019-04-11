@@ -59,17 +59,15 @@ module.exports = function getBaseConfig(config) {
         },
         {
           test: /\.(woff|woff2)$/,
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
-            limit: 4096,
             name: `fonts/[name].[contenthash:8].[ext]`,
           },
         },
         {
           test: /\.(png|jpe?g|gif)$/,
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
-            limit: 8000,
             name: `img/[name].[contenthash:8].[ext]`,
           },
         },
