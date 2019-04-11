@@ -5,6 +5,7 @@ const express = require('express');
 const healthcheck = require('express-healthcheck');
 const gracefulShutdown = require('http-graceful-shutdown');
 const { createBundleRenderer } = require('vue-server-renderer');
+const { isUrl } = require('./utils');
 const { listenAsPromised, closeAsPromised } = require('./utils/server');
 const Config = require('./config');
 const getMiddleWares = require('./middlewares');
@@ -16,14 +17,6 @@ const DEFAULT_HOST = '::';
 const renderOptions = {
   runInNewContext: false,
 };
-
-function isUrl(string) {
-  try {
-    return Boolean(new URL(string));
-  } catch (err) {
-    return false;
-  }
-}
 
 class ProdServer {
   constructor(config, cliOptions) {

@@ -1,7 +1,16 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const { isUrl } = require('../src/utils');
 const { isProd } = require('../src/utils/env');
+
+function getDefaultPublicPath(assetsPath, outputPath) {
+    if (isUrl(assetsPath)) {
+        return assetsPath;
+    }
+
+    return `/${path.relative(outputPath, assetsPath)}/`;
+}
 
 module.exports = function getBaseConfig(config) {
   const devPlugins = [new VueLoaderPlugin()];
@@ -11,15 +20,13 @@ module.exports = function getBaseConfig(config) {
     new CleanWebpackPlugin(config.outputPath, { verbose: false }),
   ];
 
-  const relativeAssetsPath = path.relative(config.outputPath, config.assetsPath);
-
   return {
     mode: isProd ? 'production' : 'development',
     devtool: isProd ? false : 'source-map',
     context: process.cwd(),
     output: {
       path: config.assetsPath,
-      publicPath: process.env.PUBLIC_PATH || `/${relativeAssetsPath}/`,
+      publicPath: getDefaultPublicPath(config.assetsPath, config.outputPath),
       filename: '[name].js',
     },
     node: {
