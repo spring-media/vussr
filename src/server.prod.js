@@ -17,6 +17,14 @@ const renderOptions = {
   runInNewContext: false,
 };
 
+function isUrl(string) {
+  try {
+    return Boolean(new URL(string));
+  } catch (err) {
+    return false;
+  }
+}
+
 class ProdServer {
   constructor(config, cliOptions) {
     this.config = new Config(config, cliOptions).getJson();
@@ -49,9 +57,13 @@ class ProdServer {
     const nockPath = this.config.nockPath;
     const accessLogs = this.config.accessLogs || 'clf';
     const renderFn = this.getRenderFunction();
+    if (!isUrl(serverPublicPath)) {
+      app.use(serverPublicPath, express.static(serverOutputPath));
+    }
+    if (!isUrl(clientPublicPath)) {
+      app.use(clientPublicPath, express.static(clientOutputPath));
+    }
     app.use('/healthcheck', healthcheck());
-    app.use(serverPublicPath, express.static(serverOutputPath));
-    app.use(clientPublicPath, express.static(clientOutputPath));
     app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));
     return app;
   }
