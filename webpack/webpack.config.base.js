@@ -101,7 +101,7 @@ module.exports = function getBaseConfig(config) {
 
               use: {
                 loader: 'svg-inline-loader',
-                options: { removeSVGTagAttrs: false },
+                options: { removeSVGTagAttrs: false, idPrefix: true },
               },
             },
           ]
