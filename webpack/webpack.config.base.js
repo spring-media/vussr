@@ -98,7 +98,6 @@ module.exports = function getBaseConfig(config) {
               use: [
                 'babel-loader',
                 'vue-svg-loader',
-                'svgo-loader',
                 {
                   loader: 'svgo-loader',
                   options: {
