@@ -103,6 +103,7 @@ module.exports = function getBaseConfig(config) {
                   loader: 'svgo-loader',
                   options: {
                     plugins: [
+                      { removeViewBox: false },
                       { removeXMLNS: true },
                       { removeScriptElement: true },
                       { removeStyleElement: true },
@@ -123,6 +124,7 @@ module.exports = function getBaseConfig(config) {
                   loader: 'svgo-loader',
                   options: {
                     plugins: [
+                      { removeViewBox: false },
                       { removeXMLNS: true },
                       { removeScriptElement: true },
                       { removeStyleElement: true },
