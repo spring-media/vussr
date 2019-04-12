@@ -95,14 +95,42 @@ module.exports = function getBaseConfig(config) {
           oneOf: [
             {
               resourceQuery: /component/,
-              use: ['babel-loader', 'vue-svg-loader'],
+              use: [
+                'babel-loader',
+                'vue-svg-loader',
+                'svgo-loader',
+                {
+                  loader: 'svgo-loader',
+                  options: {
+                    plugins: [
+                      { removeXMLNS: true },
+                      { removeScriptElement: true },
+                      { removeStyleElement: true },
+                      { removeOffCanvasPaths: true },
+                    ]
+                  }
+                }
+              ],
             },
             {
-
-              use: {
-                loader: 'svg-inline-loader',
-                options: { removeSVGTagAttrs: false },
-              },
+              test: /\.svg$/,
+              use: [
+                {
+                  loader: 'svg-inline-loader',
+                  options: { removeSVGTagAttrs: false },
+                },
+                {
+                  loader: 'svgo-loader',
+                  options: {
+                    plugins: [
+                      { removeXMLNS: true },
+                      { removeScriptElement: true },
+                      { removeStyleElement: true },
+                      { removeOffCanvasPaths: true },
+                    ]
+                  }
+                },
+              ],
             },
           ]
         },

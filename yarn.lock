@@ -5165,7 +5165,7 @@ loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0:
     emojis-list "^2.0.0"
     json5 "^0.5.0"
 
-loader-utils@^1.2.3:
+loader-utils@^1.0.3, loader-utils@^1.2.3:
   version "1.2.3"
   resolved "https://spring.jfrog.io/spring/api/npm/npm-red/loader-utils/-/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
   integrity sha1-H/XcaRHJ8KBiUxpMBLYJQGEIwsc=
@@ -7811,6 +7811,14 @@ svg-to-vue@^0.4.0:
   integrity sha1-k6L8lljAlZP2CZrH9d7XOsg9xUk=
   dependencies:
     svgo "^1.1.1"
+
+svgo-loader@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/svgo-loader/-/svgo-loader-2.2.0.tgz#f29eb43efc14c34a15c4023f56ba12775ccdbe5f"
+  integrity sha512-AtIy4kmUQc1zo+QK3ZFvRrULRZAhUC63cLJxdVo1cONZ9WeYAkySUlaB05uZKKcYpsTb/9tDsBSXMab3/0QWtw==
+  dependencies:
+    js-yaml "^3.12.0"
+    loader-utils "^1.0.3"
 
 svgo@^1.1.1:
   version "1.2.0"
