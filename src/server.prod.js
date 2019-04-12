@@ -46,16 +46,20 @@ class ProdServer {
     const accessLogs = this.config.accessLogs || 'clf';
     const renderFn = this.getRenderFunction();
     if (!this.config.isCDN) {
-      const serverPublicPath = this.config.server.output.publicPath;
-      const clientPublicPath = this.config.client.output.publicPath;
-      const serverOutputPath = this.config.server.output.path;
-      const clientOutputPath = this.config.client.output.path;
-      app.use(serverPublicPath, express.static(serverOutputPath));
-      app.use(clientPublicPath, express.static(clientOutputPath));
-    }
+      this.setupStaticFiles(app);
+    };
     app.use('/healthcheck', healthcheck());
     app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));
     return app;
+  }
+
+  setupStaticFiles(app) {
+    const serverPublicPath = this.config.server.output.publicPath;
+    const clientPublicPath = this.config.client.output.publicPath;
+    const serverOutputPath = this.config.server.output.path;
+    const clientOutputPath = this.config.client.output.path;
+    app.use(serverPublicPath, express.static(serverOutputPath));
+    app.use(clientPublicPath, express.static(clientOutputPath));
   }
 
   getRenderFunction() {
