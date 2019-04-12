@@ -2,12 +2,11 @@ const webpackConfig = require('../webpack');
 const defaultConfig = require('./vussr.config.default');
 
 class Config {
-
   constructor(config, cliOptions) {
     const nockOptions = this.getNockOptions(cliOptions);
     this.config = Object.assign({}, defaultConfig, config, nockOptions);
     this.config.isCDN = this.isUrl(this.config.assetsUrlPath);
-    if(!this.config.isCDN) {
+    if (!this.config.isCDN) {
       this.config.assetsUrlPath = this.cleanRelativePath(this.config.assetsUrlPath);
     }
   }
