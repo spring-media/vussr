@@ -5,6 +5,22 @@ class Config {
   constructor(config, cliOptions) {
     const nockOptions = this.getNockOptions(cliOptions);
     this.config = Object.assign({}, defaultConfig, config, nockOptions);
+    this.config.isCDN = this.isUrl(this.config.assetsUrlPath);
+    if (!this.config.isCDN) {
+      this.config.assetsUrlPath = this.cleanRelativePath(this.config.assetsUrlPath);
+    }
+  }
+
+  cleanRelativePath(val) {
+    return val.replace(/^\/?/, '/').replace(/\/?$/, '/');
+  }
+
+  isUrl(string) {
+    try {
+      return Boolean(new URL(string));
+    } catch (err) {
+      return false;
+    }
   }
 
   getJson() {

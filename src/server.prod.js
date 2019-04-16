@@ -40,20 +40,26 @@ class ProdServer {
 
   setupApp() {
     const app = express();
-    const serverPublicPath = this.config.server.output.publicPath;
-    const clientPublicPath = this.config.client.output.publicPath;
-    const serverOutputPath = this.config.server.output.path;
-    const clientOutputPath = this.config.client.output.path;
     const { before, after } = this.config.middleware;
     const nock = this.config.nock;
     const nockPath = this.config.nockPath;
     const accessLogs = this.config.accessLogs || 'clf';
     const renderFn = this.getRenderFunction();
+    if (!this.config.isCDN) {
+      this.setupStaticFiles(app);
+    };
     app.use('/healthcheck', healthcheck());
-    app.use(serverPublicPath, express.static(serverOutputPath));
-    app.use(clientPublicPath, express.static(clientOutputPath));
     app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));
     return app;
+  }
+
+  setupStaticFiles(app) {
+    const serverPublicPath = this.config.server.output.publicPath;
+    const clientPublicPath = this.config.client.output.publicPath;
+    const serverOutputPath = this.config.server.output.path;
+    const clientOutputPath = this.config.client.output.path;
+    app.use(serverPublicPath, express.static(serverOutputPath));
+    app.use(clientPublicPath, express.static(clientOutputPath));
   }
 
   getRenderFunction() {

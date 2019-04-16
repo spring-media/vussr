@@ -11,15 +11,13 @@ module.exports = function getBaseConfig(config) {
     new CleanWebpackPlugin(config.outputPath, { verbose: false }),
   ];
 
-  const relativeAssetsPath = path.relative(config.outputPath, config.assetsPath);
-
   return {
     mode: isProd ? 'production' : 'development',
     devtool: isProd ? false : 'source-map',
     context: process.cwd(),
     output: {
       path: config.assetsPath,
-      publicPath: `/${relativeAssetsPath}/`,
+      publicPath: config.assetsUrlPath,
       filename: '[name].js',
     },
     node: {
