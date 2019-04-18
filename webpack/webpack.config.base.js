@@ -11,6 +11,14 @@ module.exports = function getBaseConfig(config) {
     new CleanWebpackPlugin(config.outputPath, { verbose: false }),
   ];
 
+  const svgoConfig = [
+    { removeViewBox: false },
+    { removeXMLNS: true },
+    { removeScriptElement: true },
+    { removeStyleElement: true },
+    { removeOffCanvasPaths: true },
+  ];
+
   return {
     mode: isProd ? 'production' : 'development',
     devtool: isProd ? false : 'source-map',
@@ -93,14 +101,27 @@ module.exports = function getBaseConfig(config) {
           oneOf: [
             {
               resourceQuery: /component/,
-              use: ['babel-loader', 'vue-svg-loader'],
+              use: [
+                'babel-loader',
+                'vue-svg-loader',
+                {
+                  loader: 'svgo-loader',
+                  options: { plugins: svgoConfig }
+                }
+              ],
             },
             {
-
-              use: {
-                loader: 'svg-inline-loader',
-                options: { removeSVGTagAttrs: false, idPrefix: true },
-              },
+              test: /\.svg$/,
+              use: [
+                {
+                  loader: 'svg-inline-loader',
+                  options: { removeSVGTagAttrs: false, idPrefix: true },
+                },
+                {
+                  loader: 'svgo-loader',
+                  options: { plugins: svgoConfig }
+                },
+              ],
             },
           ]
         },
