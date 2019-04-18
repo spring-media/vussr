@@ -11,6 +11,14 @@ module.exports = function getBaseConfig(config) {
     new CleanWebpackPlugin(config.outputPath, { verbose: false }),
   ];
 
+  const svgoConfig = [
+    { removeViewBox: false },
+    { removeXMLNS: true },
+    { removeScriptElement: true },
+    { removeStyleElement: true },
+    { removeOffCanvasPaths: true },
+  ];
+
   return {
     mode: isProd ? 'production' : 'development',
     devtool: isProd ? false : 'source-map',
@@ -98,15 +106,7 @@ module.exports = function getBaseConfig(config) {
                 'vue-svg-loader',
                 {
                   loader: 'svgo-loader',
-                  options: {
-                    plugins: [
-                      { removeViewBox: false },
-                      { removeXMLNS: true },
-                      { removeScriptElement: true },
-                      { removeStyleElement: true },
-                      { removeOffCanvasPaths: true },
-                    ]
-                  }
+                  options: {plugins: svgoConfig }
                 }
               ],
             },
@@ -119,15 +119,7 @@ module.exports = function getBaseConfig(config) {
                 },
                 {
                   loader: 'svgo-loader',
-                  options: {
-                    plugins: [
-                      { removeViewBox: false },
-                      { removeXMLNS: true },
-                      { removeScriptElement: true },
-                      { removeStyleElement: true },
-                      { removeOffCanvasPaths: true },
-                    ]
-                  }
+                  options: { plugins: svgoConfig }
                 },
               ],
             },
