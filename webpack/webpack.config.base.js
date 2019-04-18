@@ -106,7 +106,7 @@ module.exports = function getBaseConfig(config) {
                 'vue-svg-loader',
                 {
                   loader: 'svgo-loader',
-                  options: {plugins: svgoConfig }
+                  options: { plugins: svgoConfig }
                 }
               ],
             },
