@@ -1,14 +1,19 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const SpritePlugin = require('svg-sprite-loader/plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const { isProd } = require('../src/utils/env');
 
 module.exports = function getBaseConfig(config) {
-  const devPlugins = [new VueLoaderPlugin()];
+  const devPlugins = [
+    new VueLoaderPlugin(),
+    new SpritePlugin({ plainSprite: true }),
+  ];
 
   const prodPlugins = [
     new VueLoaderPlugin(),
     new CleanWebpackPlugin(config.outputPath, { verbose: false }),
+    new SpritePlugin({ plainSprite: true }),
   ];
 
   const svgoConfig = [
@@ -96,6 +101,22 @@ module.exports = function getBaseConfig(config) {
           exclude: /node_modules/,
           loader: 'graphql-tag/loader',
         },
+        /**
+         * Workaround until the following pr is merged and released
+         * https://github.com/kisenka/svg-sprite-loader/pull/333
+         */
+        {
+          test: /svg-sprite-loader-workaround/,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                extract: true,
+                spriteFilename: 'sprite.[contenthash:8].svg'
+              }
+            },
+          ],
+        },
         {
           test: /\.svg$/,
           oneOf: [
@@ -104,6 +125,22 @@ module.exports = function getBaseConfig(config) {
               use: [
                 'babel-loader',
                 'vue-svg-loader',
+                {
+                  loader: 'svgo-loader',
+                  options: { plugins: svgoConfig }
+                }
+              ],
+            },
+            {
+              resourceQuery: /sprite/,
+              use: [
+                {
+                  loader: 'svg-sprite-loader',
+                  options: {
+                    extract: true,
+                    spriteFilename: 'sprite.[contenthash:8].svg'
+                  }
+                },
                 {
                   loader: 'svgo-loader',
                   options: { plugins: svgoConfig }
