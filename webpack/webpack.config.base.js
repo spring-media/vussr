@@ -101,22 +101,6 @@ module.exports = function getBaseConfig(config) {
           exclude: /node_modules/,
           loader: 'graphql-tag/loader',
         },
-        /**
-         * Workaround until the following pr is merged and released
-         * https://github.com/kisenka/svg-sprite-loader/pull/333
-         */
-        {
-          test: /svg-sprite-loader-workaround/,
-          use: [
-            {
-              loader: 'svg-sprite-loader',
-              options: {
-                extract: true,
-                spriteFilename: 'sprite.[contenthash:8].svg'
-              }
-            },
-          ],
-        },
         {
           test: /\.svg$/,
           oneOf: [

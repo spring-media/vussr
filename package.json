@@ -48,7 +48,7 @@
     "raw-loader": "0.5.1",
     "sass-loader": "7.1.0",
     "svg-inline-loader": "0.8.0",
-    "svg-sprite-loader": "4.1.3",
+    "svg-sprite-loader": "zaycker/svg-sprite-loader#bugfix/oneof-and-rules-compositons-of-rule",
     "svgo-loader": "2.2.0",
     "vue-loader": "15.4.2",
     "vue-server-renderer": "2.5.17",
