@@ -110,7 +110,7 @@ module.exports = function getBaseConfig(config) {
                   loader: 'svg-sprite-loader',
                   options: {
                     extract: true,
-                    spriteFilename: 'sprite.[contenthash:8].svg'
+                    spriteFilename: config.svgSpriteFilename,
                   }
                 },
                 {

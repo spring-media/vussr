@@ -12,6 +12,7 @@ module.exports = {
   assetsPath: resolveApp('dist/assets'),
   assetsUrlPath: '/assets/',
   filename: '[name].[contenthash:8].js',
+  svgSpriteFilename: 'sprite.[contenthash:8].svg',
   middleware: { before: [], after: [] },
   copy: [],
   server: defaultConfig => defaultConfig,
