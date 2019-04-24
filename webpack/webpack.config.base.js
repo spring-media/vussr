@@ -5,16 +5,14 @@ const { VueLoaderPlugin } = require('vue-loader');
 const { isProd } = require('../src/utils/env');
 
 module.exports = function getBaseConfig(config) {
-  const spritePlugin = new SpritePlugin({ plainSprite: true });
   const devPlugins = [
     new VueLoaderPlugin(),
-    spritePlugin,
+    new SpritePlugin({ plainSprite: true }),
   ];
 
   const prodPlugins = [
-    new VueLoaderPlugin(),
+    ...devPlugins,
     new CleanWebpackPlugin(config.outputPath, { verbose: false }),
-    spritePlugin,
   ];
 
   const svgoConfig = [
