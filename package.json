@@ -1,7 +1,7 @@
 {
   "name": "vussr",
   "description": "✊ VUSSR—Server Side Rendering for VUE",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "license": "ISC",
   "main": "index.js",
   "bin": {
@@ -43,6 +43,7 @@
     "morgan": "1.9.1",
     "nock": "10.0.3",
     "node-sass": "4.9.0",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
     "portfinder": "1.0.17",
     "pretty-error": "2.1.1",
     "raw-loader": "0.5.1",
@@ -50,6 +51,7 @@
     "svg-inline-loader": "0.8.0",
     "svg-sprite-loader": "zaycker/svg-sprite-loader#bugfix/oneof-and-rules-compositons-of-rule",
     "svgo-loader": "2.2.0",
+    "terser-webpack-plugin": "1.2.3",
     "vue-loader": "15.4.2",
     "vue-server-renderer": "2.5.17",
     "vue-svg-loader": "0.12.0",

@@ -4,6 +4,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const WebpackBar = require('webpackbar');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const getBaseConfig = require('./webpack.config.base');
 const { isProd } = require('../src/utils/env');
@@ -48,6 +50,9 @@ module.exports = function getClientConfig(config) {
       filename: config.filename,
     },
     plugins: isProd ? prodPlugins : devPlugins,
-    optimization: { minimize: isProd },
+    optimization: {
+      minimize: isProd,
+      minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
   });
 };
