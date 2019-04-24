@@ -105,17 +105,6 @@ module.exports = function getBaseConfig(config) {
           test: /\.svg$/,
           oneOf: [
             {
-              resourceQuery: /component/,
-              use: [
-                'babel-loader',
-                'vue-svg-loader',
-                {
-                  loader: 'svgo-loader',
-                  options: { plugins: svgoConfig }
-                }
-              ],
-            },
-            {
               resourceQuery: /sprite/,
               use: [
                 {
@@ -125,6 +114,17 @@ module.exports = function getBaseConfig(config) {
                     spriteFilename: 'sprite.[contenthash:8].svg'
                   }
                 },
+                {
+                  loader: 'svgo-loader',
+                  options: { plugins: svgoConfig }
+                }
+              ],
+            },
+            {
+              resourceQuery: /component/,
+              use: [
+                'babel-loader',
+                'vue-svg-loader',
                 {
                   loader: 'svgo-loader',
                   options: { plugins: svgoConfig }
