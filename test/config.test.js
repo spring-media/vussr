@@ -6,24 +6,29 @@ jest.mock('../webpack/index');
 
 test('it uses the default options', async () => {
   const config = new Config();
-  expect(config.config).toEqual(defaultOptions);
+  Object.keys(defaultOptions).forEach(key => {
+    expect(Object.keys(config.config)).toContain(key);
+  });
 });
 
 test('it uses the options passed to it', async () => {
   const options = { entryClient: 'src/foobar.js' };
   const expectedOptions = Object.assign({}, defaultOptions, options);
   const config = new Config(options);
-  expect(config.config).toEqual(expectedOptions);
+  Object.keys(expectedOptions).forEach(key => {
+    expect(Object.keys(config.config)).toContain(key);
+  });
 });
 
-test('it returns the config as JSON', async () => {
+test('it returns the config as JSON parsable object', async () => {
   const config = new Config();
   const client = webpackConfig.client();
   const server = webpackConfig.server();
   const devServer = webpackConfig.devServer();
   const processedOptions = { client, server, devServer };
   const expectedOptions = Object.assign({}, defaultOptions, processedOptions);
-  expect(config.getJson()).toEqual(expectedOptions);
+
+  expect(() => { JSON.parse(JSON.stringify(config.getJson())) }).not.toThrow();
 });
 
 test('it processes the webpack config with provided methods', async () => {

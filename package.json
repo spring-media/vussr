@@ -1,7 +1,7 @@
 {
   "name": "vussr",
   "description": "✊ VUSSR—Server Side Rendering for VUE",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "license": "ISC",
   "main": "index.js",
   "bin": {
@@ -49,6 +49,7 @@
     "raw-loader": "0.5.1",
     "sass-loader": "7.1.0",
     "svg-inline-loader": "0.8.0",
+    "svg-sprite-loader": "zaycker/svg-sprite-loader#bugfix/oneof-and-rules-compositons-of-rule",
     "svgo-loader": "2.2.0",
     "terser-webpack-plugin": "1.2.3",
     "vue-loader": "15.4.2",

@@ -1,5 +1,6 @@
 const env = require('../src/utils/env');
 const logger = require('../src/logger');
+const eol = require('os').EOL;
 
 jest.mock('../src/utils/env');
 
@@ -38,7 +39,7 @@ test('logs json in production environment', () => {
   env.isProd = true;
   for (const level of loggingLevels) {
     const message = 'Test message';
-    const expectedOutput = `{"message":"${message}","level":"${level}","source":"ssr-server"}\n`;
+    const expectedOutput = `{"message":"${message}","level":"${level}","source":"ssr-server"}${eol}`;
     logger[level](message);
     expect(logMethod).toBeCalledWith(expectedOutput);
     global.console._stdout.write.mockClear();

@@ -1,13 +1,17 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const SpritePlugin = require('svg-sprite-loader/plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const { isProd } = require('../src/utils/env');
 
 module.exports = function getBaseConfig(config) {
-  const devPlugins = [new VueLoaderPlugin()];
+  const devPlugins = [
+    new VueLoaderPlugin(),
+    new SpritePlugin({ plainSprite: true }),
+  ];
 
   const prodPlugins = [
-    new VueLoaderPlugin(),
+    ...devPlugins,
     new CleanWebpackPlugin(config.outputPath, { verbose: false }),
   ];
 
@@ -99,6 +103,22 @@ module.exports = function getBaseConfig(config) {
         {
           test: /\.svg$/,
           oneOf: [
+            {
+              resourceQuery: /sprite/,
+              use: [
+                {
+                  loader: 'svg-sprite-loader',
+                  options: {
+                    extract: true,
+                    spriteFilename: config.svgSpriteFilename,
+                  }
+                },
+                {
+                  loader: 'svgo-loader',
+                  options: { plugins: svgoConfig }
+                }
+              ],
+            },
             {
               resourceQuery: /component/,
               use: [
