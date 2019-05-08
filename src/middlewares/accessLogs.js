@@ -8,6 +8,7 @@ const waitOnFinished = promisify(onFinished);
 
 module.exports = function accessLogs(logFormat) {
   if (logFormat === 'development') return developmentFormat();
+  if (logFormat === 'combined') return combinedLogFormat();
   if ([true, undefined, 'common', 'clf'].includes(logFormat)) return commonLogFormat();
   if (logFormat === false) return (req, res, next) => next();
   throw new Error(`Unknown Access Log Format "${logFormat}"`);
@@ -26,6 +27,10 @@ function developmentFormat() {
     const prefix = false;
     logger.info({ message, prefix });
   };
+}
+
+function combinedLogFormat() {
+  return morgan('combined');
 }
 
 function commonLogFormat() {
