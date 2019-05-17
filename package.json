@@ -52,6 +52,7 @@
     "svg-sprite-loader": "zaycker/svg-sprite-loader#bugfix/oneof-and-rules-compositons-of-rule",
     "svgo-loader": "2.2.0",
     "terser-webpack-plugin": "1.2.3",
+    "uuid": "3.3.2",
     "vue-loader": "15.4.2",
     "vue-server-renderer": "2.5.17",
     "vue-svg-loader": "0.12.0",

@@ -1,8 +1,10 @@
 const winston = require('winston');
+const uuidv4 = require('uuid/v4');
 const PrettyError = require('pretty-error');
 const { isProd } = require('./utils/env');
 
 const { combine, colorize, printf } = winston.format;
+const uuid = uuidv4();
 const prettyError = new PrettyError();
 const prodFormat = getProdFormat();
 const devFormat = getDevFormat();
@@ -32,8 +34,9 @@ function getProdFormat() {
   const error = winston.format(info =>
     info instanceof Error ? { ...info, ...extractError(info) } : info
   );
-  const source = winston.format((info, source) => ({ ...info, source }));
-  return combine(error(), source('ssr-server'), winston.format.json());
+  const defaults = winston.format((info, source) => ({ ...info, ...source}));
+  const options = { source: 'ssr-server', pid: uuid };
+  return combine(error(), defaults(options), winston.format.json());
 }
 
 function getDevFormat() {
