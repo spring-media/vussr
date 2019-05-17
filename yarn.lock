@@ -9094,10 +9094,10 @@ vue-router@3.0.1:
   resolved "https://spring.jfrog.io/spring/api/npm/npm-red/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"
   integrity sha1-2bBa2cdCC6D2JtZQDWk+YAkswek=
 
-vue-server-renderer@2.5.17:
-  version "2.5.17"
-  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/vue-server-renderer/-/vue-server-renderer-2.5.17.tgz#c1f24815a4b12a2797c154549b29b44b6be004b5"
-  integrity sha1-wfJIFaSxKieXwVRUmym0S2vgBLU=
+vue-server-renderer@2.6.10:
+  version "2.6.10"
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/vue-server-renderer/-/vue-server-renderer-2.6.10.tgz#cb2558842ead360ae2ec1f3719b75564a805b375"
+  integrity sha1-yyVYhC6tNgri7B83GbdVZKgFs3U=
   dependencies:
     chalk "^1.1.3"
     hash-sum "^1.0.2"
@@ -9124,10 +9124,10 @@ vue-svg-loader@0.12.0:
     loader-utils "^1.2.3"
     svg-to-vue "^0.4.0"
 
-vue-template-compiler@2.5.17:
-  version "2.5.17"
-  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/vue-template-compiler/-/vue-template-compiler-2.5.17.tgz#52a4a078c327deb937482a509ae85c06f346c3cb"
-  integrity sha1-UqSgeMMn3rk3SCpQmuhcBvNGw8s=
+vue-template-compiler@2.6.10:
+  version "2.6.10"
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/vue-template-compiler/-/vue-template-compiler-2.6.10.tgz#323b4f3495f04faa3503337a82f5d6507799c9cc"
+  integrity sha1-MjtPNJXwT6o1AzN6gvXWUHeZycw=
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -9137,10 +9137,10 @@ vue-template-es2015-compiler@^1.6.0:
   resolved "https://spring.jfrog.io/spring/api/npm/npm-red/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
   integrity sha1-3EJpcTMwLOMBdSQ1amxht7abShg=
 
-vue@2.5.17:
-  version "2.5.17"
-  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
-  integrity sha1-D4eJrXGL5oyhhyYpgy7VM1icato=
+vue@2.6.10:
+  version "2.6.10"
+  resolved "https://spring.jfrog.io/spring/api/npm/npm-red/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
+  integrity sha1-pysaQqTYKnIepDjRtr9V5mGVxjc=
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"
