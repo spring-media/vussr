@@ -1,5 +1,6 @@
 const { promisify } = require('util');
 const morgan = require('morgan');
+const requestId = require('./requestId');
 const onFinished = require('on-finished');
 const chalk = require('chalk');
 const logger = require('../logger.js');
@@ -7,6 +8,10 @@ const logger = require('../logger.js');
 const waitOnFinished = promisify(onFinished);
 
 module.exports = function accessLogs(logFormat) {
+  morgan.token('pid', () => {
+    return requestId.get() || 'unknown';
+  });
+
   if (logFormat === 'development') return developmentFormat();
   if (logFormat === 'combined') return combinedLogFormat();
   if ([true, undefined, 'common', 'clf'].includes(logFormat)) return commonLogFormat();
@@ -30,9 +35,20 @@ function developmentFormat() {
 }
 
 function combinedLogFormat() {
-  return morgan('combined');
+  // combined format extended by pid
+  return morgan(
+    ':remote-addr - :remote-user [:date[clf]] ' +
+    '":method :url HTTP/:http-version" ' +
+    ':status :res[content-length] ' +
+    '":pid" ":referrer" ":user-agent"'
+  );
 }
 
 function commonLogFormat() {
-  return morgan('common');
+  // commen format extended by pid
+  return morgan(
+    ':remote-addr - :remote-user [:date[clf]] ' +
+    '":method :url HTTP/:http-version" ' +
+    ':status :res[content-length] ":pid"'
+  );
 }
