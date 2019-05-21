@@ -1,6 +1,6 @@
 const uuidv4 = require('uuid/v4');
 
-let reqId = null;
+let requestId = null;
 
 /**
  * Express.js middleware
@@ -9,8 +9,7 @@ let reqId = null;
  **/
 const middleware = () => {
 	return (req, res, next) => {
-		reqId = uuidv4();
-    console.log('Initialized: ', reqId);
+		requestId = uuidv4();
 		next();
 	};
 };
@@ -22,8 +21,8 @@ const middleware = () => {
  * @return {String} the current request id
  **/
 function get () {
-  if (reqId) {
-    return reqId;
+  if (requestId) {
+    return requestId;
   }
 }
 

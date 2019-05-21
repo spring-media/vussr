@@ -1,6 +1,5 @@
 const winston = require('winston');
 const requestId = require('./middlewares/requestId');
-
 const PrettyError = require('pretty-error');
 const { isProd } = require('./utils/env');
 
@@ -37,7 +36,7 @@ function getProdFormat() {
   const defaults = winston.format((info) => ({
     ...info,
     source: 'ssr-server',
-    pid: requestId.get(),
+    requestId: requestId.get(),
   }));
   return combine(error(), defaults(), winston.format.json());
 }

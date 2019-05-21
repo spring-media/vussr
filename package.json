@@ -27,7 +27,6 @@
     "babel-loader": "8.0.2",
     "chalk": "2.4.1",
     "clean-webpack-plugin": "0.1.19",
-    "cls-hooked": "4.2.2",
     "commander": "2.18.0",
     "cookie-parser": "1.4.4",
     "copy-webpack-plugin": "4.6.0",
