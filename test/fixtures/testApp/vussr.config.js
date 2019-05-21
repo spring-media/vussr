@@ -1,4 +1,7 @@
 const { client, server, devServer } = require('./webpack');
+const path = require('path');
+
+const resolveApp = relativePath => path.resolve(__dirname, relativePath);
 
 function getJest() {
   if (typeof jest !== 'undefined') return jest;
@@ -20,7 +23,8 @@ const afterMiddleware = getJest()
 const before = [beforeMiddleware];
 const after = [afterMiddleware];
 const middleware = { before, after };
-const options = { middleware, client, server, devServer };
+const outputPath = resolveApp('./dist/');
+const options = { outputPath, middleware, client, server, devServer };
 
 module.exports.beforeMiddleware = beforeMiddleware;
 module.exports.afterMiddleware = afterMiddleware;
