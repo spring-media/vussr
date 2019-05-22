@@ -1,5 +1,6 @@
 const winston = require('winston');
 const PrettyError = require('pretty-error');
+const { get: getRequestId } = require('./middlewares/requestId');
 const { isProd } = require('./utils/env');
 
 const { combine, colorize, printf } = winston.format;
@@ -32,8 +33,15 @@ function getProdFormat() {
   const error = winston.format(info =>
     info instanceof Error ? { ...info, ...extractError(info) } : info
   );
-  const source = winston.format((info, source) => ({ ...info, source }));
-  return combine(error(), source('ssr-server'), winston.format.json());
+  const defaults = winston.format(info => {
+    const requestId = getRequestId();
+    return {
+      ...info,
+      ...(requestId ? { requestId } : null),
+      source: 'ssr-server',
+    };
+  });
+  return combine(error(), defaults(), winston.format.json());
 }
 
 function getDevFormat() {
