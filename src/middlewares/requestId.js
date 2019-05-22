@@ -7,7 +7,7 @@ let requestId = null;
  * responsible for initializing and saving the request id
  * @return {function} express middleware
  **/
-const middleware = () => {
+function middleware() {
 	return (req, res, next) => {
 		requestId = uuidv4();
 		next();
@@ -20,7 +20,7 @@ const middleware = () => {
  * for this request or if there is no value present.
  * @return {String} the current request id
  **/
-function get () {
+function get() {
   if (requestId) {
     return requestId;
   }
