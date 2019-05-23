@@ -1,6 +1,7 @@
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const getMiddleWares = require('../../src/middlewares');
+const requestId = require('../../src/middlewares/requestId');
 const setContext = require('../../src/middlewares/setContext');
 const applyNocks = require('../../src/middlewares/nock');
 const runApp = require('../../src/middlewares/runApp');
@@ -9,6 +10,7 @@ const errorHandler = require('../../src/middlewares/errorHandler');
 
 jest.mock('cookie-parser');
 jest.mock('morgan');
+jest.mock('../../src/middlewares/requestId');
 jest.mock('../../src/middlewares/setContext');
 jest.mock('../../src/middlewares/nock');
 jest.mock('../../src/middlewares/runApp');
@@ -21,6 +23,7 @@ test('returns middlewares in the correct order', async () => {
   const renderFn = jest.fn();
   const expectedArray = [
     cookieParser(),
+    requestId.middleware(),
     morgan(),
     setContext(),
     applyNocks(),
@@ -37,6 +40,7 @@ test('handles undefined middlewares', async () => {
   const renderFn = jest.fn();
   const expectedArray = [
     cookieParser(),
+    requestId.middleware(),
     morgan(),
     setContext(),
     applyNocks(),
