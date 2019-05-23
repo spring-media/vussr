@@ -1,7 +1,7 @@
 {
   "name": "vussr",
   "description": "✊ VUSSR—Server Side Rendering for VUE",
-  "version": "3.1.4",
+  "version": "4.0.0",
   "license": "ISC",
   "main": "index.js",
   "bin": {
@@ -54,9 +54,9 @@
     "terser-webpack-plugin": "1.2.3",
     "uuid": "3.3.2",
     "vue-loader": "15.4.2",
-    "vue-server-renderer": "2.5.17",
+    "vue-server-renderer": "2.6.10",
     "vue-svg-loader": "0.12.0",
-    "vue-template-compiler": "2.5.17",
+    "vue-template-compiler": "2.6.10",
     "webpack": "4.19.1",
     "webpack-dev-server": "3.1.8",
     "webpack-merge": "4.1.4",
@@ -70,7 +70,7 @@
     "nodemon": "1.18.9",
     "prettier": "1.15.3",
     "supertest": "3.3.0",
-    "vue": "2.5.17",
+    "vue": "2.6.10",
     "vue-router": "3.0.1"
   },
   "bugs": {
