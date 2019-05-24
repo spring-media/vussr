@@ -44,7 +44,7 @@ module.exports = function getServerConfig(config) {
     new webpack.DefinePlugin({ 'process.client': false, 'process.server': true }),
   ];
 
-  const output = merge(getBaseConfig(config), {
+  return merge(getBaseConfig(config), {
     entry: config.entryServer,
     target: 'node',
     devtool: 'source-map',
@@ -61,8 +61,4 @@ module.exports = function getServerConfig(config) {
     },
     externals: ['ws'], // [2]
   });
-
-  console.log('vussr config server:');
-  console.log(JSON.stringify(output, null, 2));
-  return output;
 };

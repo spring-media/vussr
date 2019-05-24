@@ -10,10 +10,9 @@ module.exports = function getBaseConfig(config) {
     new SpritePlugin({ plainSprite: true }),
   ];
 
-  console.log('config.outputPath: ', config.outputPath);
   const prodPlugins = [
     ...devPlugins,
-    new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['**/*', '!static-files*', config.outputPath] }),
+    new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [config.outputPath] }),
   ];
 
   const svgoConfig = [
