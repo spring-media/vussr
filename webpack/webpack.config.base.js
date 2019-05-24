@@ -5,16 +5,6 @@ const { VueLoaderPlugin } = require('vue-loader');
 const { isProd } = require('../src/utils/env');
 
 module.exports = function getBaseConfig(config) {
-  const devPlugins = [
-    new VueLoaderPlugin(),
-    new SpritePlugin({ plainSprite: true }),
-  ];
-
-  const prodPlugins = [
-    ...devPlugins,
-    new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [config.outputPath] }),
-  ];
-
   const svgoConfig = [
     { removeViewBox: false },
     { removeXMLNS: true },
@@ -160,6 +150,10 @@ module.exports = function getBaseConfig(config) {
       maxEntrypointSize: 300000,
       hints: false,
     },
-    plugins: isProd ? prodPlugins : devPlugins,
+    plugins: [
+      new VueLoaderPlugin(),
+      new SpritePlugin({ plainSprite: true }),
+      new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [config.outputPath] }),
+    ],
   };
 };
