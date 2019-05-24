@@ -12,7 +12,7 @@ module.exports = function getBaseConfig(config) {
 
   const prodPlugins = [
     ...devPlugins,
-    new CleanWebpackPlugin(config.outputPath, { verbose: false }),
+    new CleanWebpackPlugin(),
   ];
 
   const svgoConfig = [
