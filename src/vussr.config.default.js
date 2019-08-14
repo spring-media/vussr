@@ -11,6 +11,8 @@ module.exports = {
   outputPath: resolveApp('dist'),
   assetsPath: resolveApp('dist/assets'),
   assetsUrlPath: '/assets/',
+  compressHTML: false,
+  compressAssets: false,
   filename: '[name].[contenthash:8].js',
   svgSpriteFilename: 'img/sprite.[contenthash:8].svg',
   middleware: { before: [], after: [] },

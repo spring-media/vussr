@@ -14,13 +14,21 @@ jest.mock('../src/logger');
 
 describe('Prod Server', () => {
   let server;
+  let gzipServer;
 
   beforeAll(async () => {
     server = await new ProdServer(options).listen();
+    gzipServer = await new ProdServer({
+      ...options,
+      port: 7070,
+      compressAssets: true,
+      compressHTML: true,
+    }).listen()
   });
 
   afterAll(() => {
     server.close();
+    gzipServer.close();
   });
 
   test('it runs on port 8080', async () => {
@@ -30,12 +38,28 @@ describe('Prod Server', () => {
 
   test("serves the app's html", async () => {
     const response = await request(server.app).get('/');
+    expect(response.headers['content-type']).toBe('text/html');
+    expect(response.statusCode).toBe(200);
+    expect(response.text).toMatchSnapshot();
+  });
+
+  test("serves the compressed app's html", async () => {
+    const response = await request(gzipServer.app).get('/');
+    expect(response.headers['content-type']).toBe('text/html');
+    expect(response.headers['content-encoding']).toBe('gzip');
     expect(response.statusCode).toBe(200);
     expect(response.text).toMatchSnapshot();
   });
 
   test('serves the client js', async () => {
     const response = await request(server.app).get('/assets/client.js');
+    expect(response.statusCode).toBe(200);
+    expect(response.text).toMatchSnapshot();
+  });
+
+  test('serves the compressed client js', async () => {
+    const response = await request(gzipServer.app).get('/assets/client.js');    
+    expect(response.headers['content-encoding']).toBe('gzip');
     expect(response.statusCode).toBe(200);
     expect(response.text).toMatchSnapshot();
   });
