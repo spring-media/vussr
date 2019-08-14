@@ -4,8 +4,9 @@ function setup() {
   const body = '<div>test</div>';
   const locals = { body };
   const end = jest.fn();
+  const setHeader = jest.fn();
   const req = {};
-  const res = { locals, end };
+  const res = { locals, end, setHeader };
   const next = jest.fn();
   const middleware = sendHtml();
   return { body, locals, req, res, next, end, middleware };
@@ -14,6 +15,7 @@ function setup() {
 test('ends the respons with the body', () => {
   const { body, req, res, next, middleware } = setup();
   middleware(req, res, next);
+  expect(res.setHeader).toHaveBeenCalledWith('Content-Type', 'text/html');
   expect(res.end).toHaveBeenCalledWith(body);
 });
 
