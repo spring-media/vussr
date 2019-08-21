@@ -43,7 +43,7 @@ class ProdServer {
 
   setupApp() {
     const app = express();
-    const { before, after } = this.config.middleware;
+    const { before, after = [] } = this.config.middleware;
     const nock = this.config.nock;
     const nockPath = this.config.nockPath;
     const accessLogs = this.config.accessLogs || 'clf';
