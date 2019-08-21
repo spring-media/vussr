@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
@@ -42,7 +43,7 @@ class ProdServer {
 
   setupApp() {
     const app = express();
-    const { before, after } = this.config.middleware;
+    const { before, after = [] } = this.config.middleware;
     const nock = this.config.nock;
     const nockPath = this.config.nockPath;
     const accessLogs = this.config.accessLogs || 'clf';
@@ -52,7 +53,7 @@ class ProdServer {
       this.setupStaticFiles(app);
     };
 
-    if(this.config.compressHTML) {
+    if (this.config.compressHTML) {
       after.push(compression({
         threshold: process.env.NODE_ENV === 'test' ? 0 : 1024,
       }));
@@ -69,7 +70,7 @@ class ProdServer {
     const serverOutputPath = this.config.server.output.path;
     const clientOutputPath = this.config.client.output.path;
 
-    if(this.config.compressAssets) {
+    if (this.config.compressAssets) {
       app.use(serverPublicPath, compression(), express.static(serverOutputPath));
       app.use(clientPublicPath, compression(), express.static(clientOutputPath));  
     }
