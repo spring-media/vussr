@@ -10,7 +10,6 @@ const Config = require('./config');
 const getMiddleWares = require('./middlewares');
 const logger = require('./logger');
 
-const serveStatic = require('serve-static');
 const compression = require('compression');
 
 const DEFAULT_PORT = 8080;
@@ -48,37 +47,36 @@ class ProdServer {
     const nockPath = this.config.nockPath;
     const accessLogs = this.config.accessLogs || 'clf';
     const renderFn = this.getRenderFunction();
-    const compressionMiddleware = this.config.compressHTML ? compression : () => (...[,,next]) => next();
+
     if (!this.config.isCDN) {
       this.setupStaticFiles(app);
     };
+
+    if(this.config.compressHTML) {
+      after.push(compression({
+        threshold: process.env.NODE_ENV === 'test' ? 0 : 1024,
+      }));
+    }
+
     app.use('/healthcheck', healthcheck());
-    app.use(...getMiddleWares({
-      renderFn,
-      before,
-      after: [
-        ...after,
-        compressionMiddleware({
-          threshold: process.env.NODE_ENV === 'test' ? 0 : 1024,
-        })
-      ],
-      nock,
-      nockPath,
-      accessLogs
-    }));
+    app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));
     return app;
   }
 
   setupStaticFiles(app) {
-    const compressionMiddleware = this.config.compressAssets ? compression : () => (...[,,next]) => next();
-
     const serverPublicPath = this.config.server.output.publicPath;
     const clientPublicPath = this.config.client.output.publicPath;
     const serverOutputPath = this.config.server.output.path;
     const clientOutputPath = this.config.client.output.path;
 
-    app.use(serverPublicPath, compressionMiddleware(), serveStatic(serverOutputPath));
-    app.use(clientPublicPath, compressionMiddleware(), serveStatic(clientOutputPath));
+    if(this.config.compressAssets) {
+      app.use(serverPublicPath, compression(), express.static(serverOutputPath));
+      app.use(clientPublicPath, compression(), express.static(clientOutputPath));  
+    }
+    else {
+      app.use(serverPublicPath, express.static(serverOutputPath));
+      app.use(clientPublicPath, express.static(clientOutputPath));
+    }
   }
 
   getRenderFunction() {
