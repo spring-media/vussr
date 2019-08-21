@@ -17,6 +17,7 @@ module.exports = {
   svgSpriteFilename: 'img/sprite.[contenthash:8].svg',
   middleware: { before: [], after: [] },
   copy: [],
+  bundleRendererOptions: {},
   server: defaultConfig => defaultConfig,
   client: defaultConfig => defaultConfig,
   devServer: defaultConfig => defaultConfig,

@@ -15,6 +15,7 @@ jest.mock('../src/logger');
 describe('Prod Server', () => {
   let server;
   let gzipServer;
+  let renderOptionsServer;
 
   beforeAll(async () => {
     server = await new ProdServer(options).listen();
@@ -23,12 +24,20 @@ describe('Prod Server', () => {
       port: 7070,
       compressAssets: true,
       compressHTML: true,
-    }).listen()
+    }).listen();
+    renderOptionsServer = await new ProdServer({
+      ...options,
+      port: 6060,
+      bundleRendererOptions: {
+        shouldPreload: () => false,
+      }
+    }).listen();
   });
 
   afterAll(() => {
     server.close();
     gzipServer.close();
+    renderOptionsServer.close();
   });
 
   test('it runs on port 8080', async () => {
@@ -47,6 +56,13 @@ describe('Prod Server', () => {
     const response = await request(gzipServer.app).get('/');
     expect(response.headers['content-type']).toBe('text/html');
     expect(response.headers['content-encoding']).toBe('gzip');
+    expect(response.statusCode).toBe(200);
+    expect(response.text).toMatchSnapshot();
+  });
+
+  test("serves the no prefetch links because of bundleRendererOptions", async () => {
+    const response = await request(renderOptionsServer.app).get('/');
+    expect(response.headers['content-type']).toBe('text/html');
     expect(response.statusCode).toBe(200);
     expect(response.text).toMatchSnapshot();
   });

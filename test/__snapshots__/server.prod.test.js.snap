@@ -19529,3 +19529,21 @@ class NoComponentMatchError extends Error {
 
 /******/ });"
 `;
+
+exports[`Prod Server serves the no prefetch links because of bundleRendererOptions 1`] = `
+"<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=\\"utf-8\\">
+    <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=edge\\">
+    <meta name=\\"viewport\\" content=\\"width=device-width,initial-scale=1\\">
+  <style data-vue-ssr-id=\\"2635a498:0\\">
+p[data-v-a59db9f0] {
+  font-size: 2em;
+  text-align: center;
+}
+</style></head>
+	<body><p id=\\"app\\" data-server-rendered=\\"true\\" data-v-a59db9f0>Hello World!</p><script src=\\"/assets/client.js\\" defer></script><script type=\\"text/javascript\\" src=\\"/assets/client.js\\"></script></body>
+</html>
+"
+`;
