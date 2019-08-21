@@ -9,6 +9,8 @@ test('matches the expected config', () => {
     assetsPath: expect.stringMatching(/dist\/assets$/),
     filename: '[name].[chunkhash].js',
     middleware: { before: [], after: [] },
+    compressHTML: false,
+    compressAssets: false,  
     copy: [],
     server: expect.any(Function),
     client: expect.any(Function),

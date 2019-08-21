@@ -24,7 +24,15 @@ const before = [beforeMiddleware];
 const after = [afterMiddleware];
 const middleware = { before, after };
 const outputPath = resolveApp('./dist/');
-const options = { outputPath, middleware, client, server, devServer };
+const options = { 
+  outputPath, 
+  middleware, 
+  client, 
+  server, 
+  devServer,
+  compressHTML: false,
+  compressAssets: false,
+};
 
 module.exports.beforeMiddleware = beforeMiddleware;
 module.exports.afterMiddleware = afterMiddleware;

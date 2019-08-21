@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
@@ -9,6 +10,8 @@ const { listenAsPromised, closeAsPromised } = require('./utils/server');
 const Config = require('./config');
 const getMiddleWares = require('./middlewares');
 const logger = require('./logger');
+
+const compression = require('compression');
 
 const DEFAULT_PORT = 8080;
 const DEFAULT_HOST = '::';
@@ -45,9 +48,17 @@ class ProdServer {
     const nockPath = this.config.nockPath;
     const accessLogs = this.config.accessLogs || 'clf';
     const renderFn = this.getRenderFunction();
+
     if (!this.config.isCDN) {
       this.setupStaticFiles(app);
     };
+
+    if (this.config.compressHTML) {
+      after.push(compression({
+        threshold: process.env.NODE_ENV === 'test' ? 0 : 1024,
+      }));
+    }
+
     app.use('/healthcheck', healthcheck());
     app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));
     return app;
@@ -58,8 +69,15 @@ class ProdServer {
     const clientPublicPath = this.config.client.output.publicPath;
     const serverOutputPath = this.config.server.output.path;
     const clientOutputPath = this.config.client.output.path;
-    app.use(serverPublicPath, express.static(serverOutputPath));
-    app.use(clientPublicPath, express.static(clientOutputPath));
+
+    if (this.config.compressAssets) {
+      app.use(serverPublicPath, compression(), express.static(serverOutputPath));
+      app.use(clientPublicPath, compression(), express.static(clientOutputPath));  
+    }
+    else {
+      app.use(serverPublicPath, express.static(serverOutputPath));
+      app.use(clientPublicPath, express.static(clientOutputPath));
+    }
   }
 
   getRenderFunction() {
