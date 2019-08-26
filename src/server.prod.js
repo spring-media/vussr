@@ -82,7 +82,8 @@ class ProdServer {
 
   getRenderFunction() {
     const { serverBundle, clientManifest, template } = this.readBundleAndManifest();
-    const bundleOptions = { ...renderOptions, template, clientManifest };
+    const { bundleRendererOptions: configRenderOptions = {} } = this.config;
+    const bundleOptions = { ...renderOptions, template, ...configRenderOptions, clientManifest };
     const renderer = createBundleRenderer(serverBundle, bundleOptions);
     return context => renderer.renderToString(context);
   }

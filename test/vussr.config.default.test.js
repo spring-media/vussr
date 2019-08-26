@@ -12,6 +12,7 @@ test('matches the expected config', () => {
     compressHTML: false,
     compressAssets: false,  
     copy: [],
+    bundleRendererOptions: {},
     server: expect.any(Function),
     client: expect.any(Function),
     devServer: expect.any(Function),
