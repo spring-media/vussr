@@ -49,9 +49,7 @@ class ProdServer {
     const accessLogs = this.config.accessLogs || 'clf';
     const renderFn = this.getRenderFunction();
 
-    if (!this.config.isCDN) {
-      this.setupStaticFiles(app);
-    };
+    this.setupStaticFiles(app);
 
     if (this.config.compressHTML) {
       after.push(compression({
@@ -72,7 +70,7 @@ class ProdServer {
 
     if (this.config.compressAssets) {
       app.use(serverPublicPath, compression(), express.static(serverOutputPath));
-      app.use(clientPublicPath, compression(), express.static(clientOutputPath));  
+      app.use(clientPublicPath, compression(), express.static(clientOutputPath));
     }
     else {
       app.use(serverPublicPath, express.static(serverOutputPath));
