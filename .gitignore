@@ -32,4 +32,3 @@ coverage
 ### development ###
 development/dist
 /dist
-.npmrc
