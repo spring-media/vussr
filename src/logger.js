@@ -38,6 +38,7 @@ function getProdFormat() {
     return {
       ...info,
       ...(requestId ? { requestId } : null),
+      timestamp: Date.now(),
       source: 'ssr-server',
     };
   });

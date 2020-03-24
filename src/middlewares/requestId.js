@@ -5,6 +5,8 @@ let requestId = null;
 /**
  * Express.js middleware
  * responsible for initializing and saving the request id
+ * EDIT: If zipkin is used by client and X-B3-SpanId header are send,
+ * then use X-B3-SpanId as requestid for tracing over multiple apps
  * @return {function} express middleware
  **/
 function middleware() {
