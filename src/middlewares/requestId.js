@@ -9,7 +9,11 @@ let requestId = null;
  **/
 function middleware() {
 	return (req, res, next) => {
-		requestId = uuidv4();
+		if (Boolean(req.header('X-B3-SpanId'))) {
+			requestId = req.header('X-B3-SpanId');
+		} else {
+			requestId = uuidv4();
+		}
 		next();
 	};
 };
