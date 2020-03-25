@@ -1,7 +1,7 @@
 {
   "name": "vussr",
   "description": "✊ VUSSR—Server Side Rendering for VUE",
-  "version": "4.3.2",
+  "version": "4.3.3",
   "license": "ISC",
   "main": "index.js",
   "bin": {
@@ -71,6 +71,7 @@
   "devDependencies": {
     "jest": "24.8.0",
     "jest-serializer-path": "0.1.15",
+    "mockdate": "2.0.5",
     "nodemon": "1.19.0",
     "prettier": "1.17.1",
     "supertest": "4.0.2",

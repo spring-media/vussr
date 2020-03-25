@@ -41,7 +41,7 @@ function getProdFormat() {
       source: 'ssr-server',
     };
   });
-  return combine(error(), defaults(), winston.format.json());
+  return combine(error(), defaults(), winston.format.timestamp(), winston.format.json());
 }
 
 function getDevFormat() {
