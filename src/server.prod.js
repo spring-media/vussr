@@ -57,9 +57,9 @@ class ProdServer {
       }));
     }
 
-    app.set('etag', 'strong');
     app.use('/healthcheck', healthcheck());
     app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));
+    app.set('etag', 'strong');
     return app;
   }
 
