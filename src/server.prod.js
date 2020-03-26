@@ -59,7 +59,7 @@ class ProdServer {
 
     app.use('/healthcheck', healthcheck());
     app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));
-    app.set('etag', 'strong');
+    app.set('ETag', 'strong');
     return app;
   }
 
