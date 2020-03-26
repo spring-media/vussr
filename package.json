@@ -35,6 +35,7 @@
     "cosmiconfig": "5.2.1",
     "css-loader": "2.1.1",
     "dotenv": "8.0.0",
+    "etag": "1.8.1",
     "express": "4.17.0",
     "express-healthcheck": "0.1.0",
     "express-nock": "0.1.1",

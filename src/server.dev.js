@@ -84,7 +84,6 @@ class DevServer {
   after(app) {
     if (this.config.devServer.after) this.config.devServer.after(app);
     app.use(...this.getMiddleWares());
-    app.set('ETag', 'strong');
   }
 
   getMiddleWares() {
