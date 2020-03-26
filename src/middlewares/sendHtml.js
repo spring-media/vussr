@@ -1,5 +1,5 @@
 const etag = require('etag');
-const logger = require('../src/logger');
+const logger = require('../logger.js');
 
 module.exports = function sendHtml() {
   return (req, res, next) => {
