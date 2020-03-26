@@ -5,8 +5,9 @@ function setup() {
   const locals = { body };
   const end = jest.fn();
   const setHeader = jest.fn();
+  const getHeaders = jest.fn();
   const req = {};
-  const res = { locals, end, setHeader };
+  const res = { locals, end, setHeader, getHeaders };
   const next = jest.fn();
   const middleware = sendHtml();
   return { body, locals, req, res, next, end, middleware };
@@ -27,7 +28,7 @@ test('does not call next', () => {
 
 test('calls next on error', () => {
   const { req, res, next, middleware } = setup();
-  const error = new Error('Tets Error');
+  const error = new Error('Tests Error');
   res.end.mockImplementationOnce(() => {
     throw error;
   });
