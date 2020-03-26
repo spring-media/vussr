@@ -28,7 +28,7 @@ test('does not call next', () => {
 
 test('calls next on error', () => {
   const { req, res, next, middleware } = setup();
-  const error = new Error('Tests Error');
+  const error = new Error('Test Error');
   res.end.mockImplementationOnce(() => {
     throw error;
   });
