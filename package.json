@@ -45,7 +45,7 @@
     "http-graceful-shutdown": "2.3.2",
     "morgan": "1.9.1",
     "nock": "10.0.6",
-    "node-sass": "4.12.0",
+    "node-sass": "4.13.1",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "portfinder": "1.0.20",
     "pretty-error": "2.1.1",
