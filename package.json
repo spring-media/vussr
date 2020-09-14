@@ -1,7 +1,7 @@
 {
   "name": "vussr",
   "description": "✊ VUSSR—Server Side Rendering for VUE",
-  "version": "4.3.6",
+  "version": "4.4.0",
   "license": "ISC",
   "main": "index.js",
   "bin": {
