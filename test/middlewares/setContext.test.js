@@ -1,8 +1,13 @@
+const { getAbsoluteUrl } = require('express-absolute-url');
 const setContext = require('../../src/middlewares/setContext');
+
+jest.mock('express-absolute-url');
 
 function setup() {
   const originalUrl = '/originalUrl';
   const protocol = 'http';
+  getAbsoluteUrl.mockReturnValueOnce(new URL(`${protocol}://host${originalUrl}`));
+
   const get = jest.fn().mockImplementation(param => param);
   const subdomainsEmpty = [];
   const subdomainsWww = ['www'];
@@ -29,11 +34,13 @@ function setup() {
 
 test('sets url and fullUrl', () => {
   const { subdomainsEmpty, req, res, next, middleware } = setup();
-  const url = req.originalUrl;
-  const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+  const expectedUrl = req.originalUrl;
+  const expectedFullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
   Object.assign(req, { subdomains: subdomainsEmpty });
   middleware(req, res, next);
-  expect(res.locals.context).toEqual(expect.objectContaining({ url, fullUrl }));
+  expect(res.locals.context).toEqual(
+    expect.objectContaining({ url: expectedUrl, fullUrl: expectedFullUrl })
+  );
 });
 
 test('properly sets desktop and mobile without subdomains', () => {

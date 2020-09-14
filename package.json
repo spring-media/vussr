@@ -37,6 +37,7 @@
     "dotenv": "8.0.0",
     "etag": "1.8.1",
     "express": "4.17.0",
+    "express-absolute-url": "1.0.2",
     "express-healthcheck": "0.1.0",
     "express-nock": "0.1.1",
     "file-loader": "3.0.1",

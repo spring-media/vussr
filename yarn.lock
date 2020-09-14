@@ -3365,6 +3365,11 @@ expect@^24.9.0:
     jest-message-util "^24.9.0"
     jest-regex-util "^24.9.0"
 
+express-absolute-url@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/express-absolute-url/-/express-absolute-url-1.0.2.tgz#23f4dd5913c14fd0f8f1b07811e5f2c80242dabe"
+  integrity sha512-Sr2UCsNWdIxrKSoKXbHvf5iV2iAWn/QSJYQ3LMQLncwkC8bc40RDlLvXw755+dvcss/hOAZulM4LCK3QLqLsSQ==
+
 express-healthcheck@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/express-healthcheck/-/express-healthcheck-0.1.0.tgz#cabec78129c4cb90cd7fb894dfae21b82e27cb07"
