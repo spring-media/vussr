@@ -59,6 +59,7 @@ class ProdServer {
 
     app.use('/healthcheck', healthcheck());
     app.use(...getMiddleWares({ renderFn, before, after, nock, nockPath, accessLogs }));
+    app.set('trust proxy', this.config.trustProxy);
     return app;
   }
 
