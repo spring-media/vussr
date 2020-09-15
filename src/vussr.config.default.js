@@ -18,6 +18,7 @@ module.exports = {
   middleware: { before: [], after: [] },
   copy: [],
   bundleRendererOptions: {},
+  trustProxy: false,
   server: defaultConfig => defaultConfig,
   client: defaultConfig => defaultConfig,
   devServer: defaultConfig => defaultConfig,

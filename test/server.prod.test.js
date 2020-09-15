@@ -87,6 +87,16 @@ describe('Prod Server', () => {
     expect(typeof response.body.uptime).toBe('number');
   });
 
+  test.each([true, false])('it trusts the proxy if configured', trustProxyFlag => {
+    const trustProxyServer = new ProdServer({
+      ...options,
+      trustProxy: trustProxyFlag,
+    });
+    const trustProxyFn = trustProxyServer.app.get('trust proxy fn');
+
+    expect(trustProxyFn()).toBe(trustProxyFlag);
+  });
+
   test('applies before middlewares', async () => {
     beforeMiddleware.mockClear();
     await request(server.app).get('/');
