@@ -1,5 +1,5 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const SpritePlugin = require('svg-sprite-loader/plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const { isProd } = require('../src/utils/env');
