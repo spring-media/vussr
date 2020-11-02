@@ -1,7 +1,7 @@
 {
   "name": "vussr",
   "description": "✊ VUSSR—Server Side Rendering for VUE",
-  "version": "4.5.0",
+  "version": "4.5.0-beta.1",
   "license": "ISC",
   "main": "index.js",
   "bin": {
@@ -33,7 +33,7 @@
     "cookie-parser": "1.4.4",
     "copy-webpack-plugin": "5.0.3",
     "cosmiconfig": "5.2.1",
-    "css-loader": "2.1.1",
+    "css-loader": "5.0.0",
     "dotenv": "8.0.0",
     "etag": "1.8.1",
     "express": "4.17.0",
@@ -50,8 +50,8 @@
     "portfinder": "1.0.20",
     "pretty-error": "2.1.1",
     "raw-loader": "2.0.0",
-    "sass": "1.27.0",
-    "sass-loader": "7.1.0",
+    "sass": "1.28.0",
+    "sass-loader": "10.0.5",
     "svg-inline-loader": "0.8.0",
     "svg-sprite-loader": "zaycker/svg-sprite-loader#bugfix/oneof-and-rules-compositons-of-rule",
     "svgo": "1.3.2",
