@@ -153,7 +153,7 @@ module.exports = function getBaseConfig(config) {
     plugins: [
       new VueLoaderPlugin(),
       new SpritePlugin({ plainSprite: true }),
-      new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [config.outputPath] }),
+      new CleanWebpackPlugin(),
     ],
   };
 };
