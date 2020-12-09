@@ -78,7 +78,7 @@
     "prettier": "1.17.1",
     "supertest": "4.0.2",
     "vue": "2.6.12",
-    "vue-router": "3.0.6"
+    "vue-router": "3.4.9"
   },
   "bugs": {
     "url": "https://github.com/spring-media/vussr/issues"
