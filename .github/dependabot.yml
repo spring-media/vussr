@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Europe/Berlin"
+    commit-message:
+      prefix: "npm"
+      include: "scope"
+    reviewers:
+      - "@spring-media/red-consumption"
+    open-pull-requests-limit: 5
+    labels:
+      - "npm dependencies"
