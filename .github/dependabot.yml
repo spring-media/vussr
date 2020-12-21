@@ -13,5 +13,3 @@ updates:
     reviewers:
       - "@spring-media/red-consumption"
     open-pull-requests-limit: 5
-    labels:
-      - "npm dependencies"
