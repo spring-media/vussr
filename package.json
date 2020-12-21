@@ -24,7 +24,7 @@
     "@babel/preset-env": "7.4.5",
     "@babel/runtime": "7.4.5",
     "app-manifest-loader": "2.3.0",
-    "autoprefixer": "9.5.1",
+    "autoprefixer": "9.8.6",
     "babel-loader": "8.0.6",
     "chalk": "2.4.2",
     "clean-webpack-plugin": "3.0.0",
