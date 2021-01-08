@@ -23,7 +23,7 @@
     "@babel/plugin-transform-runtime": "7.4.4",
     "@babel/preset-env": "7.4.5",
     "@babel/runtime": "7.4.5",
-    "app-manifest-loader": "2.3.0",
+    "app-manifest-loader": "2.4.0",
     "autoprefixer": "9.8.6",
     "babel-loader": "8.0.6",
     "chalk": "2.4.2",
