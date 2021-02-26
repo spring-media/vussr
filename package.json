@@ -50,7 +50,7 @@
     "portfinder": "1.0.28",
     "pretty-error": "3.0.3",
     "raw-loader": "2.0.0",
-    "sass": "1.28.0",
+    "sass": "1.32.8",
     "sass-loader": "10.1.1",
     "svg-inline-loader": "0.8.0",
     "svg-sprite-loader": "zaycker/svg-sprite-loader#bugfix/oneof-and-rules-compositons-of-rule",
