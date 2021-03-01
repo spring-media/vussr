@@ -17,7 +17,7 @@
     "dev:start": "nodemon ./development/start.js"
   },
   "dependencies": {
-    "@babel/core": "7.12.16",
+    "@babel/core": "7.13.8",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-transform-modules-commonjs": "7.12.1",
     "@babel/plugin-transform-runtime": "7.12.17",
