@@ -63,7 +63,7 @@
     "vue-svg-loader": "0.16.0",
     "vue-template-compiler": "2.6.12",
     "webpack": "4.46.0",
-    "webpack-dev-server": "3.11.1",
+    "webpack-dev-server": "4.9.0",
     "webpack-merge": "5.7.3",
     "webpack-node-externals": "2.5.2",
     "webpackbar": "4.0.0",
