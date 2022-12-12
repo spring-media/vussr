@@ -36,7 +36,7 @@
     "css-loader": "5.0.0",
     "dotenv": "8.2.0",
     "etag": "1.8.1",
-    "express": "4.17.1",
+    "express": "4.18.2",
     "express-absolute-url": "1.0.2",
     "express-healthcheck": "0.1.0",
     "express-nock": "0.1.1",
