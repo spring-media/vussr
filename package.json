@@ -67,7 +67,7 @@
     "webpack-merge": "5.7.3",
     "webpack-node-externals": "2.5.2",
     "webpackbar": "4.0.0",
-    "winston": "3.2.1",
+    "winston": "3.10.0",
     "write-file-webpack-plugin": "4.5.1"
   },
   "devDependencies": {
